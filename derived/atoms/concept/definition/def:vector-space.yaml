@@ -1,5 +1,5 @@
 $schema: "../concept.definition.schema.yaml"
-unit_id: def:vector-space
+atom_id: def:vector-space
 family: concept
 type: definition
 name: vector space

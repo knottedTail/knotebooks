@@ -53,7 +53,7 @@ This pass fully specifies `concept.definition` only. The remaining atom types ar
 
 Every atom should include, at minimum:
 
-- stable `unit_id`
+- stable `atom_id`
 - `family`
 - type
 - atom-specific semantic fields required by its subtype schema
@@ -64,7 +64,7 @@ Whenever practical, derived data should be stored as one structured file per ato
 
 For `concept.definition`, the v1 canonical shape is intentionally minimal:
 
-- `unit_id`
+- `atom_id`
 - `family`
 - `type`
 - `name`

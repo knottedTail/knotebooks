@@ -6,7 +6,7 @@ allOf:
   - $ref: "atom.schema.yaml"
 type: object
 required:
-  - unit_id
+  - atom_id
   - family
   - type
   - name
@@ -15,7 +15,7 @@ required:
   - axiomatic
   - aliases
 properties:
-  unit_id:
+  atom_id:
     type: string
     pattern: "^def:[A-Za-z0-9][A-Za-z0-9._-]*$"
   family:
@@ -43,7 +43,7 @@ properties:
     $ref: "atom.schema.yaml#/$defs/string_list"
 additionalProperties: false
 x-knotebooks-semantic-rules:
-  - "based_on must not contain unit_id itself."
+  - "based_on must not contain atom_id itself."
   - "based_on: [] with axiomatic: false means dependency analysis is unresolved."
   - "aliases must be true synonyms, not stricter variants or local special cases."
   - "body must contain the definition text, not proof, evidence, or failed-process material."

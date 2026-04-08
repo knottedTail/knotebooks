@@ -34,19 +34,19 @@ Every canonical atom must provide the following shared fields.
 
 | Field | Status | Meaning |
 | --- | --- | --- |
-| `unit_id` | required | Stable atom identifier |
+| `atom_id` | required | Stable atom identifier |
 | `family` | required | One of `concept`, `statement`, `process` |
 | `type` | required | Atom subtype within the family |
 Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, and `aliases` belong in atom-specific schemas.
 
 ## Id Conventions
 
-`unit_id` is the canonical stable identifier for an atom.
+`atom_id` is the canonical stable identifier for an atom.
 
 - Shape: `<prefix>:<slug>`
 - Prefix identifies the atom type family contract
 - Slug is human-readable, semantic, and should remain stable once published
-- `unit_id` should not encode the date when the atom was created
+- `atom_id` should not encode the date when the atom was created
 - This pass makes `def:` normative for `concept.definition`
 - Other prefixes may exist in source notes already, but they are not yet canonical until their atom specs are defined
 
@@ -57,11 +57,11 @@ Examples:
 
 ## Storage Rules
 
-Canonical atoms are stored as one YAML file per atom under `derived/units/`.
+Canonical atoms are stored as one YAML file per atom under `derived/atoms/`.
 
-- Layout: `derived/units/<family>/<type>/<unit_id>.yaml`
-- First concrete path in this pass: `derived/units/concept/definition/<unit_id>.yaml`
-- The filename should exactly equal `unit_id`, with `.yaml` appended
+- Layout: `derived/atoms/<family>/<type>/<atom_id>.yaml`
+- First concrete path in this pass: `derived/atoms/concept/definition/<atom_id>.yaml`
+- The filename should exactly equal `atom_id`, with `.yaml` appended
 - Canonical atom files are meant for inspection, schema validation, diff review, and downstream indexing
 
 ## Validation Layers

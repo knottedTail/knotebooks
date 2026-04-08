@@ -4,7 +4,7 @@
 
 ## Current Model
 
-The canonical basic data unit in this repository is an `atom`.
+The canonical basic data entity in this repository is an `atom`.
 
 Atoms are organized into three families:
 
@@ -28,7 +28,7 @@ This first documentation pass defines the shared atom contract and the first ful
 
 ## Canonical Atoms
 
-- [Definition atoms](derived/units/concept/definition/)
+- [Definition atoms](derived/atoms/concept/definition/)
 
 ## Repository Function
 
@@ -40,9 +40,9 @@ This first documentation pass defines the shared atom contract and the first ful
 
 ## Storage Model
 
-- Canonical atoms live under `derived/units/<family>/<type>/<unit_id>.yaml`
-- The first canonical path established in this pass is `derived/units/concept/definition/<unit_id>.yaml`
-- In this model, the filename should exactly match `unit_id`, with only the `.yaml` extension added
+- Canonical atoms live under `derived/atoms/<family>/<type>/<atom_id>.yaml`
+- The first canonical path established in this pass is `derived/atoms/concept/definition/<atom_id>.yaml`
+- In this model, the filename should exactly match `atom_id`, with only the `.yaml` extension added
 - In v1, a `concept.definition` atom stores only semantic definition data
 - Embeddings and search-ready text belong to a separate derived index, not to canonical atom files
 - Source-side daily notes remain the human-authored origin; the current repository includes LaTeX note templates under `templates/`

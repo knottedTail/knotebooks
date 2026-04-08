@@ -4,12 +4,12 @@ title: "knotebooks base atom"
 description: "Shared envelope for all canonical knotebooks atoms."
 type: object
 required:
-  - unit_id
+  - atom_id
   - family
   - type
 properties:
-  unit_id:
-    $ref: "#/$defs/unit_id"
+  atom_id:
+    $ref: "#/$defs/atom_id"
   family:
     $ref: "#/$defs/family"
   type:
@@ -31,9 +31,9 @@ $defs:
     items:
       $ref: "#/$defs/nonempty_string"
     uniqueItems: true
-  unit_id:
+  atom_id:
     type: string
     pattern: "^[a-z][a-z0-9_-]*:[A-Za-z0-9][A-Za-z0-9._-]*$"
 x-knotebooks-semantic-rules:
-  - "unit_id should remain stable once a canonical atom is published."
-  - "Atom-specific schemas define the semantic fields beyond unit_id, family, and type."
+  - "atom_id should remain stable once a canonical atom is published."
+  - "Atom-specific schemas define the semantic fields beyond atom_id, family, and type."
