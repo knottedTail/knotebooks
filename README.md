@@ -21,11 +21,14 @@ This first documentation pass defines the shared atom contract and the first ful
 - [Human spec for `concept.definition`](docs/atoms/concept.definition.md)
 - [Codex extraction contract for `concept.definition`](docs/codex/concept.definition.md)
 
-## Schemas And Fixtures
+## Schemas
 
 - [Base atom schema](schemas/atom.schema.yaml)
 - [`concept.definition` schema](schemas/concept.definition.schema.yaml)
-- [Example definition atoms](schemas/examples/)
+
+## Canonical Atoms
+
+- [Definition atoms](derived/units/concept/definition/)
 
 ## Repository Function
 
