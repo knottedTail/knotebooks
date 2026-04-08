@@ -1,0 +1,74 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/atom.schema.yaml"
+title: "knotebooks base atom"
+description: "Shared envelope for all canonical knotebooks atoms."
+type: object
+required:
+  - unit_id
+  - family
+  - type
+  - provenance
+properties:
+  unit_id:
+    $ref: "#/$defs/unit_id"
+  family:
+    $ref: "#/$defs/family"
+  type:
+    type: string
+    minLength: 1
+  provenance:
+    $ref: "#/$defs/provenance"
+  tags:
+    $ref: "#/$defs/string_list"
+  related_unit_ids:
+    type: array
+    items:
+      $ref: "#/$defs/unit_id"
+    uniqueItems: true
+  confidence:
+    type: number
+    minimum: 0
+    maximum: 1
+additionalProperties: true
+$defs:
+  family:
+    type: string
+    enum:
+      - concept
+      - statement
+      - process
+  nonempty_string:
+    type: string
+    minLength: 1
+  string_list:
+    type: array
+    items:
+      $ref: "#/$defs/nonempty_string"
+    uniqueItems: true
+  unit_id:
+    type: string
+    pattern: "^[a-z][a-z0-9_-]*:[A-Za-z0-9][A-Za-z0-9._-]*$"
+  provenance:
+    type: object
+    required:
+      - source_raw_file
+      - source_date
+      - extracted_at
+      - extractor_version
+    properties:
+      source_raw_file:
+        type: string
+        minLength: 1
+      source_date:
+        type: string
+        format: date
+      extracted_at:
+        type: string
+        format: date-time
+      extractor_version:
+        type: string
+        minLength: 1
+    additionalProperties: false
+x-knotebooks-semantic-rules:
+  - "unit_id should remain stable once a canonical atom is published."
+  - "related_unit_ids may link across families and types."
