@@ -1,0 +1,10 @@
+$schema: "https://knotebooks.local/schemas/concept.definition.schema.yaml"
+atom_id: def:binary-operation
+family: concept
+type: definition
+name: binary operation
+body: |
+  A binary operation on a set $S$ is a map $S \times S \to S$.
+based_on: []
+axiomatic: true
+aliases: []

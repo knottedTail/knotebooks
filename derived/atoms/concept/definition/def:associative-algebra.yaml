@@ -1,4 +1,4 @@
-$schema: "../concept.definition.schema.yaml"
+$schema: "https://knotebooks.local/schemas/concept.definition.schema.yaml"
 atom_id: def:associative-algebra
 family: concept
 type: definition

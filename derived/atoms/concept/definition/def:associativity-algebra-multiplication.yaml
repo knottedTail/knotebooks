@@ -1,0 +1,16 @@
+$schema: "https://knotebooks.local/schemas/concept.definition.schema.yaml"
+atom_id: def:associativity-algebra-multiplication
+family: concept
+type: definition
+name: associativity
+body: |
+  Associativity of algebra multiplication is the property that the
+  multiplication law on an algebra satisfies
+  \[
+  (ab)c = a(bc)
+  \]
+  for all elements of the algebra.
+based_on:
+  - def:associative-algebra
+axiomatic: false
+aliases: []
