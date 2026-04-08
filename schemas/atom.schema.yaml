@@ -1,0 +1,39 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/atom.schema.yaml"
+title: "knotebooks base atom"
+description: "Shared envelope for all canonical knotebooks atoms."
+type: object
+required:
+  - atom_id
+  - family
+  - type
+properties:
+  atom_id:
+    $ref: "#/$defs/atom_id"
+  family:
+    $ref: "#/$defs/family"
+  type:
+    type: string
+    minLength: 1
+additionalProperties: true
+$defs:
+  family:
+    type: string
+    enum:
+      - concept
+      - statement
+      - process
+  nonempty_string:
+    type: string
+    minLength: 1
+  string_list:
+    type: array
+    items:
+      $ref: "#/$defs/nonempty_string"
+    uniqueItems: true
+  atom_id:
+    type: string
+    pattern: "^[a-z][a-z0-9_-]*:[A-Za-z0-9][A-Za-z0-9._-]*$"
+x-knotebooks-semantic-rules:
+  - "atom_id should remain stable once a canonical atom is published."
+  - "Atom-specific schemas define the semantic fields beyond atom_id, family, and type."

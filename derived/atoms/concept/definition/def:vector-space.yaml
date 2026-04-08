@@ -1,0 +1,14 @@
+$schema: "../concept.definition.schema.yaml"
+atom_id: def:vector-space
+family: concept
+type: definition
+name: vector space
+body: |
+  A vector space over a field $F$ is an abelian group $(V, +)$ equipped with
+  scalar multiplication $F \times V \to V$ satisfying the usual compatibility
+  axioms with the field operations and the group structure on $V$.
+based_on:
+  - def:field
+axiomatic: false
+aliases:
+  - linear space

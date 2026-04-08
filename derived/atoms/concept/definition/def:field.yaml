@@ -1,0 +1,12 @@
+$schema: "../concept.definition.schema.yaml"
+atom_id: def:field
+family: concept
+type: definition
+name: field
+body: |
+  A field is a set $F$ equipped with addition and multiplication such that
+  $(F, +)$ is an abelian group, multiplication is associative and commutative
+  on $F \setminus \{0\}$, and multiplication distributes over addition.
+based_on: []
+axiomatic: true
+aliases: []
