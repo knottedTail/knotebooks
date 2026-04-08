@@ -13,3 +13,11 @@ For any repository modification:
 7. Agent-created branches should use the `codex/` prefix unless the user requests a different naming scheme.
 8. Commit changes with a concise, descriptive commit message.
 9. Do not include unrelated local changes in the branch commit.
+
+## Merge Guidance
+
+- Do not merge immediately after committing.
+- Merge only after the approved plan is completed.
+- Merge only after the relevant verification has passed, or any unverified items have been explicitly noted.
+- Before merging, confirm the branch contains only changes related to the approved task.
+- If the implemented work differs materially from the approved plan, stop and get approval before merging.
