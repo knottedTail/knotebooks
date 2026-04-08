@@ -31,7 +31,6 @@ This first documentation pass defines the shared atom contract and the first ful
 
 - define schemas for structured research atoms
 - support extraction from raw notes into canonical atom files
-- preserve provenance from source notes to derived atoms
 - validate canonical atoms
 - index structured data for retrieval
 - support search and reuse over the structured layer
@@ -40,5 +39,6 @@ This first documentation pass defines the shared atom contract and the first ful
 
 - Canonical atoms live under `derived/units/<family>/<type>/<unit_id>.yaml`
 - The first canonical path established in this pass is `derived/units/concept/definition/<unit_id>.yaml`
+- In v1, a `concept.definition` atom stores only semantic definition data
 - Embeddings and search-ready text belong to a separate derived index, not to canonical atom files
 - Source-side daily notes remain the human-authored origin; the current repository includes LaTeX note templates under `templates/`

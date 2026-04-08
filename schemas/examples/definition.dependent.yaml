@@ -1,27 +1,14 @@
 $schema: "../concept.definition.schema.yaml"
-unit_id: def:2026-04-08-balanced-weight-profile
+unit_id: def:2026-04-08-vector-space
 family: concept
 type: definition
-name: balanced weight profile
+name: vector space
 body: |
-  A weight profile $(w_1, \dots, w_n)$ is balanced if
-  \[
-  \sum_{i=1}^{n} w_i = 0.
-  \]
+  A vector space over a field $F$ is an abelian group $(V, +)$ equipped with
+  scalar multiplication $F \times V \to V$ satisfying the usual compatibility
+  axioms with the field operations and the group structure on $V$.
 based_on:
-  - def:2026-04-08-weight-profile
+  - def:2026-04-08-field
 axiomatic: false
 aliases:
-  - zero-sum weight profile
-notation_ids: []
-context_ids: []
-tags:
-  - example
-  - algebra
-related_unit_ids: []
-confidence: 0.96
-provenance:
-  source_raw_file: raws/2026-04-08.tex
-  source_date: 2026-04-08
-  extracted_at: 2026-04-08T09:20:00Z
-  extractor_version: codex-v1
+  - linear space

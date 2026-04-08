@@ -14,27 +14,18 @@ A definition atom describes what an object is. It does not assert a theorem, rec
 ## Canonical Shape
 
 ```yaml
-unit_id: def:2026-04-08-weight-profile
+unit_id: def:2026-04-08-field
 family: concept
 type: definition
-name: weight profile
+name: field
 body: |
-  A weight profile is a finite tuple $(w_1, \dots, w_n)$ of integers
-  attached to an object under study.
+  A field is a set $F$ equipped with two binary operations, called addition
+  and multiplication, such that $(F, +)$ is an abelian group, multiplication
+  is associative and commutative on $F \setminus \{0\}$, and multiplication
+  distributes over addition.
 based_on: []
 axiomatic: true
 aliases: []
-notation_ids: []
-context_ids: []
-tags:
-  - algebra
-related_unit_ids: []
-confidence: 0.98
-provenance:
-  source_raw_file: raws/2026-04-08.tex
-  source_date: 2026-04-08
-  extracted_at: 2026-04-08T09:15:00Z
-  extractor_version: codex-v1
 ```
 
 ## Field Glossary
@@ -58,10 +49,6 @@ provenance:
 - `aliases`
   - True synonyms only
   - Do not use for stricter variants, special cases, or contextual restatements
-- `notation_ids`
-  - Optional links to separate `concept.notation` atoms
-- `context_ids`
-  - Optional links to separate `concept.context` atoms
 
 ## Writing Guidance
 
@@ -69,14 +56,14 @@ provenance:
 
 Good:
 
-- `weight profile`
-- `balanced weight profile`
-- `admissible filtration`
+- `field`
+- `vector space`
+- `associative algebra`
 
 Bad:
 
-- `weight profile over k`
-- `balanced weight profile for fixed rank n`
+- `vector space over k`
+- `associative algebra over a field`
 - `an admissible filtration`
 
 ### `body`
@@ -100,12 +87,13 @@ Use `based_on` only for prior definitions that the concept genuinely depends on.
 
 Good:
 
-- a balanced weight profile depends on weight profile
-- an admissible filtration depends on filtration
+- a vector space depends on field
+- an associative algebra depends on field and vector space
 
 Bad:
 
 - listing every atom mentioned nearby in the note
+- using notation or context ids
 - using statement or process atom ids
 - using the atom's own `unit_id`
 
@@ -115,12 +103,12 @@ Good aliases are interchangeable names.
 
 Good:
 
-- `zero-sum weight profile` as an alias for `balanced weight profile`
+- `linear space` as an alias for `vector space`
 
 Bad:
 
-- `semistable weight profile` if it adds extra conditions
-- `balanced profile in rank 3` if it is only a local specialization
+- `finite-dimensional vector space` if it adds extra conditions
+- `associative algebra over k` if it is only a local specialization
 
 ## What Is Not A Definition
 
@@ -131,6 +119,8 @@ Do not use `concept.definition` when the source material is really:
 - a claim about an object: use a `statement` atom
 - a derivation, experiment, or exploratory step: use a `process` atom
 
+Even if notation or context atoms exist elsewhere in the ontology later, they are not part of the `concept.definition` data structure.
+
 ## Source Mapping
 
 In the current workflow, source notes may contain a LaTeX `definitionitem` block.
@@ -139,8 +129,6 @@ In the current workflow, source notes may contain a LaTeX `definitionitem` block
 - block title is an extraction hint for `name`
 - block body maps to `body`
 - explicit semantic references may populate `based_on`
-- tags map to `tags`
-- note metadata fills `provenance`
 
 The source title is not stored as a canonical field in v1.
 
@@ -154,6 +142,6 @@ Use this when the note introduces a new concept and no earlier definition depend
 
 Use this when the concept explicitly refines or builds on earlier definitions.
 
-### Definition With Linked Notation Or Context
+### Multi-Dependency Definition
 
-Use this when notation or assumptions are important enough to stand as separate atoms and can be linked by id.
+Use this when a concept genuinely depends on more than one prior definition, such as an associative algebra depending on both field and vector space.

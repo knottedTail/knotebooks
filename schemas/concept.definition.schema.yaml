@@ -9,7 +9,6 @@ required:
   - unit_id
   - family
   - type
-  - provenance
   - name
   - body
   - based_on
@@ -23,19 +22,6 @@ properties:
     const: concept
   type:
     const: definition
-  provenance:
-    $ref: "atom.schema.yaml#/$defs/provenance"
-  tags:
-    $ref: "atom.schema.yaml#/$defs/string_list"
-  related_unit_ids:
-    type: array
-    items:
-      $ref: "atom.schema.yaml#/$defs/unit_id"
-    uniqueItems: true
-  confidence:
-    type: number
-    minimum: 0
-    maximum: 1
   name:
     type: string
     minLength: 1
@@ -55,21 +41,10 @@ properties:
     type: boolean
   aliases:
     $ref: "atom.schema.yaml#/$defs/string_list"
-  notation_ids:
-    type: array
-    items:
-      type: string
-      pattern: "^not:[A-Za-z0-9][A-Za-z0-9._-]*$"
-    uniqueItems: true
-  context_ids:
-    type: array
-    items:
-      type: string
-      pattern: "^ctx:[A-Za-z0-9][A-Za-z0-9._-]*$"
-    uniqueItems: true
 additionalProperties: false
 x-knotebooks-semantic-rules:
   - "based_on must not contain unit_id itself."
   - "based_on: [] with axiomatic: false means dependency analysis is unresolved."
   - "aliases must be true synonyms, not stricter variants or local special cases."
   - "body must contain the definition text, not proof, evidence, or failed-process material."
+  - "concept.definition cannot include notation, context, or cross-family relation fields."

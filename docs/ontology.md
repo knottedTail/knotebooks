@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is the normative cross-type contract for `knotebooks` atoms. It defines the shared atom envelope, the current family/type ontology, id conventions, storage rules, provenance rules, and the boundary between canonical atoms and derived search data.
+This document is the normative cross-type contract for `knotebooks` atoms. It defines the shared atom envelope, the current family/type ontology, id conventions, storage rules, and the boundary between canonical atoms and derived search data.
 
 ## Atom Families
 
@@ -37,23 +37,7 @@ Every canonical atom must provide the following shared fields.
 | `unit_id` | required | Stable atom identifier |
 | `family` | required | One of `concept`, `statement`, `process` |
 | `type` | required | Atom subtype within the family |
-| `provenance` | required | Source-note and extraction metadata |
-| `tags` | optional | Human or extraction tags |
-| `related_unit_ids` | optional | Untyped cross-links to other atoms |
-| `confidence` | optional | Extraction confidence in the range `[0, 1]` |
-
-Shared fields are intentionally small. Richer relationships such as `based_on`, `notation_ids`, or `context_ids` belong in atom-specific schemas.
-
-## Provenance Contract
-
-Every canonical atom must preserve:
-
-- `source_raw_file`
-- `source_date`
-- `extracted_at`
-- `extractor_version`
-
-Provenance is part of the canonical atom and is not optional, even when extraction is manual.
+Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, and `aliases` belong in atom-specific schemas.
 
 ## Id Conventions
 
@@ -67,8 +51,8 @@ Provenance is part of the canonical atom and is not optional, even when extracti
 
 Examples:
 
-- `def:2026-04-08-weight-profile`
-- `def:2026-04-08-balanced-weight-profile`
+- `def:2026-04-08-field`
+- `def:2026-04-08-vector-space`
 
 ## Storage Rules
 
@@ -89,13 +73,13 @@ Examples of semantic rules that need validator support later:
 
 - a definition must not list itself in `based_on`
 - `name` must stay parameter-free even if the source title includes local assumptions
-- typed link fields should reference atoms of the expected type
+- `concept.definition` should remain a definition-only structure with no notation or context links
 
 ## Search Boundary
 
 Canonical atoms are not the same thing as the search index.
 
-- canonical atom files preserve source-faithful content and provenance
+- canonical atom files preserve source-faithful semantic content
 - embedding text, vector indexes, and retrieval-oriented expansions belong in a separate derived index layer
 - downstream search should operate on the derived structured layer, not on ad hoc parsing of source prose
 

@@ -14,7 +14,7 @@ Daily research notes are the primary human-authored source material for the syst
 
 ## Derived-Layer Principle
 
-The structured layer is derived from source notes. Derived atoms should preserve provenance, remain inspectable, and be reproducible from the raw source. The structured layer should not become an independent hand-maintained source of truth.
+The structured layer is derived from source notes. Derived atoms should remain inspectable and be reproducible from the raw source. The structured layer should not become an independent hand-maintained source of truth.
 
 ## Main workflow
 
@@ -56,25 +56,22 @@ Every atom should include, at minimum:
 - stable `unit_id`
 - `family`
 - type
-- source provenance
-- source date
-- tags when available
-- main textual content
-- related atom ids when applicable
-- status or confidence markers if extraction is uncertain
-
-## Provenance Requirements
-
-Each extracted atom should preserve:
-
-- source raw file
-- source date
-- extraction timestamp
-- extraction method or version when possible
+- atom-specific semantic fields required by its subtype schema
 
 ## Storage Strategy
 
 Whenever practical, derived data should be stored as one structured file per atom.
+
+For `concept.definition`, the v1 canonical shape is intentionally minimal:
+
+- `unit_id`
+- `family`
+- `type`
+- `name`
+- `body`
+- `based_on`
+- `axiomatic`
+- `aliases`
 
 ## Retrieval Boundary
 

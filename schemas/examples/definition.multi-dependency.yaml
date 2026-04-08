@@ -1,0 +1,14 @@
+$schema: "../concept.definition.schema.yaml"
+unit_id: def:2026-04-08-associative-algebra
+family: concept
+type: definition
+name: associative algebra
+body: |
+  An associative algebra over a field $F$ is a vector space $A$ over $F$
+  equipped with a bilinear multiplication map $A \times A \to A$ that is
+  associative.
+based_on:
+  - def:2026-04-08-field
+  - def:2026-04-08-vector-space
+axiomatic: false
+aliases: []

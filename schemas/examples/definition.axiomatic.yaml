@@ -1,23 +1,12 @@
 $schema: "../concept.definition.schema.yaml"
-unit_id: def:2026-04-08-weight-profile
+unit_id: def:2026-04-08-field
 family: concept
 type: definition
-name: weight profile
+name: field
 body: |
-  A weight profile is a finite tuple $(w_1, \dots, w_n)$ of integers
-  attached to an object under study.
+  A field is a set $F$ equipped with addition and multiplication such that
+  $(F, +)$ is an abelian group, multiplication is associative and commutative
+  on $F \setminus \{0\}$, and multiplication distributes over addition.
 based_on: []
 axiomatic: true
 aliases: []
-notation_ids: []
-context_ids: []
-tags:
-  - example
-  - algebra
-related_unit_ids: []
-confidence: 0.99
-provenance:
-  source_raw_file: raws/2026-04-08.tex
-  source_date: 2026-04-08
-  extracted_at: 2026-04-08T09:15:00Z
-  extractor_version: codex-v1

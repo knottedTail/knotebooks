@@ -34,12 +34,6 @@ Do not emit a definition atom when the block is primarily:
 | `based_on` | Add only explicit or clearly necessary definition dependencies. Use only `def:` ids. |
 | `axiomatic` | Set to `true` only when no meaningful dependencies were identified. |
 | `aliases` | Add only true synonyms found in the source or clearly equivalent surrounding text. |
-| `notation_ids` | Add only when separate notation atoms already exist or are extracted in the same pass. |
-| `context_ids` | Add only when separate context atoms already exist or are extracted in the same pass. |
-| `tags` | Carry over source tags when they are present and meaningful. |
-| `related_unit_ids` | Use for untyped cross-links that matter but are not typed definition dependencies. |
-| `confidence` | Use when extraction is uncertain; omit when confidence is not being recorded. |
-| `provenance` | Always populate from the source note and extraction run metadata. |
 
 ## Extraction Procedure
 
@@ -52,8 +46,7 @@ Do not emit a definition atom when the block is primarily:
    - `true` when no meaningful definition dependencies were identified
    - `false` when dependencies exist
    - `false` when dependencies may exist but remain unresolved
-7. Add `notation_ids` or `context_ids` only when those are genuinely separate atoms.
-8. Fill provenance last and do not omit it.
+7. Add `aliases` only when the source provides a true synonym.
 
 ## When To Leave `based_on` Empty
 
@@ -75,7 +68,7 @@ Codex must not:
 - copy local assumptions like "over `k`" into the canonical `name`
 - turn notation-only material into a definition
 - move proof, evidence, or strategy text into `body`
-- create `notation_ids` or `context_ids` unless those atoms are actually present or being extracted
+- create notation or context links inside `concept.definition`
 - silently normalize away mathematical LaTeX in `body`
 
 ## Current Source Mapping
