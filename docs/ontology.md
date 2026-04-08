@@ -76,6 +76,8 @@ Examples of semantic rules that need validator support later:
 - a definition must not list itself in `based_on`
 - `name` must stay parameter-free even if the source title includes local assumptions
 - `concept.definition` should remain a definition-only structure with no notation or context links
+- duplicate `name` is allowed, but ambiguous repeated names should be distinguished by `atom_id`, `based_on`, and the opening sentence of `body`
+- repeated `name` with the same `based_on` set should produce a warning for human review
 
 ## Search Boundary
 

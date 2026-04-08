@@ -44,5 +44,6 @@ This first documentation pass defines the shared atom contract and the first ful
 - The first canonical path established in this pass is `derived/atoms/concept/definition/<atom_id>.yaml`
 - In this model, the filename should exactly match `atom_id`, with only the `.yaml` extension added
 - In v1, a `concept.definition` atom stores only semantic definition data
+- Duplicate definition names are allowed; practical disambiguation comes from `atom_id`, `based_on`, and the opening sentence of `body`
 - Embeddings and search-ready text belong to a separate derived index, not to canonical atom files
 - Source-side daily notes remain the human-authored origin; the current repository includes LaTeX note templates under `templates/`

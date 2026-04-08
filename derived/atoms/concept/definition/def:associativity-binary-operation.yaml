@@ -1,0 +1,15 @@
+$schema: "https://knotebooks.local/schemas/concept.definition.schema.yaml"
+atom_id: def:associativity-binary-operation
+family: concept
+type: definition
+name: associativity
+body: |
+  Associativity of a binary operation is the property that
+  \[
+  (x * y) * z = x * (y * z)
+  \]
+  for all admissible triples.
+based_on:
+  - def:binary-operation
+axiomatic: false
+aliases: []

@@ -36,14 +36,17 @@ aliases: []
   - Should be semantic and should not include the creation date
 - `name`
   - Canonical concept name
+  - Duplicate `name` values are allowed
   - Must not include parameters such as "over `k`", "for fixed `n`", or similar local assumptions
 - `body`
   - The actual definition text
   - Preserve LaTeX math and mathematical phrasing from the source when possible
+  - When `name` is ambiguous, the opening sentence must state the sense immediately
 - `based_on`
   - List of definition ids this definition depends on
   - Must contain only `def:` ids
   - Leave empty when there are no identified definition dependencies or when dependencies remain unresolved
+  - For ambiguous repeated `name` values, this is the main mathematical source of disambiguation when such a basis exists
 - `axiomatic`
   - `true` if no meaningful dependencies were identified
   - `false` if the definition depends on earlier definitions or if dependency analysis is unresolved
@@ -81,6 +84,7 @@ Bad `body` values:
 - mix in evidence for a conjecture
 - explain why a strategy failed
 - only introduce notation without defining the object
+- start with an ambiguous sentence when `name` is duplicated elsewhere
 
 ### `based_on`
 
@@ -97,6 +101,37 @@ Bad:
 - using notation or context ids
 - using statement or process atom ids
 - using the atom's own `atom_id`
+- using it as an unprincipled bag of nearby concepts rather than a mathematically prior basis
+
+### Duplicate Names
+
+Duplicate `name` values are allowed.
+
+When a name is ambiguous:
+
+- `atom_id` should carry the distinguishing sense
+- `based_on` should carry the mathematically prior definition basis when such a basis exists
+- the opening sentence of `body` should disambiguate immediately
+
+Good:
+
+- `atom_id: def:associativity-binary-operation`
+- `name: associativity`
+- `based_on: [def:binary-operation]`
+- opening sentence: `Associativity of a binary operation is the property that ...`
+
+Also good:
+
+- `atom_id: def:associativity-algebra-multiplication`
+- `name: associativity`
+- `based_on: [def:associative-algebra]`
+- opening sentence: `Associativity of algebra multiplication is the property that ...`
+
+Bad:
+
+- two atoms with `name: associativity` and the same `based_on`, unless they are intentionally separate formulations and reviewed as such
+- `atom_id: def:associativity` when the sense is ambiguous
+- opening sentence: `Associativity is the property that ...` when the sense is not already obvious
 
 ### `aliases`
 
@@ -148,3 +183,7 @@ Use this when the concept explicitly refines or builds on earlier definitions.
 ### Multi-Dependency Definition
 
 Use this when a concept genuinely depends on more than one prior definition, such as an associative algebra depending on both field and vector space.
+
+### Repeated-Name Definition
+
+Use this when the lexical name is reused across nearby concepts, but the mathematically prior basis in `based_on` distinguishes the senses.
