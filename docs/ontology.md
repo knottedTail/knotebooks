@@ -45,14 +45,15 @@ Shared fields are intentionally minimal in v1. Richer semantic fields such as `n
 
 - Shape: `<prefix>:<slug>`
 - Prefix identifies the atom type family contract
-- Slug is human-readable and should remain stable once published
+- Slug is human-readable, semantic, and should remain stable once published
+- `unit_id` should not encode the date when the atom was created
 - This pass makes `def:` normative for `concept.definition`
 - Other prefixes may exist in source notes already, but they are not yet canonical until their atom specs are defined
 
 Examples:
 
-- `def:2026-04-08-field`
-- `def:2026-04-08-vector-space`
+- `def:field`
+- `def:vector-space`
 
 ## Storage Rules
 
@@ -60,6 +61,7 @@ Canonical atoms are stored as one YAML file per atom under `derived/units/`.
 
 - Layout: `derived/units/<family>/<type>/<unit_id>.yaml`
 - First concrete path in this pass: `derived/units/concept/definition/<unit_id>.yaml`
+- The filename should exactly equal `unit_id`, with `.yaml` appended
 - Canonical atom files are meant for inspection, schema validation, diff review, and downstream indexing
 
 ## Validation Layers

@@ -26,7 +26,7 @@ Do not emit a definition atom when the block is primarily:
 
 | Atom field | Extraction rule |
 | --- | --- |
-| `unit_id` | Use the source semantic id. For this atom type it must start with `def:`. |
+| `unit_id` | Use a stable semantic id. For this atom type it must start with `def:` and should not encode the creation date. |
 | `family` | Always `concept`. |
 | `type` | Always `definition`. |
 | `name` | Extract the canonical concept name, not the local title verbatim when the title contains parameters or assumptions. |
@@ -38,7 +38,7 @@ Do not emit a definition atom when the block is primarily:
 ## Extraction Procedure
 
 1. Identify whether the source block truly defines an object.
-2. Keep the source semantic id as `unit_id`.
+2. Keep or normalize the source semantic id as `unit_id`, removing date text when present.
 3. Rewrite the displayed source title into a canonical `name` when needed.
 4. Copy the defining text into `body`, preserving LaTeX math and mathematical wording.
 5. Add `based_on` only for definition dependencies, not for every referenced atom.
@@ -80,3 +80,5 @@ The current source-side authoring format uses LaTeX `definitionitem` blocks.
 - explicit references such as `\defref{...}` may support `based_on` when they indicate true definition dependencies
 
 The source title is not a canonical stored field in `concept.definition` v1.
+
+When writing the canonical YAML file, use `<unit_id>.yaml` as the filename.

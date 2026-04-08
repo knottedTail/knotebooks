@@ -14,7 +14,7 @@ A definition atom describes what an object is. It does not assert a theorem, rec
 ## Canonical Shape
 
 ```yaml
-unit_id: def:2026-04-08-field
+unit_id: def:field
 family: concept
 type: definition
 name: field
@@ -33,6 +33,7 @@ aliases: []
 - `unit_id`
   - Stable identifier for the definition atom
   - Must start with `def:`
+  - Should be semantic and should not include the creation date
 - `name`
   - Canonical concept name
   - Must not include parameters such as "over `k`", "for fixed `n`", or similar local assumptions
@@ -131,6 +132,8 @@ In the current workflow, source notes may contain a LaTeX `definitionitem` block
 - explicit semantic references may populate `based_on`
 
 The source title is not stored as a canonical field in v1.
+
+When a definition atom is stored as a YAML file, the filename should exactly match `unit_id`, with `.yaml` appended.
 
 ## Example Patterns
 
