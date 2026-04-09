@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.reference_note.schema.yaml"
+title: "knotebooks process.reference_note atom"
+description: "Canonical schema for process.reference_note atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: reference_note
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "A reference_note should record literature-derived material without turning it into a final canonical claim by itself."

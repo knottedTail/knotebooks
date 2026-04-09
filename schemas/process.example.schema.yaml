@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.example.schema.yaml"
+title: "knotebooks process.example atom"
+description: "Canonical schema for process.example atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: example
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "An example should describe one concrete mathematical instance used for testing or illustration."

@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.proof_idea.schema.yaml"
+title: "knotebooks process.proof_idea atom"
+description: "Canonical schema for process.proof_idea atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: proof_idea
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "A proof_idea should capture strategy or route, not a fully executed proof."

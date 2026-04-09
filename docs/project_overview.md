@@ -47,7 +47,7 @@ Atoms are organized into three families:
   - `example`
   - `reference_note`
 
-This pass fully specifies `concept.definition` and the `statement` family. The remaining atom types are recognized by the ontology but still need their own dedicated schemas and extraction contracts.
+This pass fully specifies `concept.definition` and the `statement` and `process` families. The remaining atom types are recognized by the ontology but still need their own dedicated schemas and extraction contracts.
 
 ## Shared Atom Requirements
 
@@ -87,6 +87,17 @@ For `statement`, the shared v1 canonical shape is:
 - `resolved_by`
 - `refuted_by`
 - `resolution_status`
+- `references`
+
+For `process`, the shared v1 canonical shape is:
+
+- `atom_id`
+- `family`
+- `type`
+- `body`
+- `depends_on`
+- `produces`
+- `related_to`
 - `references`
 
 ## Retrieval Boundary

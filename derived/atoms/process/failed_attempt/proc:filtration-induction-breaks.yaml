@@ -1,0 +1,14 @@
+$schema: "https://knotebooks.local/schemas/process.failed_attempt.schema.yaml"
+atom_id: proc:filtration-induction-breaks
+family: process
+type: failed_attempt
+body: |
+  The induction step fails because the filtration is not preserved.
+depends_on:
+  - proc:attempt-induction-on-filtration
+produces: []
+related_to:
+  - proc:show-centrality-by-commutator
+references:
+  - kind: raw_file
+    locator: raws/2026-04-09.tex

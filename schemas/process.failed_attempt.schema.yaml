@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.failed_attempt.schema.yaml"
+title: "knotebooks process.failed_attempt atom"
+description: "Canonical schema for process.failed_attempt atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: failed_attempt
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "A failed_attempt should record why a trial path breaks down."

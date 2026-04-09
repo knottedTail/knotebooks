@@ -1,0 +1,14 @@
+$schema: "https://knotebooks.local/schemas/process.example.schema.yaml"
+atom_id: proc:sl2-root-of-unity-example
+family: process
+type: example
+body: |
+  Consider the rank-one quantum group case at a primitive root of unity.
+depends_on: []
+produces:
+  - proc:compute-commutator-el-with-f
+related_to:
+  - stmt:large-center-determines-structure
+references:
+  - kind: note
+    locator: notes/root-of-unity-examples
