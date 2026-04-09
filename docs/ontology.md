@@ -37,7 +37,7 @@ Every canonical atom must provide the following shared fields.
 | `atom_id` | required | Stable atom identifier |
 | `family` | required | One of `concept`, `statement`, `process` |
 | `type` | required | Atom subtype within the family |
-Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, `aliases`, `depends_on`, `supports`, `related_to`, resolution links, and `references` belong in atom-specific schemas.
+Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, `aliases`, `depends_on`, `bindings`, `supports`, `related_to`, resolution links, and `references` belong in atom-specific schemas.
 
 ## Id Conventions
 
@@ -84,6 +84,7 @@ Examples of semantic rules that need validator support later:
 - repeated `name` with the same `based_on` set should produce a warning for human review
 - a statement must not introduce a new definition, notation, or context block
 - `depends_on` in a statement should contain only `def:` and `stmt:` ids
+- `bindings` in a statement should contain only local symbol-to-`def:` assignments
 - `supports` in a statement should remain evidential and should not stand in for final resolution
 - `answered_by`, `resolved_by`, and `refuted_by` in a statement should contain only `stmt:` ids
 - `resolution_status` in a statement should agree with the populated resolution links

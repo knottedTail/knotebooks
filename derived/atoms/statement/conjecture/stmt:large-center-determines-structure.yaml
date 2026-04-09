@@ -7,6 +7,9 @@ body: |
   algebra up to isomorphism in the finite-dimensional case.
 depends_on:
   - def:associative-algebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
 supports:
   - stmt:center-subalgebra
 related_to:

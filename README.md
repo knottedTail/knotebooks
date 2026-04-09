@@ -49,7 +49,7 @@ This documentation pass defines the shared atom contract, fully specifies `conce
 - Statement atoms live under `derived/atoms/statement/<type>/<atom_id>.yaml`
 - In this model, the filename should exactly match `atom_id`, with only the `.yaml` extension added
 - In v1, a `concept.definition` atom stores only semantic definition data
-- In v1, a `statement` atom stores `body`, `depends_on`, `supports`, `related_to`, explicit resolution links, `resolution_status`, and lightweight `references` in addition to the shared atom fields
+- In v1, a `statement` atom stores `body`, `depends_on`, `bindings`, `supports`, `related_to`, explicit resolution links, `resolution_status`, and lightweight `references` in addition to the shared atom fields
 - Duplicate definition names are allowed; practical disambiguation comes from `atom_id`, `based_on`, and the opening sentence of `body`
 - Theorem, lemma, and corollary are treated as source-side labels and normalize to `type: proposition`
 - Embeddings and search-ready text belong to a separate derived index, not to canonical atom files

@@ -3,9 +3,12 @@ atom_id: stmt:center-assignment-functorial
 family: statement
 type: proposition
 body: |
-  The assignment sending an associative algebra to its center is functorial.
+  The assignment sending $A$ to its center is functorial.
 depends_on:
   - def:associative-algebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
 supports:
   - stmt:center-subalgebra
 related_to:

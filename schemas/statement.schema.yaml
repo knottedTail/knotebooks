@@ -11,6 +11,7 @@ required:
   - type
   - body
   - depends_on
+  - bindings
   - supports
   - related_to
   - answered_by
@@ -40,6 +41,22 @@ properties:
     items:
       type: string
       pattern: "^(def|stmt):[A-Za-z0-9][A-Za-z0-9._-]*$"
+    uniqueItems: true
+  bindings:
+    type: array
+    items:
+      type: object
+      required:
+        - notation
+        - refers_to
+      properties:
+        notation:
+          type: string
+          minLength: 1
+        refers_to:
+          type: string
+          pattern: "^def:[A-Za-z0-9][A-Za-z0-9._-]*$"
+      additionalProperties: false
     uniqueItems: true
   supports:
     type: array
@@ -101,6 +118,9 @@ additionalProperties: false
 x-knotebooks-semantic-rules:
   - "Statement atoms must not introduce a new definition, notation, or context block."
   - "depends_on contains only conceptual prerequisites needed to understand the statement."
+  - "bindings contains lightweight local symbol-to-definition assignments such as 'Let k be a field'."
+  - "bindings must reference only def: ids."
+  - "bindings and depends_on may overlap, but they are not interchangeable."
   - "supports contains evidential or justificatory atoms, not conceptual prerequisites or final resolution."
   - "related_to contains looser thematic or heuristic links."
   - "answered_by, resolved_by, and refuted_by point to later statement atoms that settle an earlier statement."

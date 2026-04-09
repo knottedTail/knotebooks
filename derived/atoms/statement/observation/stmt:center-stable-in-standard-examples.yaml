@@ -7,6 +7,7 @@ body: |
   under multiplication.
 depends_on:
   - def:associative-algebra
+bindings: []
 supports:
   - stmt:center-subalgebra
 related_to:

@@ -3,9 +3,12 @@ atom_id: stmt:center-subalgebra
 family: statement
 type: proposition
 body: |
-  The center of an associative algebra is a subalgebra.
+  The center of $A$ is a subalgebra.
 depends_on:
   - def:associative-algebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
 supports: []
 related_to:
   - def:associative-algebra

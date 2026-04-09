@@ -18,9 +18,12 @@ atom_id: stmt:center-subalgebra
 family: statement
 type: proposition
 body: |
-  The center of an associative algebra is a subalgebra.
+  The center of $A$ is a subalgebra.
 depends_on:
   - def:associative-algebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
 supports: []
 related_to:
   - def:associative-algebra
@@ -45,6 +48,10 @@ references:
 - `depends_on`
   - Atoms required to understand the statement
   - Must contain only `def:` or `stmt:` ids
+- `bindings`
+  - Lightweight local symbol-to-definition assignments used by the statement
+  - Each item must contain `notation` and `refers_to`
+  - `refers_to` must be a `def:` id
 - `supports`
   - Atoms that provide evidence or justification
   - May reference any atom family
@@ -103,6 +110,21 @@ Bad:
 - adding every nearby atom whether needed or not
 - using process-only evidence atoms as if they were conceptual prerequisites
 - using ids outside `def:` and `stmt:`
+
+### `bindings`
+
+Use `bindings` for local setup such as “Let $k$ be a field” or “Let $A$ be an associative algebra.”
+
+Good:
+
+- `notation: k`, `refers_to: def:field`
+- `notation: A`, `refers_to: def:associative-algebra`
+
+Bad:
+
+- using `bindings` for claims or evidence
+- using non-`def:` ids in `refers_to`
+- treating `bindings` as a replacement for `depends_on`
 
 ### `supports`
 

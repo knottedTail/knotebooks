@@ -80,6 +80,7 @@ For `statement`, the shared v1 canonical shape is:
 - `type`
 - `body`
 - `depends_on`
+- `bindings`
 - `supports`
 - `related_to`
 - `answered_by`
