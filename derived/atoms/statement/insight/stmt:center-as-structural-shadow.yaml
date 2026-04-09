@@ -1,0 +1,25 @@
+$schema: "https://knotebooks.local/schemas/statement.insight.schema.yaml"
+atom_id: stmt:center-as-structural-shadow
+family: statement
+type: insight
+body: |
+  The center should be viewed as a structural shadow of the multiplication
+  law, encoding how commutative behavior persists inside an associative
+  algebra.
+depends_on:
+  - def:associative-algebra
+  - stmt:center-subalgebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
+supports:
+  - stmt:center-stable-in-standard-examples
+related_to:
+  - stmt:large-center-determines-structure
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: note
+    locator: notes/center-heuristics

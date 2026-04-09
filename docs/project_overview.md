@@ -47,7 +47,7 @@ Atoms are organized into three families:
   - `example`
   - `reference_note`
 
-This pass fully specifies `concept.definition` only. The remaining atom types are recognized by the ontology but still need their own dedicated schemas and extraction contracts.
+This pass fully specifies `concept.definition` and the `statement` family. The remaining atom types are recognized by the ontology but still need their own dedicated schemas and extraction contracts.
 
 ## Shared Atom Requirements
 
@@ -72,6 +72,22 @@ For `concept.definition`, the v1 canonical shape is intentionally minimal:
 - `based_on`
 - `axiomatic`
 - `aliases`
+
+For `statement`, the shared v1 canonical shape is:
+
+- `atom_id`
+- `family`
+- `type`
+- `body`
+- `depends_on`
+- `bindings`
+- `supports`
+- `related_to`
+- `answered_by`
+- `resolved_by`
+- `refuted_by`
+- `resolution_status`
+- `references`
 
 ## Retrieval Boundary
 

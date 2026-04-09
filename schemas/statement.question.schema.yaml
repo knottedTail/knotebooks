@@ -1,0 +1,12 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.question.schema.yaml"
+title: "knotebooks statement.question atom"
+description: "Canonical schema for statement.question atoms."
+allOf:
+  - $ref: "statement.schema.yaml"
+type: object
+properties:
+  type:
+    const: question
+x-knotebooks-semantic-rules:
+  - "A question should be interrogative or explicitly problem-posing rather than claim-like."

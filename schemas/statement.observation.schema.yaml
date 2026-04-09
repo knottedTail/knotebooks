@@ -1,0 +1,12 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.observation.schema.yaml"
+title: "knotebooks statement.observation atom"
+description: "Canonical schema for statement.observation atoms."
+allOf:
+  - $ref: "statement.schema.yaml"
+type: object
+properties:
+  type:
+    const: observation
+x-knotebooks-semantic-rules:
+  - "An observation should read as local, descriptive, or empirical rather than theorem-like."

@@ -1,0 +1,23 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:center-subalgebra
+family: statement
+type: proposition
+body: |
+  The center of $A$ is a subalgebra.
+depends_on:
+  - def:associative-algebra
+bindings:
+  - notation: A
+    refers_to: def:associative-algebra
+supports: []
+related_to:
+  - def:associative-algebra
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex
+  - kind: paper
+    locator: arXiv:1234.5678

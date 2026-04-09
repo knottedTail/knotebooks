@@ -1,0 +1,12 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.insight.schema.yaml"
+title: "knotebooks statement.insight atom"
+description: "Canonical schema for statement.insight atoms."
+allOf:
+  - $ref: "statement.schema.yaml"
+type: object
+properties:
+  type:
+    const: insight
+x-knotebooks-semantic-rules:
+  - "An insight should read as conceptual or heuristic rather than a finished formal claim."
