@@ -1,0 +1,15 @@
+$schema: "https://knotebooks.local/schemas/process.proof_idea.schema.yaml"
+atom_id: proc:show-centrality-by-commutator
+family: process
+type: proof_idea
+body: |
+  Show centrality of $E^l$ by computing its commutator with $F$ at the root of unity.
+depends_on:
+  - def:associativity-binary-operation
+produces:
+  - proc:compute-commutator-el-with-f
+related_to:
+  - stmt:center-subalgebra
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex

@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.attempt.schema.yaml"
+title: "knotebooks process.attempt atom"
+description: "Canonical schema for process.attempt atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: attempt
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "An attempt should read as a trial step toward a goal, possibly incomplete or provisional."

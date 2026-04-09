@@ -1,0 +1,14 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.computation.schema.yaml"
+title: "knotebooks process.computation atom"
+description: "Canonical schema for process.computation atoms."
+allOf:
+  - $ref: "process.schema.yaml"
+  - type: object
+    properties:
+      type:
+        const: computation
+    required:
+      - type
+    x-knotebooks-semantic-rules:
+      - "A computation should read as an explicit derivation, calculation, or algebraic check."

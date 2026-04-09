@@ -26,7 +26,7 @@ Atoms are grouped into three families.
   - `example`
   - `reference_note`
 
-`concept.definition` and the `statement` family are fully specified in this pass. Other types are recognized by the ontology but still need dedicated type specs.
+`concept.definition` and the `statement` and `process` families are fully specified in this pass. Other types are recognized by the ontology but still need dedicated type specs.
 
 ## Shared Atom Envelope
 
@@ -49,6 +49,7 @@ Shared fields are intentionally minimal in v1. Richer semantic fields such as `n
 - `atom_id` should not encode the date when the atom was created
 - This pass makes `def:` normative for `concept.definition`
 - This pass makes `stmt:` normative for `statement` atoms
+- This pass makes `proc:` normative for `process` atoms
 - Other prefixes may exist in source notes already, but they are not yet canonical until their atom specs are defined
 
 Examples:
@@ -57,6 +58,7 @@ Examples:
 - `def:vector-space`
 - `stmt:center-subalgebra`
 - `stmt:is-center-functorial`
+- `proc:compute-commutator-el-with-f`
 
 ## Storage Rules
 
@@ -65,6 +67,7 @@ Canonical atoms are stored as one YAML file per atom under `derived/atoms/`.
 - Layout: `derived/atoms/<family>/<type>/<atom_id>.yaml`
 - First concrete path in this pass: `derived/atoms/concept/definition/<atom_id>.yaml`
 - Statement path in this pass: `derived/atoms/statement/<type>/<atom_id>.yaml`
+- Process path in this pass: `derived/atoms/process/<type>/<atom_id>.yaml`
 - The filename should exactly equal `atom_id`, with `.yaml` appended
 - Canonical atom files are meant for inspection, schema validation, diff review, and downstream indexing
 
@@ -88,6 +91,8 @@ Examples of semantic rules that need validator support later:
 - `supports` in a statement should remain evidential and should not stand in for final resolution
 - `answered_by`, `resolved_by`, and `refuted_by` in a statement should contain only `stmt:` ids
 - `resolution_status` in a statement should agree with the populated resolution links
+- a process atom must stay local and should not contain a whole proof
+- `produces` in a process atom should contain only direct outputs of the current step
 - theorem, lemma, and corollary should normalize to `type: proposition`
 
 ## Search Boundary

@@ -1,0 +1,80 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/process.schema.yaml"
+title: "knotebooks process atom"
+description: "Shared canonical schema for process-family atoms."
+allOf:
+  - $ref: "atom.schema.yaml"
+type: object
+required:
+  - atom_id
+  - family
+  - type
+  - body
+  - depends_on
+  - produces
+  - related_to
+  - references
+properties:
+  atom_id:
+    type: string
+    pattern: "^proc:[A-Za-z0-9][A-Za-z0-9._-]*$"
+  family:
+    const: process
+  type:
+    type: string
+    enum:
+      - computation
+      - attempt
+      - failed_attempt
+      - proof_idea
+      - example
+      - reference_note
+  body:
+    type: string
+    minLength: 1
+  depends_on:
+    type: array
+    items:
+      $ref: "atom.schema.yaml#/$defs/atom_id"
+    uniqueItems: true
+  produces:
+    type: array
+    items:
+      $ref: "atom.schema.yaml#/$defs/atom_id"
+    uniqueItems: true
+  related_to:
+    type: array
+    items:
+      $ref: "atom.schema.yaml#/$defs/atom_id"
+    uniqueItems: true
+  references:
+    type: array
+    items:
+      type: object
+      required:
+        - kind
+        - locator
+      properties:
+        kind:
+          type: string
+          enum:
+            - raw_file
+            - paper
+            - book
+            - note
+            - web
+        locator:
+          type: string
+          minLength: 1
+      additionalProperties: false
+    uniqueItems: true
+additionalProperties: false
+x-knotebooks-semantic-rules:
+  - "Process atoms describe local mathematical activity rather than final settled content."
+  - "A process atom must contain one local mathematical move, not a long undivided proof."
+  - "depends_on lists earlier atoms required to understand or execute the current step."
+  - "produces lists atoms directly yielded by the current step."
+  - "related_to contains meaningful but non-strict links."
+  - "references records lightweight source handles such as raw files, papers, books, notes, or web sources."
+  - "Self-reference in depends_on or produces is invalid."
+  - "Final mathematical conclusions should usually be represented as statement atoms, not process atoms."

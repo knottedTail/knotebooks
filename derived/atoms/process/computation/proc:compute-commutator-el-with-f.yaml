@@ -1,0 +1,14 @@
+$schema: "https://knotebooks.local/schemas/process.computation.schema.yaml"
+atom_id: proc:compute-commutator-el-with-f
+family: process
+type: computation
+body: |
+  Compute the commutator of $E^l$ with $F$ at the root of unity.
+depends_on:
+  - proc:show-centrality-by-commutator
+produces:
+  - stmt:commutator-el-f-vanishes
+related_to: []
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex

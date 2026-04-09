@@ -1,0 +1,14 @@
+$schema: "https://knotebooks.local/schemas/process.reference_note.schema.yaml"
+atom_id: proc:de-concini-kac-large-center-note
+family: process
+type: reference_note
+body: |
+  De Concini and Kac describe the large center that appears at roots of unity.
+depends_on: []
+produces:
+  - stmt:large-center-determines-structure
+related_to:
+  - stmt:center-as-structural-shadow
+references:
+  - kind: paper
+    locator: De Concini-Kac

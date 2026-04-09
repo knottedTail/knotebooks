@@ -1,0 +1,14 @@
+$schema: "https://knotebooks.local/schemas/process.attempt.schema.yaml"
+atom_id: proc:attempt-induction-on-filtration
+family: process
+type: attempt
+body: |
+  Attempt to prove the claim by induction on the filtration degree.
+depends_on:
+  - stmt:large-center-determines-structure
+produces:
+  - proc:filtration-induction-breaks
+related_to: []
+references:
+  - kind: raw_file
+    locator: raws/2026-04-09.tex
