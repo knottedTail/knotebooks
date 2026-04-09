@@ -26,7 +26,7 @@ Atoms are grouped into three families.
   - `example`
   - `reference_note`
 
-Only `concept.definition` is fully specified in this pass. Other types are recognized by the ontology but still need dedicated type specs.
+`concept.definition` and the `statement` family are fully specified in this pass. Other types are recognized by the ontology but still need dedicated type specs.
 
 ## Shared Atom Envelope
 
@@ -37,7 +37,7 @@ Every canonical atom must provide the following shared fields.
 | `atom_id` | required | Stable atom identifier |
 | `family` | required | One of `concept`, `statement`, `process` |
 | `type` | required | Atom subtype within the family |
-Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, and `aliases` belong in atom-specific schemas.
+Shared fields are intentionally minimal in v1. Richer semantic fields such as `name`, `body`, `based_on`, `axiomatic`, `aliases`, `depends_on`, `supports`, and `related_to` belong in atom-specific schemas.
 
 ## Id Conventions
 
@@ -48,12 +48,15 @@ Shared fields are intentionally minimal in v1. Richer semantic fields such as `n
 - Slug is human-readable, semantic, and should remain stable once published
 - `atom_id` should not encode the date when the atom was created
 - This pass makes `def:` normative for `concept.definition`
+- This pass makes `stmt:` normative for `statement` atoms
 - Other prefixes may exist in source notes already, but they are not yet canonical until their atom specs are defined
 
 Examples:
 
 - `def:field`
 - `def:vector-space`
+- `stmt:center-subalgebra`
+- `stmt:is-center-functorial`
 
 ## Storage Rules
 
@@ -61,6 +64,7 @@ Canonical atoms are stored as one YAML file per atom under `derived/atoms/`.
 
 - Layout: `derived/atoms/<family>/<type>/<atom_id>.yaml`
 - First concrete path in this pass: `derived/atoms/concept/definition/<atom_id>.yaml`
+- Statement path in this pass: `derived/atoms/statement/<type>/<atom_id>.yaml`
 - The filename should exactly equal `atom_id`, with `.yaml` appended
 - Canonical atom files are meant for inspection, schema validation, diff review, and downstream indexing
 
@@ -78,6 +82,9 @@ Examples of semantic rules that need validator support later:
 - `concept.definition` should remain a definition-only structure with no notation or context links
 - duplicate `name` is allowed, but ambiguous repeated names should be distinguished by `atom_id`, `based_on`, and the opening sentence of `body`
 - repeated `name` with the same `based_on` set should produce a warning for human review
+- a statement must not introduce a new definition, notation, or context block
+- `depends_on` in a statement should contain only `def:` and `stmt:` ids
+- theorem, lemma, and corollary should normalize to `type: proposition`
 
 ## Search Boundary
 
@@ -99,4 +106,4 @@ Source-side fields and canonical atom fields are not always identical.
 
 ## Note On Statement Labels
 
-The current ontology recognizes `proposition` as the canonical statement type in this family pass. Presentation labels such as theorem, lemma, or corollary may later be modeled as refinements or display labels when the statement family is specified in detail.
+The current ontology recognizes `proposition` as the canonical assertive statement type. Source-side labels such as theorem, lemma, and corollary are normalized to `type: proposition` rather than stored as separate canonical subtypes.

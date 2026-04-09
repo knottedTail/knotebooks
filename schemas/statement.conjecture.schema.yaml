@@ -1,0 +1,12 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.conjecture.schema.yaml"
+title: "knotebooks statement.conjecture atom"
+description: "Canonical schema for statement.conjecture atoms."
+allOf:
+  - $ref: "statement.schema.yaml"
+type: object
+properties:
+  type:
+    const: conjecture
+x-knotebooks-semantic-rules:
+  - "A conjecture should be assertive in wording but speculative in force."

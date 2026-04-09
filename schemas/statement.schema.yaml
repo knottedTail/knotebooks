@@ -1,0 +1,57 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.schema.yaml"
+title: "knotebooks statement atom"
+description: "Shared canonical schema for statement-family atoms."
+allOf:
+  - $ref: "atom.schema.yaml"
+type: object
+required:
+  - atom_id
+  - family
+  - type
+  - body
+  - depends_on
+  - supports
+  - related_to
+properties:
+  atom_id:
+    type: string
+    pattern: "^stmt:[A-Za-z0-9][A-Za-z0-9._-]*$"
+  family:
+    const: statement
+  type:
+    type: string
+    enum:
+      - proposition
+      - conjecture
+      - observation
+      - question
+      - insight
+  body:
+    type: string
+    minLength: 1
+  depends_on:
+    type: array
+    items:
+      type: string
+      pattern: "^(def|stmt):[A-Za-z0-9][A-Za-z0-9._-]*$"
+    uniqueItems: true
+  supports:
+    type: array
+    items:
+      $ref: "atom.schema.yaml#/$defs/atom_id"
+    uniqueItems: true
+  related_to:
+    type: array
+    items:
+      $ref: "atom.schema.yaml#/$defs/atom_id"
+    uniqueItems: true
+additionalProperties: false
+x-knotebooks-semantic-rules:
+  - "Statement atoms must not introduce a new definition, notation, or context block."
+  - "depends_on contains only conceptual prerequisites needed to understand the statement."
+  - "supports contains evidential or justificatory atoms, not conceptual prerequisites."
+  - "related_to contains looser thematic or heuristic links."
+  - "Self-reference in depends_on is invalid."
+  - "Self-reference in supports or related_to should produce a warning."
+  - "Theorem, lemma, and corollary normalize to type: proposition."

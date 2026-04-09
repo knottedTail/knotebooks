@@ -1,0 +1,11 @@
+$schema: "https://knotebooks.local/schemas/statement.question.schema.yaml"
+atom_id: stmt:is-center-functorial
+family: statement
+type: question
+body: |
+  Is the assignment sending an associative algebra to its center functorial?
+depends_on:
+  - def:associative-algebra
+supports: []
+related_to:
+  - stmt:center-subalgebra

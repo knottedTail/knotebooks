@@ -1,0 +1,11 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:center-subalgebra
+family: statement
+type: proposition
+body: |
+  The center of an associative algebra is a subalgebra.
+depends_on:
+  - def:associative-algebra
+supports: []
+related_to:
+  - def:associative-algebra

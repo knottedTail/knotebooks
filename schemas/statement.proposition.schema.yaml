@@ -1,0 +1,13 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+title: "knotebooks statement.proposition atom"
+description: "Canonical schema for statement.proposition atoms."
+allOf:
+  - $ref: "statement.schema.yaml"
+type: object
+properties:
+  type:
+    const: proposition
+x-knotebooks-semantic-rules:
+  - "A proposition should read as an assertive mathematical claim rather than a question."
+  - "Theorem, lemma, and corollary normalize to proposition."
