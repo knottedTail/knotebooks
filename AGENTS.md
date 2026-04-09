@@ -13,6 +13,7 @@ For any repository modification:
 7. Agent-created branches should use the `codex/` prefix unless the user requests a different naming scheme.
 8. Commit changes with a concise, descriptive commit message.
 9. Do not include unrelated local changes in the branch commit.
+10. Do not modify any files in resources/.
 
 ## Merge Guidance
 
