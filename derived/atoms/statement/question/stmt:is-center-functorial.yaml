@@ -9,3 +9,11 @@ depends_on:
 supports: []
 related_to:
   - stmt:center-subalgebra
+answered_by:
+  - stmt:center-assignment-functorial
+resolved_by: []
+refuted_by: []
+resolution_status: answered
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex

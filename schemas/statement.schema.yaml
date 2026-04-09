@@ -13,6 +13,11 @@ required:
   - depends_on
   - supports
   - related_to
+  - answered_by
+  - resolved_by
+  - refuted_by
+  - resolution_status
+  - references
 properties:
   atom_id:
     type: string
@@ -46,12 +51,64 @@ properties:
     items:
       $ref: "atom.schema.yaml#/$defs/atom_id"
     uniqueItems: true
+  answered_by:
+    type: array
+    items:
+      type: string
+      pattern: "^stmt:[A-Za-z0-9][A-Za-z0-9._-]*$"
+    uniqueItems: true
+  resolved_by:
+    type: array
+    items:
+      type: string
+      pattern: "^stmt:[A-Za-z0-9][A-Za-z0-9._-]*$"
+    uniqueItems: true
+  refuted_by:
+    type: array
+    items:
+      type: string
+      pattern: "^stmt:[A-Za-z0-9][A-Za-z0-9._-]*$"
+    uniqueItems: true
+  resolution_status:
+    type: string
+    enum:
+      - open
+      - answered
+      - resolved
+      - refuted
+  references:
+    type: array
+    items:
+      type: object
+      required:
+        - kind
+        - locator
+      properties:
+        kind:
+          type: string
+          enum:
+            - raw_file
+            - paper
+            - book
+            - note
+            - web
+        locator:
+          type: string
+          minLength: 1
+      additionalProperties: false
+    uniqueItems: true
 additionalProperties: false
 x-knotebooks-semantic-rules:
   - "Statement atoms must not introduce a new definition, notation, or context block."
   - "depends_on contains only conceptual prerequisites needed to understand the statement."
-  - "supports contains evidential or justificatory atoms, not conceptual prerequisites."
+  - "supports contains evidential or justificatory atoms, not conceptual prerequisites or final resolution."
   - "related_to contains looser thematic or heuristic links."
+  - "answered_by, resolved_by, and refuted_by point to later statement atoms that settle an earlier statement."
+  - "questions should use answered_by rather than resolved_by or refuted_by."
+  - "conjectures should use resolved_by or refuted_by rather than answered_by."
+  - "If any resolution link field is nonempty, resolution_status should agree with it."
+  - "Only one of answered_by, resolved_by, or refuted_by should normally be populated for a given statement atom in v1."
+  - "references records lightweight source handles such as raw files, papers, books, notes, or web sources."
   - "Self-reference in depends_on is invalid."
-  - "Self-reference in supports or related_to should produce a warning."
+  - "Self-reference in supports, related_to, answered_by, resolved_by, or refuted_by should produce a warning or error as appropriate."
   - "Theorem, lemma, and corollary normalize to type: proposition."

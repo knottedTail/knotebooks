@@ -1,20 +1,19 @@
 $schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
-atom_id: stmt:center-subalgebra
+atom_id: stmt:center-assignment-functorial
 family: statement
 type: proposition
 body: |
-  The center of an associative algebra is a subalgebra.
+  The assignment sending an associative algebra to its center is functorial.
 depends_on:
   - def:associative-algebra
-supports: []
+supports:
+  - stmt:center-subalgebra
 related_to:
-  - def:associative-algebra
+  - stmt:is-center-functorial
 answered_by: []
 resolved_by: []
 refuted_by: []
 resolution_status: open
 references:
-  - kind: raw_file
-    locator: raws/2026-04-08.tex
   - kind: paper
     locator: arXiv:1234.5678

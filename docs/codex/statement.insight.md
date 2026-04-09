@@ -11,3 +11,7 @@ Do not use when:
 
 - the statement is intended as a definite mathematical claim: use `proposition` or `conjecture`
 - the content is mainly a question: use `question`
+
+Extraction notes:
+
+- use `supports` for motivating evidence, not for final settlement of a claim

@@ -10,3 +10,8 @@ Use when:
 Do not use when:
 
 - the statement already asserts an answer or expectation: use another statement subtype
+
+Extraction notes:
+
+- prefer `answered_by` for later `stmt:` atoms that answer the question
+- set `resolution_status` to `answered` only when `answered_by` is populated

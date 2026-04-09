@@ -18,3 +18,5 @@ Examples:
 
 - the body should read as a genuine question or problem statement
 - it should not be phrased as a finished claim
+- prefer `answered_by` for later statements that answer the question
+- `resolution_status` should normally be `open` or `answered`

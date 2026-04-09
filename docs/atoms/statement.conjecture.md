@@ -18,3 +18,6 @@ Examples:
 
 - the body should remain assertive, but clearly speculative in force
 - `supports` is especially useful for evidence from examples, computations, or earlier observations
+- use `resolved_by` when a later statement establishes the conjecture
+- use `refuted_by` when a later statement shows the conjecture fails
+- `resolution_status` should normally be `open`, `resolved`, or `refuted`

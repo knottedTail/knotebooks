@@ -11,3 +11,11 @@ supports:
   - stmt:center-subalgebra
 related_to:
   - def:associative-algebra
+answered_by: []
+resolved_by:
+  - stmt:large-center-determines-structure-finite-dimensional
+refuted_by: []
+resolution_status: resolved
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex

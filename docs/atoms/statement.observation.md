@@ -18,3 +18,4 @@ Examples:
 
 - weaker than a proposition in force
 - often benefits from `supports` links to computations or examples
+- keep the body descriptive and mathematically local, but remove conversational framing that does not affect the content

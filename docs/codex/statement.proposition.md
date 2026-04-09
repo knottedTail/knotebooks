@@ -13,3 +13,8 @@ Do not use when:
 - the body is explicitly speculative: use `conjecture`
 - the body is interrogative: use `question`
 - the body is mainly heuristic: use `insight`
+
+Extraction notes:
+
+- proposition bodies should be concise and free of conversational note framing
+- propositions may appear in `answered_by`, `resolved_by`, or `refuted_by` links from other statements

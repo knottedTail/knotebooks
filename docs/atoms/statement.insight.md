@@ -18,3 +18,4 @@ Examples:
 
 - the body should express interpretation, perspective, or heuristic structure
 - it should not be phrased as a theorem-like claim unless it is really a proposition or conjecture
+- `supports` may point to statements or process atoms that motivate the insight without settling it logically

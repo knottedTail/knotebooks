@@ -28,10 +28,15 @@ Do not emit a statement atom when the source is primarily:
 | `atom_id` | Use a stable semantic id with prefix `stmt:`. |
 | `family` | Always `statement`. |
 | `type` | Choose one of `proposition`, `conjecture`, `observation`, `question`, `insight`. |
-| `body` | Preserve the statement text as the main canonical content field. |
+| `body` | Preserve the mathematically essential statement text as the main canonical content field. Remove note-local conversational framing when it is not mathematically necessary. |
 | `depends_on` | Add only atoms required to understand the statement. Use only `def:` or `stmt:` ids. |
-| `supports` | Add atoms that provide evidence or justification. May reference any valid atom id. |
+| `supports` | Add atoms that provide evidence or justification. May reference any valid atom id. Do not use this field for final settlement of a question or conjecture. |
 | `related_to` | Add meaningful but looser related atoms. May reference any valid atom id. |
+| `answered_by` | Add later `stmt:` atoms that answer a question. Use `[]` when empty. |
+| `resolved_by` | Add later `stmt:` atoms that positively settle a statement. Use `[]` when empty. |
+| `refuted_by` | Add later `stmt:` atoms that negatively settle a statement. Use `[]` when empty. |
+| `resolution_status` | Set to `open`, `answered`, `resolved`, or `refuted` so it agrees with the populated resolution links. |
+| `references` | Add lightweight source handles. Each item must contain `kind` and `locator`. Use `[]` when no source handles are available. |
 
 ## Shared Extraction Procedure
 
@@ -43,11 +48,14 @@ Do not emit a statement atom when the source is primarily:
    - `observation` for local or descriptive finding
    - `question` for inquiry or open problem
    - `insight` for heuristic or conceptual interpretation
-4. Copy the main statement text into `body`, preserving mathematical wording and LaTeX.
+4. Copy the mathematically essential statement text into `body`, preserving mathematical wording and LaTeX while removing note-local framing that does not change the meaning.
 5. Populate `depends_on` only with conceptual prerequisites.
 6. Populate `supports` only with evidential or justificatory atoms.
 7. Populate `related_to` only with looser meaningful connections.
-8. Use empty arrays when no relation data is present.
+8. Populate `answered_by`, `resolved_by`, and `refuted_by` only when later statements actually settle the current statement.
+9. Set `resolution_status` so it agrees with the populated resolution links.
+10. Add lightweight `references` for raw files, papers, books, notes, or web sources when available.
+11. Use empty arrays when no relation or reference data is present.
 
 ## Theorem Labels
 
@@ -63,5 +71,6 @@ Codex must not:
 - introduce a new definition inside a statement atom
 - use `depends_on` as a bag of nearby references
 - confuse evidential support with conceptual prerequisite
+- confuse evidential support with logical resolution
 - turn an interrogative question into a proposition
 - normalize theorem, lemma, or corollary into separate canonical subtypes

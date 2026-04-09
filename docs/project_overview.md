@@ -82,6 +82,11 @@ For `statement`, the shared v1 canonical shape is:
 - `depends_on`
 - `supports`
 - `related_to`
+- `answered_by`
+- `resolved_by`
+- `refuted_by`
+- `resolution_status`
+- `references`
 
 ## Retrieval Boundary
 

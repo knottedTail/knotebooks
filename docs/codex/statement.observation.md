@@ -11,3 +11,7 @@ Do not use when:
 
 - the source is clearly proposing a general formal claim: use `proposition` or `conjecture`
 - the content is mostly conceptual interpretation: use `insight`
+
+Extraction notes:
+
+- remove note-local staging phrases unless they materially limit the observation

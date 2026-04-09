@@ -11,3 +11,9 @@ Do not use when:
 
 - the note states the claim as established fact: use `proposition`
 - the note merely asks whether the claim holds: use `question`
+
+Extraction notes:
+
+- use `resolved_by` when a later statement establishes the conjecture
+- use `refuted_by` when a later statement shows the conjecture fails
+- do not use `answered_by` for conjectures

@@ -13,3 +13,10 @@ supports:
   - stmt:center-stable-in-standard-examples
 related_to:
   - stmt:large-center-determines-structure
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: note
+    locator: notes/center-heuristics

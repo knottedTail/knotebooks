@@ -24,6 +24,13 @@ depends_on:
 supports: []
 related_to:
   - def:associative-algebra
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026-04-08.tex
 ```
 
 ## Field Glossary
@@ -45,8 +52,23 @@ related_to:
 - `related_to`
   - Atoms with meaningful but looser thematic or heuristic relation
   - May reference any atom family
+- `answered_by`
+  - Later statement atoms that answer a question
+  - Must contain only `stmt:` ids
+- `resolved_by`
+  - Later statement atoms that positively settle a statement
+  - Must contain only `stmt:` ids
+- `refuted_by`
+  - Later statement atoms that negatively settle a statement
+  - Must contain only `stmt:` ids
+- `resolution_status`
+  - Current resolution state of the statement
+  - One of `open`, `answered`, `resolved`, `refuted`
+- `references`
+  - Lightweight source handles for raw files, papers, books, notes, or web sources
+  - Each item must contain `kind` and `locator`
 
-All three relation arrays are required and use `[]` when empty.
+All relation arrays are required and use `[]` when empty.
 
 ## Shared Writing Guidance
 
@@ -57,12 +79,15 @@ Good `body` values:
 - clearly read as a proposition, conjecture, observation, question, or insight
 - refer to mathematical objects without redefining them
 - stay focused on one main statement
+- keep only mathematically essential content
+- keep scope qualifiers only when they materially change the claim
 
 Bad `body` values:
 
 - introduce a new concept definition
 - introduce notation with no statement content
 - mix several unrelated claims into one atom
+- include note-local framing such as "in the examples under consideration" when that framing does not change the mathematical content
 
 ### `depends_on`
 
@@ -91,6 +116,7 @@ Good:
 Bad:
 
 - using `supports` for atoms that are actually prerequisites
+- using `supports` to mean that a question has been answered or a conjecture has been settled
 - using it as a vague replacement for `related_to`
 
 ### `related_to`
@@ -106,6 +132,36 @@ Bad:
 
 - encoding strict dependency in `related_to` when `depends_on` should be used
 - populating it with arbitrary nearby atoms
+
+### Resolution Fields
+
+Use resolution fields for later statements that settle an earlier statement.
+
+Good:
+
+- a question with `answered_by` pointing to a later proposition
+- a conjecture with `resolved_by` pointing to a later proposition
+- a conjecture with `refuted_by` pointing to a later statement showing the claim fails
+
+Bad:
+
+- using `supports` instead of a resolution field for final settlement
+- populating more than one resolution link field without a strong reason
+- using non-`stmt:` ids in resolution links
+
+### `references`
+
+Use `references` for lightweight source handles, not for logical structure.
+
+Good:
+
+- a raw note path such as `raws/2026-04-08.tex`
+- a paper handle such as `arXiv:1234.5678`
+
+Bad:
+
+- treating a reference as proof or support by itself
+- replacing `depends_on` or `supports` with source handles
 
 ## Statement Labels
 
