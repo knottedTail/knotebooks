@@ -1,0 +1,19 @@
+$schema: "https://knotebooks.local/schemas/process.reference_note.schema.yaml"
+atom_id: proc:majid-uqg-reference-note
+family: process
+type: reference_note
+body: |
+  This raw note records Majid's literature presentation of
+  $U_q(\mathfrak{g})$, its $E_i,F_i,g_i$ reformulation, and its factorisable
+  quasitriangular structure.
+depends_on: []
+produces:
+  - def:uqg
+  - stmt:uqg-efg-presentation
+  - stmt:uqg-factorisable-quasitriangular-structure
+related_to: []
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md
+  - kind: book
+    locator: Majid

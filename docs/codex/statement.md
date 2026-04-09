@@ -59,6 +59,21 @@ Do not emit a statement atom when the source is primarily:
 11. Add lightweight `references` for raw files, papers, books, notes, or web sources when available.
 12. Use empty arrays when no relation or reference data is present.
 
+## Mixed-Block Split Policy
+
+When a source block defines an object and then states formal reformulations or
+additional structure:
+
+- keep the object-defining content in `concept.definition`
+- extract the reformulation or extra structure as separate `statement` atoms
+- attach provenance through a companion `process.reference_note` atom when the
+  material is literature-derived
+
+When a proposition is followed by a proof in the same source block:
+
+- keep the final claim in the `statement` atom
+- move the proof execution into supporting `process` atoms
+
 ## Theorem Labels
 
 When the source uses theorem-like presentation labels such as theorem, lemma, or corollary:

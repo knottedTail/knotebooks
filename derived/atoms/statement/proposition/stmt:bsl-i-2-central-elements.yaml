@@ -1,0 +1,26 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:bsl-i-2-central-elements
+family: statement
+type: proposition
+body: |
+  When $q = i$, the elements $a^2$, $b^2$, $c^2$, and $d^2 - 2ad + 2$ are
+  central in $BSL_i(2)$.
+depends_on:
+  - def:bsl-q-2
+bindings: []
+supports:
+  - proc:check-a2-central-in-bsl-i-2
+  - proc:check-b2-central-in-bsl-i-2
+  - proc:check-c2-central-in-bsl-i-2
+  - proc:check-d2-minus-2ad-plus-2-central-in-bsl-i-2
+related_to:
+  - def:bsl-q-2
+  - proc:show-bsl-i-2-centrality-by-relations
+  - stmt:bsl-zeta-2-braided-hopf-algebra
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md

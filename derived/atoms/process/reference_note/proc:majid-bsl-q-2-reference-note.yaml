@@ -1,0 +1,19 @@
+$schema: "https://knotebooks.local/schemas/process.reference_note.schema.yaml"
+atom_id: proc:majid-bsl-q-2-reference-note
+family: process
+type: reference_note
+body: |
+  Majid defines $BSL_q(2)$ and records the braided Hopf algebra structure on
+  $BSL_\zeta(2)$ in the cited literature passages used by this raw note.
+depends_on: []
+produces:
+  - def:bsl-q-2
+  - stmt:bsl-zeta-2-braided-hopf-algebra
+related_to: []
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md
+  - kind: book
+    locator: Majid 4.3.4
+  - kind: book
+    locator: Majid Ex. 10.3.3

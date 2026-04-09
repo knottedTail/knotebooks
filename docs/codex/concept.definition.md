@@ -22,6 +22,14 @@ Do not emit a definition atom when the block is primarily:
 - a question
 - a computation, attempt, or proof fragment
 
+When a source block mixes a core definition with later reformulations, extra
+structure, citation context, or proof-style discussion:
+
+- extract only the core object definition into the `concept.definition` atom
+- extract formal reformulations or extra assertive structure as `statement` atoms
+- extract literature provenance as companion `process.reference_note` atoms
+- leave proof execution in `process` atoms
+
 ## Field Mapping
 
 | Atom field | Extraction rule |
@@ -29,7 +37,7 @@ Do not emit a definition atom when the block is primarily:
 | `atom_id` | Use a stable semantic id. For this atom type it must start with `def:` and should not encode the creation date. |
 | `family` | Always `concept`. |
 | `type` | Always `definition`. |
-| `name` | Extract the canonical concept name, not the local title verbatim when the title contains parameters or assumptions. Duplicate names are allowed. |
+| `name` | Extract the canonical concept name only from explicit source wording in the raw note or parsed reference. Do not expand notation or abbreviations from background knowledge. Duplicate names are allowed. |
 | `body` | Preserve the defining text as a single LaTeX-preserving text field. When `name` is ambiguous, the opening sentence must disambiguate immediately. |
 | `based_on` | Add only explicit or clearly necessary definition dependencies. Use only `def:` ids. For ambiguous repeated names, this is the main mathematical source of disambiguation when such a basis exists. |
 | `axiomatic` | Set to `true` only when no meaningful dependencies were identified. |
@@ -39,7 +47,7 @@ Do not emit a definition atom when the block is primarily:
 
 1. Identify whether the source block truly defines an object.
 2. Keep or normalize the source semantic id as `atom_id`, removing date text when present.
-3. Rewrite the displayed source title into a canonical `name` when needed. Duplicate `name` values are allowed.
+3. Rewrite the displayed source title into a canonical `name` only when the source itself gives that wording. If the source names the object only by notation, use that notation as `name`. Duplicate `name` values are allowed.
 4. If the name is ambiguous, make `atom_id` sense-bearing rather than generic.
 5. Copy the defining text into `body`, preserving LaTeX math and mathematical wording.
 6. If the name is ambiguous, make the opening sentence of `body` identify the sense immediately.
@@ -50,6 +58,9 @@ Do not emit a definition atom when the block is primarily:
    - `false` when dependencies exist
    - `false` when dependencies may exist but remain unresolved
 10. Add `aliases` only when the source provides a true synonym.
+11. If the source block also contains reformulations, extra structure, or
+    literature commentary, keep those out of the definition atom and emit
+    companion statement or process atoms instead.
 
 ## When To Leave `based_on` Empty
 
@@ -69,9 +80,12 @@ Codex must not:
 
 - invent hidden dependencies just because related concepts exist in the same note
 - copy local assumptions like "over `k`" into the canonical `name`
+- expand notation or abbreviations into a guessed long-form name that the source does not explicitly provide
 - assume `name` must be globally unique
 - turn notation-only material into a definition
 - move proof, evidence, or strategy text into `body`
+- move later reformulations or extra structure claims into `body` just because they
+  occur in the same source block
 - create notation or context links inside `concept.definition`
 - leave an ambiguous repeated name unexplained in both `atom_id` and the opening sentence of `body`
 - silently normalize away mathematical LaTeX in `body`
@@ -95,5 +109,8 @@ The current source-side authoring format uses LaTeX `definitionitem` blocks.
 - explicit references such as `\defref{...}` may support `based_on` when they indicate true definition dependencies
 
 The source title is not a canonical stored field in `concept.definition` v1.
+Literature provenance for a definition should be carried by companion
+`process.reference_note` atoms rather than new canonical fields on
+`concept.definition`.
 
 When writing the canonical YAML file, use `<atom_id>.yaml` as the filename.

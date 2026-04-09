@@ -12,3 +12,5 @@ allOf:
       - type
     x-knotebooks-semantic-rules:
       - "A reference_note should record literature-derived material without turning it into a final canonical claim by itself."
+      - "A reference_note may summarize one literature block while producing canonical def: and stmt: atoms extracted from that block."
+      - "A reference_note is the preferred v1 place for literature provenance that concept.definition does not store directly."

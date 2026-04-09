@@ -1,0 +1,17 @@
+$schema: "https://knotebooks.local/schemas/process.computation.schema.yaml"
+atom_id: proc:check-a2-central-in-bsl-i-2
+family: process
+type: computation
+body: |
+  Check that $a^2$ commutes with the generators of $BSL_i(2)$ using the raw
+  relations $a^2 b = q^{-4} b a^2 = b a^2$, $a^2 c = q^{4} c a^2 = c a^2$, and
+  $a^2 d = d a^2$.
+depends_on:
+  - def:bsl-q-2
+  - proc:show-bsl-i-2-centrality-by-relations
+produces: []
+related_to:
+  - stmt:bsl-i-2-central-elements
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md

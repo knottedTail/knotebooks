@@ -37,6 +37,7 @@ aliases: []
 - `name`
   - Canonical concept name
   - Duplicate `name` values are allowed
+  - Must come from explicit source wording rather than model-supplied expansion
   - Must not include parameters such as "over `k`", "for fixed `n`", or similar local assumptions
 - `body`
   - The actual definition text
@@ -63,12 +64,14 @@ Good:
 - `field`
 - `vector space`
 - `associative algebra`
+- `U_q(\\mathfrak{g})` when the source names the object only by that notation
 
 Bad:
 
 - `vector space over k`
 - `associative algebra over a field`
 - `an admissible filtration`
+- a guessed expansion of source notation that does not appear in the source
 
 ### `body`
 
@@ -119,13 +122,6 @@ Good:
 - `name: associativity`
 - `based_on: [def:binary-operation]`
 - opening sentence: `Associativity of a binary operation is the property that ...`
-
-Also good:
-
-- `atom_id: def:associativity-algebra-multiplication`
-- `name: associativity`
-- `based_on: [def:associative-algebra]`
-- opening sentence: `Associativity of algebra multiplication is the property that ...`
 
 Bad:
 

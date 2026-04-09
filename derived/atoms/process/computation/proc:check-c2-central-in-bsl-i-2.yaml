@@ -1,0 +1,19 @@
+$schema: "https://knotebooks.local/schemas/process.computation.schema.yaml"
+atom_id: proc:check-c2-central-in-bsl-i-2
+family: process
+type: computation
+body: |
+  Check that $c^2$ commutes with the generators of $BSL_i(2)$ by verifying
+  $c^2 a = q^{-4} a c^2 = a c^2$,
+  $c^2 b = c(bc - 2a(d-a)) = (bc - 2a(d-a))c - 2ca(d-a) = bc^2$ using
+  $(d-a)c = cd - 2ca - ac = c(d-a)$, and
+  $c^2 d = c(dc + 2ca) = (dc + 2ca)c + 2c^2a = dc^2$.
+depends_on:
+  - def:bsl-q-2
+  - proc:show-bsl-i-2-centrality-by-relations
+produces: []
+related_to:
+  - stmt:bsl-i-2-central-elements
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md

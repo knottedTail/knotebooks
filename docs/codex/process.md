@@ -52,6 +52,19 @@ Do not emit a process atom when the source is primarily:
 8. Add lightweight `references` for raw files, papers, books, notes, or web sources when available.
 9. Use empty arrays when no relation or reference data is present.
 
+## Mixed-Block Split Policy
+
+When one source block mixes several semantic roles:
+
+- extract the main object definition as `concept.definition`
+- extract assertive reformulations or extra structure as `statement` atoms
+- extract literature provenance as `process.reference_note`
+- split proof details into small local `process` atoms that can support the final
+  statement atom
+
+Do not keep a whole mixed literature block inside a single process atom when the
+block already yields reusable canonical definitions or statements.
+
 ## What Codex Must Not Infer
 
 Codex must not:

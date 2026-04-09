@@ -1,0 +1,33 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:bsl-zeta-2-braided-hopf-algebra
+family: statement
+type: proposition
+body: |
+  $BSL_\zeta(2)$ is a braided Hopf algebra with
+  $\Delta\begin{pmatrix}a & b \\ c & d\end{pmatrix}
+  = \begin{pmatrix}
+  a\otimes a + b\otimes c & a\otimes b + b\otimes d \\
+  c\otimes a + d\otimes c & c\otimes b + d\otimes d
+  \end{pmatrix}$,
+  $\varepsilon\begin{pmatrix}a & b \\ c & d\end{pmatrix}
+  = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$, and
+  $S\begin{pmatrix}a & b \\ c & d\end{pmatrix}
+  = \begin{pmatrix}
+  \zeta^2 d + (1-\zeta^2)a & -\zeta^2 b \\
+  -\zeta^2 c & a
+  \end{pmatrix}$.
+depends_on:
+  - def:bsl-q-2
+bindings: []
+supports: []
+related_to:
+  - proc:majid-bsl-q-2-reference-note
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md
+  - kind: book
+    locator: Majid Ex. 10.3.3

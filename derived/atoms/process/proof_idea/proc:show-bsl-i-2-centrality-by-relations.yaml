@@ -1,0 +1,19 @@
+$schema: "https://knotebooks.local/schemas/process.proof_idea.schema.yaml"
+atom_id: proc:show-bsl-i-2-centrality-by-relations
+family: process
+type: proof_idea
+body: |
+  Show centrality of the listed elements in $BSL_i(2)$ by direct computation
+  from the defining relations of $BSL_q(2)$.
+depends_on:
+  - def:bsl-q-2
+produces:
+  - proc:check-a2-central-in-bsl-i-2
+  - proc:check-b2-central-in-bsl-i-2
+  - proc:check-c2-central-in-bsl-i-2
+  - proc:check-d2-minus-2ad-plus-2-central-in-bsl-i-2
+related_to:
+  - stmt:bsl-i-2-central-elements
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md

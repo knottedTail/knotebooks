@@ -1,0 +1,35 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:uqg-efg-presentation
+family: statement
+type: proposition
+body: |
+  Under the change of generators
+  $E_i = X_{+i}q_i^{H_i/2}$, $F_i = q_i^{-H_i / 2} X_{-i}$, and
+  $g_i = q_i^{H_i}$, the relations of $U_q(\mathfrak{g})$ become
+  $[g_i, g_j]=0$,
+  $g_i E_j g_i^{-1} = q_i^{a_{ij}}E_j$,
+  $g_i F_j g_i^{-1} = q_i^{-a_{ij}}F_j$, and
+  $[E_i, F_j] = \delta_{ij} \frac{g_i - g_i^{-1}}{q_i - q_i^{-1}}$,
+  with Hopf algebra structure
+  $\Delta g_i = g_i \otimes g_i$,
+  $\Delta E_i = E_i \otimes g_i + 1 \otimes E_i$,
+  $\Delta F_i = F_i \otimes 1 + g_i^{-1} \otimes F_i$,
+  $\epsilon(g_i) = 1$, $\epsilon(E_i) = \epsilon(F_i) = 0$,
+  $S g_i^{\pm 1} = g_i^{\mp 1}$, $S E_i = - E_i g_i^{-1}$, and
+  $S F_i = -g_i F_i$.
+depends_on:
+  - def:uqg
+bindings: []
+supports: []
+related_to:
+  - proc:majid-uqg-reference-note
+  - stmt:uqg-factorisable-quasitriangular-structure
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md
+  - kind: book
+    locator: Majid

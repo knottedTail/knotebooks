@@ -1,0 +1,18 @@
+$schema: "https://knotebooks.local/schemas/process.computation.schema.yaml"
+atom_id: proc:check-d2-minus-2ad-plus-2-central-in-bsl-i-2
+family: process
+type: computation
+body: |
+  Check that $d^2 - 2ad + 2$ is central by first verifying that
+  $d^2 - 2ad$ commutes trivially with $a$ and $d$, then computing
+  $(d^2 - 2ad)b = (d-2a)db = (d-2a)b(d-2a) = bd(d-2a)$ and similarly
+  $(d^2 - 2ad)c = (d-2a)dc = (d-2a)c(d-2a) = cd(d-2a) = (d^2 - 2ad)c$.
+depends_on:
+  - def:bsl-q-2
+  - proc:show-bsl-i-2-centrality-by-relations
+produces: []
+related_to:
+  - stmt:bsl-i-2-central-elements
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md

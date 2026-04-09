@@ -1,0 +1,29 @@
+$schema: "https://knotebooks.local/schemas/statement.proposition.schema.yaml"
+atom_id: stmt:uqg-factorisable-quasitriangular-structure
+family: statement
+type: proposition
+body: |
+  $U_q(\mathfrak{g})$ admits a factorisable quasitriangular structure with
+  $\mathcal{R}
+  = q^{\sum_i d_i(a^{-1})_{ij} H_i \otimes H_j}
+  \prod^{\leftarrow}_{a>0} \exp_{q_\alpha^{-2}}
+  \left((q_\alpha - q_\alpha^{-1}) E_\alpha \otimes F_\alpha\right)$,
+  where $q_\alpha = q^{d_\alpha}$ and
+  $\exp_{q^{-2}}(x) = \sum_{n=0}^\infty \frac{x^n}{[n; q^{-2}]}$ with
+  $[n; q^{-2}] = \frac{1-q^{-2n}}{1-q^{-2}}$.
+depends_on:
+  - def:uqg
+bindings: []
+supports: []
+related_to:
+  - proc:majid-uqg-reference-note
+  - stmt:uqg-efg-presentation
+answered_by: []
+resolved_by: []
+refuted_by: []
+resolution_status: open
+references:
+  - kind: raw_file
+    locator: raws/2026/04/260409.md
+  - kind: book
+    locator: Majid
