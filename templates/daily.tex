@@ -1,0 +1,29 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation}
+
+
+\title{Daily Research Note Template}
+% \date{April 11, 2026}
+
+
+\begin{document}
+\maketitle
+
+
+\bibliographystyle{amsplain}
+% \nocite{*}
+\bibliography{../bibliography/papers}
+\end{document}

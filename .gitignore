@@ -24,6 +24,12 @@
 # VS Code
 .vscode/
 
+# build
+build/
+
+# Codex
+.codex
+
 # Temporary files
 *.tmp
 *.swp
