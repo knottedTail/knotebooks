@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Feedback"
+  short_description: "Critique and polish English prose"
+  default_prompt: "Use $writing-feedback to review a file under resources/raws and write structured feedback in derived/writing-feedback."

@@ -9,11 +9,12 @@ For any repository modification:
 3. Do not edit tracked files until the user explicitly approves the plan.
 4. After approval, implement only the approved plan.
 5. If the task changes materially after approval, stop and present a revised plan before continuing.
-6. Before committing, create a dedicated branch for the work.
+6. Before making any repo-tracked file change, check out a dedicated branch for the work.
 7. Agent-created branches should use the `codex/` prefix unless the user requests a different naming scheme.
-8. Commit changes with a concise, descriptive commit message.
-9. Do not include unrelated local changes in the branch commit.
-10. Do not modify any files in resources/.
+8. Before committing, confirm you are already on the dedicated work branch.
+9. Commit changes with a concise, descriptive commit message.
+10. Do not include unrelated local changes in the branch commit.
+11. Do not modify any files in resources/.
 
 ## Merge Guidance
 
