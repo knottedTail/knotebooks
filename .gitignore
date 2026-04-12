@@ -24,8 +24,9 @@
 # VS Code
 .vscode/
 
-# build
+# Private folders
 build/
+resources/raws/papers/downloaded
 
 # Codex
 .codex
