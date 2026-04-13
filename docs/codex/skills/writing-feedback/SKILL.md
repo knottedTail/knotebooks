@@ -115,11 +115,29 @@ Give a short summary of the writing's strengths and main improvement areas.
 
 ### 2. Grammar Corrections
 
-List concrete issues in a compact bullet list with:
+For each correction, present the original and polished sentences in a highly contrasting left-aligned layout, and highlight the changed word or phrase in both sentences with bold markup.
 
-- original snippet
-- corrected version
-- brief explanation
+Use this exact structure:
+
+```md
+<div align="left"><strong>Original</strong></div>
+
+<div align="left">[original sentence with the changed phrase in **bold**]</div>
+
+<div align="left"><strong>Polished</strong></div>
+
+<div align="left">[polished sentence with the revised phrase in **bold**]</div>
+
+> **Reason**
+> [brief explanation]
+
+<br>
+<br>
+```
+
+Leave the extra `<br>` spacing between correction items so each pair is visibly separated.
+
+Highlight only the part that changed, not the whole sentence, unless the entire sentence had to be rewritten.
 
 ### 3. Style and English Feedback
 
@@ -160,7 +178,7 @@ End with a short checklist of repeatable writing habits tailored to the sample.
 ## File-writing guidance
 
 - Default to Markdown output.
-- Use plain headings and bullet lists.
+- Use plain headings and bullet lists, except that the `Grammar Corrections` section should use left-aligned HTML blocks plus a callout-style `Reason` block for contrast.
 - Include the source file path near the top of the feedback file.
 - If the source is LaTeX, keep inline math readable in Markdown.
 - Do not convert the entire feedback file to LaTeX unless the user explicitly asks.

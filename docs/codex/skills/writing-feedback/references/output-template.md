@@ -13,9 +13,19 @@ Source: `resources/raws/...`
 
 ## Grammar Corrections
 
-- Original: "..."
-  Correction: "..."
-  Reason: ...
+<div align="left"><strong>Original</strong></div>
+
+<div align="left">... **changed phrase** ...</div>
+
+<div align="left"><strong>Polished</strong></div>
+
+<div align="left">... **revised phrase** ...</div>
+
+> **Reason**
+> ...
+
+<br>
+<br>
 
 ## Style and English Feedback
 
