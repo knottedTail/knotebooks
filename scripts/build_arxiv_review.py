@@ -143,13 +143,17 @@ def build_review_markdown(
         }
         lines.extend(
             [
-                f"- [ ] {entry.get('title', 'Untitled paper')}",
-                f"  Categories: {categories}",
-                f"  Keywords: {keywords}",
-                "  Abstract:",
-                f"    {abstract}",
+                f"## [ ] {entry.get('title', 'Untitled paper')}",
                 "",
-                f"  <!-- {json.dumps(metadata, ensure_ascii=False)} -->",
+                f"**Categories:** {categories}  ",
+                f"**Keywords:** {keywords}",
+                "",
+                "**Abstract**  ",
+                abstract,
+                "",
+                f"<!-- {json.dumps(metadata, ensure_ascii=False)} -->",
+                "",
+                "---",
                 "",
             ]
         )

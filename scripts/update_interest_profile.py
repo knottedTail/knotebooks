@@ -12,11 +12,12 @@ from typing import Any
 
 
 REVIEW_ITEM_PATTERN = re.compile(
-    r"^- \[(?P<checked>[ xX])\] (?P<title>.+?)\n"
-    r"  Categories: (?P<categories>.*?)\n"
-    r"  Keywords: (?P<keywords>.*?)\n"
-    r"  Abstract: (?P<abstract>.*?)\n\n"
-    r"  <!-- (?P<meta>\{.*?\}) -->",
+    r"^## \[(?P<checked>[ xX])\] (?P<title>.+?)\n\n"
+    r"\*\*Categories:\*\* (?P<categories>.*?) {2}\n"
+    r"\*\*Keywords:\*\* (?P<keywords>.*?)\n\n"
+    r"\*\*Abstract\*\* {2}\n"
+    r"(?P<abstract>.*?)\n\n"
+    r"<!-- (?P<meta>\{.*?\}) -->",
     re.MULTILINE | re.DOTALL,
 )
 
