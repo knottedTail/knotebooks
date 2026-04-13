@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Copy a generated arXiv review into the checked folder if needed."""
+"""Copy a generated arXiv review into the checked folder and remove the generated copy.
+
+Behavior:
+- if the checked copy does not exist, copy generated -> checked and then delete generated
+- if the checked copy already exists, delete generated if it is still present
+"""
 
 from __future__ import annotations
 
@@ -23,16 +28,21 @@ def main() -> int:
     source_path = Path(args.generated_dir) / f"{review_date}.md"
     target_path = Path(args.checked_dir) / f"{review_date}.md"
 
-    if not source_path.exists():
-        raise SystemExit(f"Generated review not found: {source_path}")
-
     target_path.parent.mkdir(parents=True, exist_ok=True)
     if target_path.exists():
+        if source_path.exists():
+            source_path.unlink()
+            print(f"Removed generated review because checked copy exists: {source_path}")
         print(f"Checked review already exists: {target_path}")
         return 0
 
+    if not source_path.exists():
+        raise SystemExit(f"Generated review not found: {source_path}")
+
     shutil.copyfile(source_path, target_path)
+    source_path.unlink()
     print(f"Copied review to: {target_path}")
+    print(f"Removed generated review: {source_path}")
     return 0
 
 
