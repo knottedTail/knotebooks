@@ -21,20 +21,27 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import socket
 import sys
+import time
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
 
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
 ARXIV_TAXONOMY_URL = "https://arxiv.org/category_taxonomy"
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
+DEFAULT_USER_AGENT = "knotebooks-arxiv-fetcher/1.0 (+https://arxiv.org/help/api/)"
+DEFAULT_TIMEOUT_SECONDS = 30
+DEFAULT_RETRY_COUNT = 4
+DEFAULT_RETRY_DELAY_SECONDS = 3.0
 
 
 # Stored entry fields.
@@ -212,8 +219,40 @@ def load_config(path: Path) -> Config:
 
 
 def fetch_url(url: str) -> str:
-    with urlopen(url) as response:  # nosec B310 - this tool intentionally fetches official arXiv URLs
-        return response.read().decode("utf-8")
+    request = Request(url, headers={"User-Agent": DEFAULT_USER_AGENT})
+    last_error: Exception | None = None
+
+    for attempt in range(DEFAULT_RETRY_COUNT):
+        try:
+            with urlopen(request, timeout=DEFAULT_TIMEOUT_SECONDS) as response:  # nosec B310 - this tool intentionally fetches official arXiv URLs
+                return response.read().decode("utf-8")
+        except HTTPError as exc:
+            last_error = exc
+            if exc.code == 429 and attempt < DEFAULT_RETRY_COUNT - 1:
+                delay = retry_delay_seconds(exc, attempt)
+                time.sleep(delay)
+                continue
+            raise
+        except (TimeoutError, socket.timeout, URLError) as exc:
+            last_error = exc
+            if attempt < DEFAULT_RETRY_COUNT - 1:
+                time.sleep(DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1))
+                continue
+            raise
+
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("fetch_url failed without raising an explicit error")
+
+
+def retry_delay_seconds(error: HTTPError, attempt: int) -> float:
+    retry_after = error.headers.get("Retry-After")
+    if retry_after:
+        try:
+            return max(float(retry_after), 1.0)
+        except ValueError:
+            pass
+    return DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1)
 
 
 def strip_jsonc_comments(text: str) -> str:
@@ -416,13 +455,33 @@ def main() -> int:
         }
         write_json(taxonomy_path, taxonomy_payload)
         taxonomy_refreshed = True
+        # Be polite to the remote service when the same run also queries the API feed.
+        time.sleep(1.0)
     elif taxonomy_path.exists():
         cached_taxonomy = load_existing_snapshot(taxonomy_path) or {}
         taxonomy_categories = list(cached_taxonomy.get("categories", []))
 
     unknown_categories = validate_categories(config.categories, taxonomy_categories) if taxonomy_categories else []
 
-    entries = fetch_recent_entries(config)
+    try:
+        entries = fetch_recent_entries(config)
+    except (HTTPError, TimeoutError, socket.timeout, URLError) as exc:
+        state_payload = {
+            "last_run_at": now.isoformat(),
+            "last_success_at": None,
+            "last_snapshot_path": str(snapshot_path),
+            "config_path": str(config_path),
+            "taxonomy_path": str(taxonomy_path),
+            "taxonomy_refreshed": taxonomy_refreshed,
+            "category_count": len(config.categories),
+            "entry_count": 0,
+            "unknown_categories": unknown_categories,
+            "last_error": str(exc),
+        }
+        write_json(state_path, state_payload)
+        print(f"Fetch failed after retries: {exc}", file=sys.stderr)
+        return 1
+
     existing_snapshot = load_existing_snapshot(snapshot_path) or {}
     merged_entries = merge_entries(list(existing_snapshot.get("entries", [])), entries)
 
@@ -451,6 +510,7 @@ def main() -> int:
         "category_count": len(config.categories),
         "entry_count": len(merged_entries),
         "unknown_categories": unknown_categories,
+        "last_error": None,
     }
     write_json(state_path, state_payload)
 
