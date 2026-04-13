@@ -8,9 +8,11 @@ Workflow:
 
 Manual step after this script:
 - Copy the generated review into review/checked/ when ready to annotate it.
-- Stage `derived/arxiv/YYYY-MM-DD.json`, `derived/arxiv/category_taxonomy.json`,
+- Stage `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/category_taxonomy.json`,
   `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`,
-  then commit them with a concise message.
+  then commit them with a concise message on a dedicated `codex/...` branch.
+- Merge that branch into `main` only if it contains only those routine-output files
+  and the merge is conflict-free. Otherwise stop for manual follow-up.
 """
 
 from __future__ import annotations
