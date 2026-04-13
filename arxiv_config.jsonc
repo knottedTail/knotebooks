@@ -20,11 +20,44 @@
   // The full official category list is cached after a run in:
   //   derived/arxiv/category_taxonomy.json
   "categories": [
+    "math.AG",
+    "math.AT",
+    "math.GT",
+    "math.KT",
+    "math.OA",
     "math.QA",
-    "math.GT"
+    "math.RT",
+    "math-ph",
+    "quant-ph"
   ],
+  "include_summary": true,
   "max_results": 100,
   "sort_by": "lastUpdatedDate",
   "sort_order": "descending",
-  "refresh_taxonomy": true
+  "refresh_taxonomy": true,
+  "review_top_n": 20,
+  "review_min_score": 4.0,
+  "category_weights": {
+    "math.QA": 5.0,
+    "math.GT": 4.5,
+    "math.RT": 4.0,
+    "math.CT": 3.5,
+    "math.KT": 3.0,
+    "math-ph": 3.0,
+    "quant-ph": 2.0
+  },
+  "keyword_weights": {
+    "quantum group": 6.0,
+    "knot invariant": 6.0,
+    "link invariant": 5.0,
+    "hopf algebra": 5.0,
+    "representation": 3.0,
+    "tensor category": 4.5,
+    "braided": 4.0,
+    "yang-baxter": 4.0,
+    "r-matrix": 3.5,
+    "link homology": 4.0,
+    "Chern-Simons": 3.5,
+    "modular tensor category": 4.5
+  }
 }

@@ -79,6 +79,7 @@ TAXONOMY_FIELD_DOCS = {
 @dataclass
 class Config:
     categories: list[str]
+    include_summary: bool
     max_results: int
     sort_by: str
     sort_order: str
@@ -196,6 +197,7 @@ def load_config(path: Path) -> Config:
     if not isinstance(categories, list) or not categories or not all(isinstance(item, str) for item in categories):
         raise ValueError("Config field 'categories' must be a non-empty list of strings.")
 
+    include_summary = bool(raw.get("include_summary", True))
     max_results = int(raw.get("max_results", 100))
     if max_results <= 0:
         raise ValueError("Config field 'max_results' must be positive.")
@@ -211,6 +213,7 @@ def load_config(path: Path) -> Config:
     refresh_taxonomy = bool(raw.get("refresh_taxonomy", True))
     return Config(
         categories=categories,
+        include_summary=include_summary,
         max_results=max_results,
         sort_by=sort_by,
         sort_order=sort_order,
@@ -273,7 +276,7 @@ def build_query(categories: list[str]) -> str:
     return " OR ".join(f"cat:{category}" for category in categories)
 
 
-def parse_entry(entry: ET.Element) -> dict[str, Any]:
+def parse_entry(entry: ET.Element, include_summary: bool) -> dict[str, Any]:
     entry_id_text = text_or_none(entry.find("atom:id", ATOM_NS)) or ""
     versioned_id = entry_id_text.rsplit("/", 1)[-1]
     arxiv_id = versioned_id.split("v", 1)[0]
@@ -302,11 +305,10 @@ def parse_entry(entry: ET.Element) -> dict[str, Any]:
     if primary is not None:
         primary_category = primary.attrib.get("term")
 
-    return {
+    payload = {
         "arxiv_id": arxiv_id,
         "versioned_id": versioned_id,
         "title": clean_text(text_or_none(entry.find("atom:title", ATOM_NS))),
-        "summary": clean_text(text_or_none(entry.find("atom:summary", ATOM_NS))),
         "authors": authors,
         "affiliations": affiliations,
         "categories": categories,
@@ -319,6 +321,9 @@ def parse_entry(entry: ET.Element) -> dict[str, Any]:
         "abs_url": entry_id_text,
         "pdf_url": pdf_url,
     }
+    if include_summary:
+        payload["summary"] = clean_text(text_or_none(entry.find("atom:summary", ATOM_NS)))
+    return payload
 
 
 def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
@@ -331,7 +336,7 @@ def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
     }
     feed = fetch_url(f"{ARXIV_API_URL}?{urlencode(params)}")
     root = ET.fromstring(feed)
-    return [parse_entry(entry) for entry in root.findall("atom:entry", ATOM_NS)]
+    return [parse_entry(entry, config.include_summary) for entry in root.findall("atom:entry", ATOM_NS)]
 
 
 def fetch_taxonomy() -> list[dict[str, str | None]]:
@@ -491,6 +496,7 @@ def main() -> int:
         "source_url": ARXIV_API_URL,
         "query": {
             "categories": config.categories,
+            "include_summary": config.include_summary,
             "max_results": config.max_results,
             "sort_by": config.sort_by,
             "sort_order": config.sort_order,
