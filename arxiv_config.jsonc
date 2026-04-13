@@ -1,0 +1,30 @@
+{
+  // arXiv category examples:
+  // Mathematics:
+  //   math.AG = Algebraic Geometry
+  //   math.AT = Algebraic Topology
+  //   math.CT = Category Theory
+  //   math.GT = Geometric Topology
+  //   math.KT = K-Theory and Homology
+  //   math.NT = Number Theory
+  //   math.OA = Operator Algebras
+  //   math.QA = Quantum Algebra
+  //   math.RA = Rings and Algebras
+  //   math.RT = Representation Theory
+  //
+  // Other examples:
+  //   hep-th   = High Energy Physics - Theory
+  //   math-ph  = Mathematical Physics
+  //   quant-ph = Quantum Physics
+  //
+  // The full official category list is cached after a run in:
+  //   derived/arxiv/category_taxonomy.json
+  "categories": [
+    "math.QA",
+    "math.GT"
+  ],
+  "max_results": 100,
+  "sort_by": "lastUpdatedDate",
+  "sort_order": "descending",
+  "refresh_taxonomy": true
+}

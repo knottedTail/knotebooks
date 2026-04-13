@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -164,7 +165,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--config",
-        default="arxiv_config.json",
+        default="arxiv_config.jsonc",
         help="Path to the JSON config file. Default: %(default)s",
     )
     parser.add_argument(
@@ -182,7 +183,7 @@ def parse_args() -> argparse.Namespace:
 
 def load_config(path: Path) -> Config:
     with path.open("r", encoding="utf-8") as handle:
-        raw = json.load(handle)
+        raw = json.loads(strip_jsonc_comments(handle.read()))
 
     categories = raw.get("categories", [])
     if not isinstance(categories, list) or not categories or not all(isinstance(item, str) for item in categories):
@@ -213,6 +214,20 @@ def load_config(path: Path) -> Config:
 def fetch_url(url: str) -> str:
     with urlopen(url) as response:  # nosec B310 - this tool intentionally fetches official arXiv URLs
         return response.read().decode("utf-8")
+
+
+def strip_jsonc_comments(text: str) -> str:
+    """Remove // comments while leaving quoted strings intact."""
+
+    pattern = r'"(?:\\.|[^"\\])*"|//.*'
+
+    def replacer(match: re.Match[str]) -> str:
+        token = match.group(0)
+        if token.startswith("//"):
+            return ""
+        return token
+
+    return re.sub(pattern, replacer, text)
 
 
 def build_query(categories: list[str]) -> str:
