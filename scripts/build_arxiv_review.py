@@ -168,8 +168,8 @@ def build_review_markdown(
                 ]
             )
 
-    append_section("Papers I Will Have Interested In", will_entries, will_matches)
-    append_section("Papers I Might Have Interested In", might_entries, might_matches)
+    append_section("Strong Matches", will_entries, will_matches)
+    append_section("Possible Matches", might_entries, might_matches)
 
     return "\n".join(lines).rstrip() + "\n"
 
