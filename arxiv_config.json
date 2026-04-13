@@ -1,0 +1,10 @@
+{
+  "categories": [
+    "math.QA",
+    "math.GT"
+  ],
+  "max_results": 100,
+  "sort_by": "lastUpdatedDate",
+  "sort_order": "descending",
+  "refresh_taxonomy": true
+}

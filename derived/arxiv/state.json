@@ -1,0 +1,11 @@
+{
+  "last_run_at": "2026-04-13T10:39:47.869419+09:00",
+  "last_success_at": "2026-04-13T10:39:47.869419+09:00",
+  "last_snapshot_path": "derived/arxiv/2026-04-13.json",
+  "config_path": "arxiv_config.json",
+  "taxonomy_path": "derived/arxiv/category_taxonomy.json",
+  "taxonomy_refreshed": true,
+  "category_count": 2,
+  "entry_count": 100,
+  "unknown_categories": []
+}
