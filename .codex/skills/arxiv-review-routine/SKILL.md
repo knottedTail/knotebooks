@@ -15,6 +15,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
 4. Generate today's review Markdown under `derived/arxiv/review/generated/`.
 5. Manually copy the generated review to `derived/arxiv/review/checked/` when you are ready to annotate it.
 6. Remove the generated review after the checked copy exists.
+7. Stage `derived/arxiv/review/generated/YYYY-MM-DD.md` and `derived/arxiv/state.json`, then commit them with a concise message.
 
 ## Commands
 
@@ -26,6 +27,9 @@ Use this skill for the repository's daily arXiv-interest workflow.
   `python3 scripts/build_arxiv_review.py`
 - Optional helper to prepare the checked copy and remove the generated file:
   `python3 scripts/prepare_arxiv_review_copy.py`
+- Stage and commit the routine outputs:
+  `git add derived/arxiv/review/generated/YYYY-MM-DD.md derived/arxiv/state.json`
+  `git commit -m "Update arXiv review for YYYY-MM-DD"`
 
 ## File roles
 
@@ -43,5 +47,6 @@ Use this skill for the repository's daily arXiv-interest workflow.
 - The review parser expects the current heading-based Markdown format from `scripts/build_arxiv_review.py`.
 - Manual copy is the default workflow. The helper copy script is optional.
 - Once a checked file exists, keeping the generated copy is unnecessary.
+- The routine's git step is intentional and narrow: stage only the generated review file and `derived/arxiv/state.json`.
 
 Read [references/workflow.md](references/workflow.md) for the folder layout and routine details.

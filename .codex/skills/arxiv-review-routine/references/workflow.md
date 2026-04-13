@@ -8,6 +8,7 @@
 4. Generate today's review in `derived/arxiv/review/generated/`.
 5. Manually copy today's generated review into `derived/arxiv/review/checked/` when you are ready to review it.
 6. Remove the generated review after the checked file exists.
+7. Stage `derived/arxiv/review/generated/YYYY-MM-DD.md` and `derived/arxiv/state.json`, then commit them.
 
 ## Folder layout
 
@@ -29,3 +30,4 @@
 - Copy from `generated/` to `checked/` deliberately; this keeps the transition from system output to user annotation explicit.
 - After `checked/YYYY-MM-DD.md` exists, `generated/YYYY-MM-DD.md` can be removed.
 - After checking boxes, run the routine again so the checked file is incorporated before generating the next review.
+- When saving routine outputs, stage only the generated review file and `derived/arxiv/state.json`.

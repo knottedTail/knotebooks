@@ -8,6 +8,8 @@ Workflow:
 
 Manual step after this script:
 - Copy the generated review into review/checked/ when ready to annotate it.
+- Stage `derived/arxiv/review/generated/YYYY-MM-DD.md` and `derived/arxiv/state.json`,
+  then commit them with a concise message.
 """
 
 from __future__ import annotations
