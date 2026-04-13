@@ -12,7 +12,7 @@ from typing import Any
 
 
 REVIEW_ITEM_PATTERN = re.compile(
-    r"^## \[(?P<checked>[ xX])\] (?P<title>.+?)\n\n"
+    r"^### \[(?P<checked>[ xX])\] (?P<title>.+?)\n\n"
     r"\*\*Categories:\*\* (?P<categories>.*?) {2}\n"
     r"\*\*Keywords:\*\* (?P<keywords>.*?)\n\n"
     r"\*\*Abstract\*\* {2}\n"

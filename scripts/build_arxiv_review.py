@@ -25,7 +25,8 @@ def strip_jsonc_comments(text: str) -> str:
 @dataclass
 class ReviewConfig:
     review_top_n: int
-    review_min_score: float
+    review_high_score: float
+    review_mid_score: float
     category_weights: dict[str, float]
     keyword_weights: dict[str, float]
 
@@ -60,7 +61,8 @@ def load_review_config(path: Path) -> ReviewConfig:
     raw = load_jsonc(path)
     return ReviewConfig(
         review_top_n=int(raw.get("review_top_n", 20)),
-        review_min_score=float(raw.get("review_min_score", 4.0)),
+        review_high_score=float(raw.get("review_high_score", 10.0)),
+        review_mid_score=float(raw.get("review_mid_score", 4.0)),
         category_weights={str(k): float(v) for k, v in raw.get("category_weights", {}).items()},
         keyword_weights={str(k): float(v) for k, v in raw.get("keyword_weights", {}).items()},
     )
@@ -120,8 +122,10 @@ def score_entry(entry: dict[str, Any], profile: dict[str, Any]) -> dict[str, Any
 
 def build_review_markdown(
     review_date: str,
-    entries: list[dict[str, Any]],
-    scored_entries: list[dict[str, Any]],
+    will_entries: list[dict[str, Any]],
+    will_matches: list[dict[str, Any]],
+    might_entries: list[dict[str, Any]],
+    might_matches: list[dict[str, Any]],
 ) -> str:
     lines = [
         f"# arXiv Review {review_date}",
@@ -130,33 +134,42 @@ def build_review_markdown(
         "",
     ]
 
-    for entry, match in zip(entries, scored_entries, strict=True):
-        categories = ", ".join(entry.get("categories", [])) or "None"
-        keywords = ", ".join(match["matched_keywords"]) or "None"
-        abstract = clean_single_line(entry.get("summary")) or "No abstract stored."
-        metadata = {
-            "arxiv_id": entry.get("arxiv_id"),
-            "versioned_id": entry.get("versioned_id"),
-            "score": match["score"],
-            "matched_categories": match["matched_categories"],
-            "matched_keywords": match["matched_keywords"],
-        }
-        lines.extend(
-            [
-                f"## [ ] {entry.get('title', 'Untitled paper')}",
-                "",
-                f"**Categories:** {categories}  ",
-                f"**Keywords:** {keywords}",
-                "",
-                "**Abstract**  ",
-                abstract,
-                "",
-                f"<!-- {json.dumps(metadata, ensure_ascii=False)} -->",
-                "",
-                "---",
-                "",
-            ]
-        )
+    def append_section(header: str, entries: list[dict[str, Any]], matches: list[dict[str, Any]]) -> None:
+        lines.extend([f"## {header}", ""])
+        if not entries:
+            lines.extend(["No papers in this section today.", "", "---", ""])
+            return
+
+        for entry, match in zip(entries, matches, strict=True):
+            categories = ", ".join(entry.get("categories", [])) or "None"
+            keywords = ", ".join(match["matched_keywords"]) or "None"
+            abstract = clean_single_line(entry.get("summary")) or "No abstract stored."
+            metadata = {
+                "arxiv_id": entry.get("arxiv_id"),
+                "versioned_id": entry.get("versioned_id"),
+                "score": match["score"],
+                "matched_categories": match["matched_categories"],
+                "matched_keywords": match["matched_keywords"],
+            }
+            lines.extend(
+                [
+                    f"### [ ] {entry.get('title', 'Untitled paper')}",
+                    "",
+                    f"**Categories:** {categories}  ",
+                    f"**Keywords:** {keywords}",
+                    "",
+                    "**Abstract**  ",
+                    abstract,
+                    "",
+                    f"<!-- {json.dumps(metadata, ensure_ascii=False)} -->",
+                    "",
+                    "---",
+                    "",
+                ]
+            )
+
+    append_section("Papers I Will Have Interested In", will_entries, will_matches)
+    append_section("Papers I Might Have Interested In", might_entries, might_matches)
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -183,22 +196,29 @@ def main() -> int:
     scored_pairs: list[tuple[dict[str, Any], dict[str, Any]]] = []
     for entry in entries:
         match = score_entry(entry, profile)
-        if match["score"] >= config.review_min_score:
+        if match["score"] >= config.review_mid_score:
             scored_pairs.append((entry, match))
 
     scored_pairs.sort(key=lambda pair: (pair[1]["score"], pair[0].get("updated", "")), reverse=True)
     scored_pairs = scored_pairs[: config.review_top_n]
-    selected_entries = [entry for entry, _ in scored_pairs]
-    selected_matches = [match for _, match in scored_pairs]
+    will_pairs = [pair for pair in scored_pairs if pair[1]["score"] >= config.review_high_score]
+    might_pairs = [pair for pair in scored_pairs if config.review_mid_score <= pair[1]["score"] < config.review_high_score]
+    will_entries = [entry for entry, _ in will_pairs]
+    will_matches = [match for _, match in will_pairs]
+    might_entries = [entry for entry, _ in might_pairs]
+    might_matches = [match for _, match in might_pairs]
 
     review_date = str(snapshot.get("date") or snapshot_path.stem)
     output_path = Path(args.output_dir) / f"{review_date}.md"
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(build_review_markdown(review_date, selected_entries, selected_matches), encoding="utf-8")
+    output_path.write_text(
+        build_review_markdown(review_date, will_entries, will_matches, might_entries, might_matches),
+        encoding="utf-8",
+    )
 
     print(f"Wrote interest profile: {args.profile}")
     print(f"Wrote review: {output_path}")
-    print(f"Selected papers: {len(selected_entries)}")
+    print(f"Selected papers: {len(scored_pairs)}")
     return 0
 
 

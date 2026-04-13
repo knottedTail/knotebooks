@@ -36,7 +36,8 @@
   "sort_order": "descending",
   "refresh_taxonomy": true,
   "review_top_n": 20,
-  "review_min_score": 4.0,
+  "review_high_score": 10.0,
+  "review_mid_score": 4.0,
   "category_weights": {
     "math.QA": 5.0,
     "math.GT": 4.5,
