@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-04-13T14:14:52.732470+09:00",
-  "last_success_at": "2026-04-13T14:14:52.732470+09:00",
+  "last_run_at": "2026-04-13T15:13:02.370981+09:00",
+  "last_success_at": "2026-04-13T15:13:02.370981+09:00",
   "last_snapshot_path": "derived/arxiv/2026-04-13.json",
   "config_path": "arxiv_config.jsonc",
   "taxonomy_path": "derived/arxiv/category_taxonomy.json",
   "taxonomy_refreshed": true,
   "category_count": 9,
-  "entry_count": 194,
+  "entry_count": 100,
   "unknown_categories": [],
   "last_error": null
 }
