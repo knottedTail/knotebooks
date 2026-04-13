@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Run the full arXiv review routine.
+"""Run the arXiv review routine up to generated review creation.
 
 Workflow:
 1. Process any unchecked review feedback already present in review/checked/.
 2. Fetch today's arXiv snapshot.
 3. Generate today's review into review/generated/.
-4. Create today's checked copy if it does not already exist.
+
+Manual step after this script:
+- Copy the generated review into review/checked/ when ready to annotate it.
 """
 
 from __future__ import annotations
@@ -34,7 +36,6 @@ def main() -> int:
     run_step([args.python, str(root / "scripts/update_interest_profile.py")])
     run_step([args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
     run_step([args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
-    run_step([args.python, str(root / "scripts/prepare_arxiv_review_copy.py")])
     return 0
 
 

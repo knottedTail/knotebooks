@@ -6,7 +6,7 @@
 2. Apply their checkbox feedback to `derived/arxiv/interest_profile.json`.
 3. Fetch today's arXiv snapshot.
 4. Generate today's review in `derived/arxiv/review/generated/`.
-5. Copy today's generated review into `derived/arxiv/review/checked/` if the checked copy is missing.
+5. Manually copy today's generated review into `derived/arxiv/review/checked/` when you are ready to review it.
 
 ## Folder layout
 
@@ -25,4 +25,5 @@
 
 - Edit only files in `derived/arxiv/review/checked/`.
 - Leave files in `derived/arxiv/review/generated/` untouched.
+- Copy from `generated/` to `checked/` deliberately; this keeps the transition from system output to user annotation explicit.
 - After checking boxes, run the routine again so the checked file is incorporated before generating the next review.

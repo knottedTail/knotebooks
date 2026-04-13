@@ -1,4 +1,4 @@
 interface:
   display_name: "arXiv Review Routine"
   short_description: "Run the daily arXiv review workflow"
-  default_prompt: "Use $arxiv-review-routine to process checked review files, update the interest profile, fetch today's arXiv updates, generate the new review, and prepare the checked copy."
+  default_prompt: "Use $arxiv-review-routine to process checked review files, update the interest profile, fetch today's arXiv updates, and generate the new review for manual copying into checked."

@@ -1,6 +1,6 @@
 ---
 name: arxiv-review-routine
-description: Run the daily arXiv recommendation routine for this repository. Use when Codex should process checked review files to update interest weights, fetch today's arXiv updates, generate the new review in derived/arxiv/review/generated, and prepare a copy in derived/arxiv/review/checked for manual checkbox review.
+description: Run the daily arXiv recommendation routine for this repository. Use when Codex should process checked review files to update interest weights, fetch today's arXiv updates, and generate the new review in derived/arxiv/review/generated for manual copying into derived/arxiv/review/checked.
 ---
 
 # arXiv Review Routine
@@ -13,7 +13,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
 2. Update `derived/arxiv/interest_profile.json`.
 3. Fetch today's arXiv metadata with `scripts/check_arxiv_updates.py`.
 4. Generate today's review Markdown under `derived/arxiv/review/generated/`.
-5. Copy the generated review to `derived/arxiv/review/checked/` if today's checked file does not already exist.
+5. Manually copy the generated review to `derived/arxiv/review/checked/` when you are ready to annotate it.
 
 ## Commands
 
@@ -23,7 +23,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
   `python3 scripts/update_interest_profile.py`
 - Build the review only:
   `python3 scripts/build_arxiv_review.py`
-- Prepare the checked copy only:
+- Optional helper to prepare the checked copy:
   `python3 scripts/prepare_arxiv_review_copy.py`
 
 ## File roles
@@ -40,5 +40,6 @@ Use this skill for the repository's daily arXiv-interest workflow.
 - The review updater skips checked files already listed in `processed_review_files`.
 - The generated review is split into `Strong Matches` and `Possible Matches`.
 - The review parser expects the current heading-based Markdown format from `scripts/build_arxiv_review.py`.
+- Manual copy is the default workflow. The helper copy script is optional.
 
 Read [references/workflow.md](references/workflow.md) for the folder layout and routine details.
