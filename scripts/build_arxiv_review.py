@@ -36,7 +36,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", default="arxiv_config.jsonc")
     parser.add_argument("--snapshot", help="Path to the day snapshot JSON file.")
     parser.add_argument("--profile", default="derived/arxiv/interest_profile.json")
-    parser.add_argument("--output-dir", default="derived/arxiv/review")
+    parser.add_argument("--output-dir", default="derived/arxiv/review/generated")
     return parser.parse_args()
 
 
@@ -80,6 +80,7 @@ def ensure_profile(path: Path, config: ReviewConfig) -> dict[str, Any]:
             "negative_count": 0,
             "last_review_path": None,
         },
+        "processed_review_files": [],
         "updated_at": datetime.now().astimezone().isoformat(),
     }
     write_json(path, payload)

@@ -24,7 +24,8 @@ REVIEW_ITEM_PATTERN = re.compile(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--review", required=True, help="Path to the Markdown review file.")
+    parser.add_argument("--review", help="Path to a single Markdown review file.")
+    parser.add_argument("--review-dir", default="derived/arxiv/review/checked", help="Directory of checked Markdown review files.")
     parser.add_argument("--profile", default="derived/arxiv/interest_profile.json")
     parser.add_argument("--feedback-dir", default="derived/arxiv/feedback")
     return parser.parse_args()
@@ -44,6 +45,18 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
 
 def clamp(value: float, minimum: float = -2.0, maximum: float = 8.0) -> float:
     return max(minimum, min(value, maximum))
+
+
+def ensure_profile(path: Path) -> dict[str, Any]:
+    profile = load_json(path)
+    profile.setdefault("category_weights", {})
+    profile.setdefault("keyword_weights", {})
+    history = profile.setdefault("history", {})
+    history.setdefault("positive_count", 0)
+    history.setdefault("negative_count", 0)
+    history.setdefault("last_review_path", None)
+    profile.setdefault("processed_review_files", [])
+    return profile
 
 
 def parse_review(path: Path) -> list[dict[str, Any]]:
@@ -105,6 +118,7 @@ def update_profile(profile: dict[str, Any], review_items: list[dict[str, Any]], 
             "negative_count": negative_count,
             "last_review_path": str(review_path),
         },
+        "processed_review_files": sorted(set(str(path) for path in profile.get("processed_review_files", []) + [str(review_path)])),
         "updated_at": updated_at,
     }
     feedback_payload = {
@@ -115,23 +129,42 @@ def update_profile(profile: dict[str, Any], review_items: list[dict[str, Any]], 
     return profile_payload, feedback_payload
 
 
+def iter_pending_reviews(review_dir: Path, processed_files: set[str]) -> list[Path]:
+    if not review_dir.exists():
+        return []
+    pending: list[Path] = []
+    for path in sorted(review_dir.glob("*.md")):
+        if str(path) not in processed_files:
+            pending.append(path)
+    return pending
+
+
 def main() -> int:
     args = parse_args()
-    review_path = Path(args.review)
     profile_path = Path(args.profile)
     feedback_dir = Path(args.feedback_dir)
+    profile = ensure_profile(profile_path)
 
-    profile = load_json(profile_path)
-    review_items = parse_review(review_path)
-    profile_payload, feedback_payload = update_profile(profile, review_items, review_path)
+    review_paths: list[Path]
+    if args.review:
+        review_paths = [Path(args.review)]
+    else:
+        review_paths = iter_pending_reviews(Path(args.review_dir), set(str(path) for path in profile.get("processed_review_files", [])))
 
-    write_json(profile_path, profile_payload)
-    feedback_path = feedback_dir / f"{review_path.stem}.json"
-    write_json(feedback_path, feedback_payload)
+    processed_count = 0
+    for review_path in review_paths:
+        review_items = parse_review(review_path)
+        profile, feedback_payload = update_profile(profile, review_items, review_path)
+        feedback_path = feedback_dir / f"{review_path.stem}.json"
+        write_json(feedback_path, feedback_payload)
+        processed_count += len(review_items)
+        print(f"Wrote feedback: {feedback_path}")
+
+    write_json(profile_path, profile)
 
     print(f"Wrote updated profile: {profile_path}")
-    print(f"Wrote feedback: {feedback_path}")
-    print(f"Processed items: {len(review_items)}")
+    print(f"Processed review files: {len(review_paths)}")
+    print(f"Processed items: {processed_count}")
     return 0
 
 
