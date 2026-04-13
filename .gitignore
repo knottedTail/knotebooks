@@ -30,6 +30,9 @@ resources/raws/papers/downloaded
 
 # Codex
 .codex
+!.codex/
+!.codex/skills/
+!.codex/skills/**
 
 # Temporary files
 *.tmp
