@@ -183,7 +183,7 @@ def clean_single_line(value: Any) -> str:
 
 def default_snapshot_path() -> Path:
     today = datetime.now().date().isoformat()
-    return Path("derived/arxiv") / f"{today}.json"
+    return Path("derived/arxiv/snapshots") / f"{today}.json"
 
 
 def main() -> int:

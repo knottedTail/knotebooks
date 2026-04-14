@@ -4,10 +4,10 @@
 This script reads category settings from a JSON config file, fetches recent
 entries from the official arXiv Atom API, optionally refreshes a local copy of
 the official arXiv category taxonomy, and writes a day-named JSON snapshot
-under ``derived/arxiv/``.
+under ``derived/arxiv/snapshots/``.
 
 Storage behavior:
-  - The main output is ``derived/arxiv/YYYY-MM-DD.json``.
+  - The main output is ``derived/arxiv/snapshots/YYYY-MM-DD.json``.
   - Re-running the script on the same day updates the same file.
   - Entries are merged by base arXiv identifier, keeping the record with the
     newest ``updated`` timestamp.
@@ -178,7 +178,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output-dir",
-        default="derived/arxiv",
+        default="derived/arxiv/snapshots",
         help="Directory for JSON outputs. Default: %(default)s",
     )
     parser.add_argument(
