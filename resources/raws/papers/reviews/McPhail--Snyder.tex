@@ -1,9 +1,13 @@
 \documentclass[11pt]{amsart}
 
 \usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{thmtools}
+
 \usepackage{hyperref}
+\usepackage[backend=biber, doi=true, url=true, style=alphabetic]{biblatex}
+\addbibresource{bibliography.bib}
 
 % % Theorem environments
 \declaretheorem[numberwithin=section]
@@ -32,35 +36,83 @@ sibling=theorem,
 
 \maketitle
 
-\section{Timelines}
+\section{Overview}
 
 There are 8 papers written by McPhail--Snyder.
-The following is citation of those papers in the order of time.
+The following is citation of those papers in the order of decreasing time of the first uploaded on arXiv.
 \begin{itemize}
-    \item \cite{McPhailSnyder_Miller-2020-palnar_diagrams}
-    \item \cite{Chen_McPhailSnyder_Morrison_Snyder-2021-Kashaev_Reshetikhin}
-    \item \cite{McPhailSnyder-2021-thesis}
-    \item \cite{McPhailSnyder-2022-holonomy_torsion}
-    \item \cite{McPhailSnyder-2025-octahedral_coordinates}
-    \item \cite{McPhailSnyder-2025-quantization_tangle}
-    \item \cite{McPhailSnyder-2026-hyperbolic_octa_quantum}
-    \item \cite{McPhailSnyder_Reshetikhin-2025-cyclic_modules}
+    %2509.02365
+    \item \cite{McPhailSnyder-2025-quantization_tangle}: \citetitle{McPhailSnyder-2025-quantization_tangle}
+    %2509.02354
+    \item \cite{McPhailSnyder_Reshetikhin-2025-cyclic_modules} (with Nicholas Reshetikhin): \citetitle{McPhailSnyder_Reshetikhin-2025-cyclic_modules}
+    %2404.19155
+    \item \cite{McPhailSnyder-2025-octahedral_coordinates}: \citetitle{McPhailSnyder-2025-octahedral_coordinates}
+    %2203.06042
+    \item \cite{McPhailSnyder-2026-hyperbolic_octa_quantum}: \citetitle{McPhailSnyder-2026-hyperbolic_octa_quantum}
+    %2108.06561
+    \item \cite{Chen_McPhailSnyder_Morrison_Snyder-2021-Kashaev_Reshetikhin} (with Kai-Chieh Chen, Scott Morrison and Noah Snyder): \citetitle{Chen_McPhailSnyder_Morrison_Snyder-2021-Kashaev_Reshetikhin}
+    \item \cite[Thesis]{McPhailSnyder-2021-thesis}: \citetitle{McPhailSnyder-2021-thesis}
+    %2005.01133
+    \item \cite{McPhailSnyder-2022-holonomy_torsion}: \citetitle{McPhailSnyder-2022-holonomy_torsion}
+    %1805.00575
+    \item \cite{McPhailSnyder_Miller-2020-planar_diagrams} (with Kyle. A. Miller): \citetitle{McPhailSnyder_Miller-2020-planar_diagrams}
 \end{itemize}
 
-In this paper, we review part of those papers related to the octahedral decomposition of knot complemnts and quantum invariants (holonomy invariants).
+In this paper, we focus on reviewing only the following papers related to the octahedra decompositon of knot complements and quantum invrariants:
+\begin{center}
+    \cite{McPhailSnyder-2025-quantization_tangle}, 
+    \cite{McPhailSnyder_Reshetikhin-2025-cyclic_modules}
+    \cite{McPhailSnyder-2025-octahedral_coordinates},
+    \cite{McPhailSnyder-2026-hyperbolic_octa_quantum}, 
+    \cite{McPhailSnyder-2021-thesis},
+    \cite{McPhailSnyder-2022-holonomy_torsion}.
+\end{center}
+We are using common definitions and recall results on the above paper appropriately.
+Let us conclude the overview by providing short summary for remaining papaers.
 
-\section{\cite{McPhailSnyder_Miller-2020-palnar_diagrams}}
-\section{\cite{Chen_McPhailSnyder_Morrison_Snyder-2021-Kashaev_Reshetikhin}}
-\section{\cite{McPhailSnyder-2021-thesis}}
-\section{\cite{McPhailSnyder-2022-holonomy_torsion}}
-\section{\cite{McPhailSnyder-2025-octahedral_coordinates}}
-\section{\cite{McPhailSnyder-2025-quantization_tangle}}
-\section{\cite{McPhailSnyder-2026-hyperbolic_octa_quantum}}
-\section{\cite{McPhailSnyder_Reshetikhin-2025-cyclic_modules}}
+\medskip
+\noindent \textbf{Review on \cite{McPhailSnyder_Miller-2020-planar_diagrams}}.
+This paper aims to generalize quantum invariants of planar graph obtained from the representation of quantum group.
+
+The authors consider \textit{virtual graphs}, which are (stable) equivalence classes of graphs embedded in a fixed surface.
+The local topology of virtual graphs forms a \texttt{planar diagram category}, and quantum invariants are regarded as functors from this category to the category of modules over a quantum group.
+In this way, the author seems to generalize the flow polynomial, $S$-polynomial, and $\mathfrak{sl}(N)$ Penrose polynomial.
+
+\medskip
+\noindent
+
+\section{Notes}
+
+\begin{center}
+    \cite{McPhailSnyder-2025-quantization_tangle}
+\end{center}
+
+A list of quesetions:
+\begin{itemize}
+    \item Why Chern-Simons invariant $\mathcal{I}(L, \rho, \mathfrak{s})$ is called a 'line bundle' over representation variaty?
+    \item "Choice of root of the unity" $\rightarrow$ "Choice of $\log$-parameter $\mathfrak{s}$"?
+\end{itemize}
+
+Observations:
+\begin{itemize}
+    \item page 4: (When computing $\mathcal{I}$ using the ideal triangulation) adding up lifted dilogarithms on \textit{flattening} $\rightarrow$ only depends on the choice of the $\log$-parameter
+    \item page 5: (GOAL) the braiding (without phase ambiguity) -> tangle invariant, to explain the results of \cite{McPhailSnyder_Reshetikhin-2025-cyclic_modules} in terms of CS theory and hyperbolic geometry.
+    \item page 5: colors on segments and regions $\Rightarrow$ 2-category is used instead of monoidal category
+    \item page 6: 2-morphims = colored tangles, 1-morphisms = ``composition of SL2 matrices'' where each morphism $g \in \mathrm{SL}_2$ represents $u \rightarrow g\cdot u$ for a given object $u \in \mathbb{C}^2 \setminus \{ 0\}$.
+    \item page 6: any monoidal cat is a 2-category
+    \item page 8: KBSM is related to the \textit{cobraiding} on $\mathrm{SL}_q(2)$; (the author already knows this relation!).
+    \item page 8: \cite{Chen_McPhailSnyder_Morrison_Snyder-2021-Kashaev_Reshetikhin} used already braiding on \( U_\xi / \ker{\xi} \) ! but there is a drawback that the geometric meaning and the relation between the Kashaev invariant is missing.
+    \item Section 2: 
+    This section provides viewpoint on quantum/classical gauge theory.
+    The authors consider the classical Chern-Simons invariant as a holomorphic section $\mathcal{I}(M_K)$ of the knot exterior $M_K$ of a given framed oriented knot $K$ in $S^3$ (Proposition 2.2).
+    This section is defined for a line bundle over the \textit{decorated} representation variety $R(M_K)$ but the invariant is invariant under the choice of decorations.
+    Similarly, the author claim that he (will) define a section for the \textit{vector} bundle over the decorated representation variety.
+\end{itemize}
 
 
-\bibliographystyle{amsalpha}
-% \nocite{*}
-\bibliography{bibliography}
+\printbibliography
+% \bibliographystyle{alphabetic-side}
+% % \nocite{*}
+% \bibliography{bibliography}
 
 \end{document}

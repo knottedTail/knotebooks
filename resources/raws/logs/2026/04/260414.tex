@@ -1,0 +1,63 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 14, 2026}
+
+
+\begin{document}
+\maketitle
+
+After daily exercise, we checked the result of automation of the skill \texttt{arXiv-review-routine}.
+The automation works with unchecked arxiv review file generated yesterday.
+The problem was that checking check boxes in preview of VScode doesn't modify the original file, and that no check boxes are checked.
+\par\vspace{1em}
+We tried to set daily workflow with \texttt{arXiv-review-routine}.
+Currently, Codex performs the skill at a set time (PM 12:00) by making a new worktree.
+Open VScode and checkout the branch for the corresponding branch, then VScode will open new repository.
+Using the opend editor, the user(I) checked generated review file, and then, ask codex to merge the branch and remove the worktree after committing.
+
+Additionally, we modified the format of the review file and the folder structure.
+
+\par\vspace{1em}
+
+While checking the updated papers from arXiv, we found a paper dealing with the Reidemeister torsion: \cite{Benard-Tange-Tran-Ueki-2026-nonacyclic_L_functions_Whiteheadlink}.
+It was first written in 2023, but it was updated in 2026.
+There are familiar names in the author list.
+
+\par\vspace{1em}
+
+We started to read instroductions of 8 papers written by McPhail-Snyder.
+By writing the review paper, I spent time for adapting 'margin cite' style of McPhail-Snyder's paper.
+However, he uses his custom .cls class for this function, and that I give-up to implement it since I didn't want to make my writing system more complicated.
+
+First, I read \cite{McPhailSnyder_Miller-2020-planar_diagrams} attempting to generalize Resehtikhin--Turaev invariant to \textit{virtual graph} which seems like (equivalence classes of) ribbon grpahs on a surface.
+Then, I realized that we should review from the recent one to the past one since the newer paper contains information of older ones.
+
+While reading the part of the paper describing a relation between the quantum invariant constructed in the paper with the other quantum invariants constructed via ideal triangulation, the relation between Heisenberg double and the Drinfel'd double came up in my mind.
+It was investigated by Kashaev in \cite{Kashaev-1996-Heisenberg_double}.
+As I reviewed that paper, now I can understand that it is a relation between the double cross product which results in a bialgebra, and the cross product which results in an just algebra.
+In other words, Kashaev claimed that there is an algebra homomorphisdm between two doubles which seems like the coproduct.
+
+\par \vspace{1em}
+Continuing reading first two sections of \cite{McPhailSnyder_Miller-2020-planar_diagrams}, the author treats TQFT invariants as holomorphic sections for line/vector bundles over the \textit{decorated} representation variety.
+Used decorations are eigenvalues of peripheral subgroups, so that it is highly related to the environment of $A$-polynomials.
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
