@@ -1,7 +1,7 @@
 {
-  "last_run_at": "2026-04-13T15:13:02.370981+09:00",
-  "last_success_at": "2026-04-13T15:13:02.370981+09:00",
-  "last_snapshot_path": "derived/arxiv/2026-04-13.json",
+  "last_run_at": "2026-04-14T13:08:17.311132+09:00",
+  "last_success_at": "2026-04-14T13:08:17.311132+09:00",
+  "last_snapshot_path": "derived/arxiv/2026-04-14.json",
   "config_path": "arxiv_config.jsonc",
   "taxonomy_path": "derived/arxiv/category_taxonomy.json",
   "taxonomy_refreshed": true,
