@@ -30,7 +30,7 @@
     "math-ph",
     "quant-ph"
   ],
-  "include_summary": true,
+  "include_summary": false,
   "max_results": 100,
   "sort_by": "lastUpdatedDate",
   "sort_order": "descending",
