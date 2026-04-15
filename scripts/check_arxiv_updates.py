@@ -434,6 +434,7 @@ def main() -> int:
     write_json(snapshot_path, snapshot_payload)
 
     if config.include_review_summary:
+        ensure_output_dir(review_source_path.parent)
         existing_review_source = load_existing_snapshot(review_source_path) or {}
         merged_review_entries = merge_entries(list(existing_review_source.get("entries", [])), entries)
         review_source_payload = {
