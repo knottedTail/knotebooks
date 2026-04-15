@@ -17,7 +17,7 @@
   //   math-ph  = Mathematical Physics
   //   quant-ph = Quantum Physics
   //
-  // The full official category list is cached after a run in:
+  // A cached category list, when present, lives in:
   //   derived/arxiv/category_taxonomy.json
   "categories": [
     "math.AG",
@@ -34,7 +34,6 @@
   "max_results": 100,
   "sort_by": "lastUpdatedDate",
   "sort_order": "descending",
-  "refresh_taxonomy": true,
   "review_top_n": 20,
   "review_high_score": 10.0,
   "review_mid_score": 4.0,

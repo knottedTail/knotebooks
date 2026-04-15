@@ -15,7 +15,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
 4. Generate today's review Markdown under `derived/arxiv/review/generated/`.
 5. Manually copy the generated review to `derived/arxiv/review/checked/` when you are ready to annotate it.
 6. Remove the generated review after the checked copy exists.
-7. Stage `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/category_taxonomy.json`, `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`, then commit them with a concise message on a dedicated `codex/...` branch.
+7. Stage `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`, then commit them with a concise message on a dedicated `codex/...` branch.
 8. Merge that branch into `main` only if it contains only the routine-output files above and the merge is conflict-free.
 9. Otherwise stop and leave the result for manual follow-up instead of merging.
 
@@ -30,7 +30,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
 - Optional helper to prepare the checked copy and remove the generated file:
   `python3 scripts/prepare_arxiv_review_copy.py`
 - Stage and commit the routine outputs:
-  `git add derived/arxiv/snapshots/YYYY-MM-DD.json derived/arxiv/category_taxonomy.json derived/arxiv/review/generated/YYYY-MM-DD.md derived/arxiv/state.json`
+  `git add derived/arxiv/snapshots/YYYY-MM-DD.json derived/arxiv/review/generated/YYYY-MM-DD.md derived/arxiv/state.json`
   `git commit -m "Update arXiv review for YYYY-MM-DD"`
 - Merge the routine branch only when it is narrow and conflict-free:
   `git checkout main`
@@ -52,7 +52,7 @@ Use this skill for the repository's daily arXiv-interest workflow.
 - The review parser expects the current heading-based Markdown format from `scripts/build_arxiv_review.py`.
 - Manual copy is the default workflow. The helper copy script is optional.
 - Once a checked file exists, keeping the generated copy is unnecessary.
-- The routine's git step is intentional and narrow: stage only the daily snapshot, category taxonomy, generated review file, and `derived/arxiv/state.json`.
+- The routine's git step is intentional and narrow: stage only the daily snapshot, generated review file, and `derived/arxiv/state.json`.
 - The routine should merge automatically only when the branch contains just those routine-output files and `main` can be updated without conflicts. Otherwise, stop and surface the need for manual attention.
 
 Read [references/workflow.md](references/workflow.md) for the folder layout and routine details.

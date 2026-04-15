@@ -2,8 +2,7 @@
 """Fetch recent arXiv metadata for configured categories.
 
 This script reads category settings from a JSON config file, fetches recent
-entries from the official arXiv Atom API, optionally refreshes a local copy of
-the official arXiv category taxonomy, and writes a day-named JSON snapshot
+entries from the official arXiv Atom API, and writes a day-named JSON snapshot
 under ``derived/arxiv/snapshots/``.
 
 Storage behavior:
@@ -12,8 +11,6 @@ Storage behavior:
   - Entries are merged by base arXiv identifier, keeping the record with the
     newest ``updated`` timestamp.
   - A small ``derived/arxiv/state.json`` file stores run metadata.
-  - ``derived/arxiv/category_taxonomy.json`` stores the locally cached list of
-    official arXiv subject categories such as ``math.QA`` and ``math.GT``.
 """
 
 from __future__ import annotations
@@ -21,12 +18,10 @@ from __future__ import annotations
 import argparse
 import json
 import re
-import socket
 import sys
 import time
 from dataclasses import dataclass
 from datetime import UTC, datetime
-from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -36,7 +31,6 @@ import xml.etree.ElementTree as ET
 
 
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
-ARXIV_TAXONOMY_URL = "https://arxiv.org/category_taxonomy"
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
 DEFAULT_USER_AGENT = "knotebooks-arxiv-fetcher/1.0 (+https://arxiv.org/help/api/)"
 DEFAULT_TIMEOUT_SECONDS = 30
@@ -65,17 +59,6 @@ ENTRY_FIELD_DOCS = {
 }
 
 
-# Stored category-taxonomy fields.
-TAXONOMY_FIELD_DOCS = {
-    "id": "Category identifier such as math.QA or cs.AI.",
-    "name": "Human-readable category name.",
-    "group": "Top-level arXiv group heading, such as Mathematics or Computer Science.",
-    "archive": "Archive identifier when present, such as math or cs.",
-    "archive_name": "Human-readable archive name when present.",
-    "description": "Category description text from the official taxonomy page when present.",
-}
-
-
 @dataclass
 class Config:
     categories: list[str]
@@ -83,90 +66,6 @@ class Config:
     max_results: int
     sort_by: str
     sort_order: str
-    refresh_taxonomy: bool
-
-
-class TaxonomyHTMLParser(HTMLParser):
-    """Extract category metadata from https://arxiv.org/category_taxonomy.
-
-    The taxonomy page is structured as top-level groups (``<h2>``), optional
-    archive headings (``<h3>``), and category headings (``<h4>``) followed by
-    description paragraphs. This parser records those relationships and emits a
-    flat category list that is straightforward to serialize as JSON.
-    """
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.categories: list[dict[str, str | None]] = []
-        self._capture_tag: str | None = None
-        self._buffer: list[str] = []
-        self._current_group: str | None = None
-        self._current_archive_name: str | None = None
-        self._current_archive: str | None = None
-        self._current_category: dict[str, str | None] | None = None
-        self._skip_h3_hint = False
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag in {"h2", "h3", "h4", "p"}:
-            self._capture_tag = tag
-            self._buffer = []
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag != self._capture_tag:
-            return
-
-        text = " ".join("".join(self._buffer).split()).strip()
-        self._capture_tag = None
-        self._buffer = []
-        if not text:
-            return
-
-        if tag == "h2":
-            if text in {"Classification guide", "Group Name", "quick links"}:
-                return
-            self._current_group = text
-            self._current_archive = None
-            self._current_archive_name = None
-            self._skip_h3_hint = False
-            return
-
-        if tag == "h3":
-            if text.startswith("Archive Name"):
-                self._skip_h3_hint = True
-                return
-            archive_name, archive_id = parse_archive_heading(text)
-            self._current_archive_name = archive_name
-            self._current_archive = archive_id
-            return
-
-        if tag == "h4":
-            if text == "Category Name (Category ID)" or self._current_group is None:
-                return
-            category_id, category_name = parse_category_heading(text)
-            if category_id is None:
-                return
-            inferred_archive = self._current_archive or category_id.split(".", 1)[0]
-            if self._current_archive is None and self._skip_h3_hint:
-                self._current_archive = inferred_archive
-                self._current_archive_name = self._current_group
-            self._current_category = {
-                "id": category_id,
-                "name": category_name,
-                "group": self._current_group,
-                "archive": inferred_archive,
-                "archive_name": self._current_archive_name,
-                "description": "",
-            }
-            self.categories.append(self._current_category)
-            return
-
-        if tag == "p" and self._current_category is not None:
-            description = self._current_category["description"] or ""
-            self._current_category["description"] = (description + " " + text).strip()
-
-    def handle_data(self, data: str) -> None:
-        if self._capture_tag is not None:
-            self._buffer.append(data)
 
 
 def parse_args() -> argparse.Namespace:
@@ -180,11 +79,6 @@ def parse_args() -> argparse.Namespace:
         "--output-dir",
         default="derived/arxiv/snapshots",
         help="Directory for JSON outputs. Default: %(default)s",
-    )
-    parser.add_argument(
-        "--skip-taxonomy-refresh",
-        action="store_true",
-        help="Do not refresh category_taxonomy.json during this run.",
     )
     return parser.parse_args()
 
@@ -210,14 +104,12 @@ def load_config(path: Path) -> Config:
     if sort_order not in {"ascending", "descending"}:
         raise ValueError("Config field 'sort_order' must be 'ascending' or 'descending'.")
 
-    refresh_taxonomy = bool(raw.get("refresh_taxonomy", True))
     return Config(
         categories=categories,
         include_summary=include_summary,
         max_results=max_results,
         sort_by=sort_by,
         sort_order=sort_order,
-        refresh_taxonomy=refresh_taxonomy,
     )
 
 
@@ -236,7 +128,7 @@ def fetch_url(url: str) -> str:
                 time.sleep(delay)
                 continue
             raise
-        except (TimeoutError, socket.timeout, URLError) as exc:
+        except (TimeoutError, URLError) as exc:
             last_error = exc
             if attempt < DEFAULT_RETRY_COUNT - 1:
                 time.sleep(DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1))
@@ -337,30 +229,6 @@ def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
     feed = fetch_url(f"{ARXIV_API_URL}?{urlencode(params)}")
     root = ET.fromstring(feed)
     return [parse_entry(entry, config.include_summary) for entry in root.findall("atom:entry", ATOM_NS)]
-
-
-def fetch_taxonomy() -> list[dict[str, str | None]]:
-    parser = TaxonomyHTMLParser()
-    parser.feed(fetch_url(ARXIV_TAXONOMY_URL))
-    parser.close()
-    return sorted(parser.categories, key=lambda item: item["id"] or "")
-
-
-def parse_archive_heading(text: str) -> tuple[str | None, str | None]:
-    if "(" in text and text.endswith(")"):
-        name, archive = text.rsplit("(", 1)
-        return name.strip(), archive[:-1].strip()
-    return text.strip(), None
-
-
-def parse_category_heading(text: str) -> tuple[str | None, str | None]:
-    # Taxonomy headings use "math.QA (Quantum Algebra)".
-    if "(" in text and text.endswith(")"):
-        category_id, category_name = text.split("(", 1)
-        return category_id.strip(), category_name[:-1].strip()
-    return None, None
-
-
 def text_or_none(node: ET.Element | None) -> str | None:
     if node is None or node.text is None:
         return None
@@ -418,13 +286,6 @@ def merge_entries(existing: list[dict[str, Any]], incoming: list[dict[str, Any]]
         ),
         reverse=True,
     )
-
-
-def validate_categories(config_categories: list[str], taxonomy_categories: list[dict[str, str | None]]) -> list[str]:
-    known = {item["id"] for item in taxonomy_categories if item.get("id")}
-    return sorted(category for category in config_categories if category not in known)
-
-
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     with path.open("w", encoding="utf-8") as handle:
         json.dump(payload, handle, indent=2, ensure_ascii=False)
@@ -444,43 +305,20 @@ def main() -> int:
         return 1
 
     now = datetime.now().astimezone()
+    derived_dir = output_dir.parent
     snapshot_path = output_dir / f"{now.date().isoformat()}.json"
-    state_path = output_dir / "state.json"
-    taxonomy_path = output_dir / "category_taxonomy.json"
-
-    taxonomy_categories: list[dict[str, str | None]] = []
-    taxonomy_refreshed = False
-    if config.refresh_taxonomy and not args.skip_taxonomy_refresh:
-        taxonomy_categories = fetch_taxonomy()
-        taxonomy_payload = {
-            "fetched_at": now.isoformat(),
-            "source_url": ARXIV_TAXONOMY_URL,
-            "field_docs": TAXONOMY_FIELD_DOCS,
-            "categories": taxonomy_categories,
-        }
-        write_json(taxonomy_path, taxonomy_payload)
-        taxonomy_refreshed = True
-        # Be polite to the remote service when the same run also queries the API feed.
-        time.sleep(1.0)
-    elif taxonomy_path.exists():
-        cached_taxonomy = load_existing_snapshot(taxonomy_path) or {}
-        taxonomy_categories = list(cached_taxonomy.get("categories", []))
-
-    unknown_categories = validate_categories(config.categories, taxonomy_categories) if taxonomy_categories else []
+    state_path = derived_dir / "state.json"
 
     try:
         entries = fetch_recent_entries(config)
-    except (HTTPError, TimeoutError, socket.timeout, URLError) as exc:
+    except (HTTPError, TimeoutError, URLError) as exc:
         state_payload = {
             "last_run_at": now.isoformat(),
             "last_success_at": None,
             "last_snapshot_path": str(snapshot_path),
             "config_path": str(config_path),
-            "taxonomy_path": str(taxonomy_path),
-            "taxonomy_refreshed": taxonomy_refreshed,
             "category_count": len(config.categories),
             "entry_count": 0,
-            "unknown_categories": unknown_categories,
             "last_error": str(exc),
         }
         write_json(state_path, state_payload)
@@ -511,21 +349,14 @@ def main() -> int:
         "last_success_at": now.isoformat(),
         "last_snapshot_path": str(snapshot_path),
         "config_path": str(config_path),
-        "taxonomy_path": str(taxonomy_path),
-        "taxonomy_refreshed": taxonomy_refreshed,
         "category_count": len(config.categories),
         "entry_count": len(merged_entries),
-        "unknown_categories": unknown_categories,
         "last_error": None,
     }
     write_json(state_path, state_payload)
 
     print(f"Wrote snapshot: {snapshot_path}")
     print(f"Wrote state: {state_path}")
-    if taxonomy_refreshed:
-        print(f"Wrote taxonomy: {taxonomy_path}")
-    if unknown_categories:
-        print("Warning: unknown configured categories:", ", ".join(unknown_categories), file=sys.stderr)
     return 0
 
 
