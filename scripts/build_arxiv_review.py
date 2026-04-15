@@ -144,6 +144,7 @@ def build_review_markdown(
             return
 
         for entry, match in zip(entries, matches, strict=True):
+            authors = ", ".join(entry.get("authors", [])) or "None"
             categories = ", ".join(entry.get("categories", [])) or "None"
             keywords = ", ".join(match["matched_keywords"]) or "None"
             abs_url = str(entry.get("abs_url") or "None")
@@ -159,6 +160,7 @@ def build_review_markdown(
                 [
                     f"### [ ] {entry.get('title', 'Untitled paper')}",
                     "",
+                    f"**Authors:** {authors}  ",
                     f"**Categories:** {categories}  ",
                     f"**Keywords:** {keywords}  ",
                     f"**Abs URL:** {abs_url}",
