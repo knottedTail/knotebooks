@@ -1,0 +1,2 @@
+prefix_rule(pattern=["python3", "scripts/run_arxiv_review_routine.py"], decision="allow")
+prefix_rule(pattern=["python3", "scripts/check_arxiv_updates.py"], decision="allow")

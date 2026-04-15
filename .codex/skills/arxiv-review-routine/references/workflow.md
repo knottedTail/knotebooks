@@ -4,10 +4,10 @@
 
 1. Review any files in `derived/arxiv/review/checked/` that have not yet been processed.
 2. Apply their checkbox feedback to `derived/arxiv/interest_profile.json`.
-3. Run the routine prepare phase so the automation updates local state and prints the exact manual fetch command for the current worktree.
-4. Run the printed fetch command in that same worktree from a normal terminal session.
-5. Return to the same thread and run the routine finalize phase.
-6. Generate today's review in `derived/arxiv/review/generated/`.
+3. Run the full routine with `python3 scripts/run_arxiv_review_routine.py`.
+4. If the full routine completes, today's review is generated in `derived/arxiv/review/generated/`.
+5. If the full routine stops because fetching failed, run the printed fetch command in that same worktree from a normal terminal session.
+6. Return to the same thread and run the routine finalize phase.
 7. Manually copy today's generated review into `derived/arxiv/review/checked/` when you are ready to review it.
 8. Remove the generated review after the checked file exists.
 9. Stage `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`, then commit them on a dedicated `codex/...` branch.
@@ -31,7 +31,9 @@
 
 - Edit only files in `derived/arxiv/review/checked/`.
 - Leave files in `derived/arxiv/review/generated/` untouched.
-- When the automation pauses after prepare, run the exact fetch command it printed. Do not substitute another checkout path.
+- When the full routine pauses after a fetch failure, run the exact fetch command it printed. Do not substitute another checkout path.
+- After a fetch failure, Codex should stop and wait for the user instead of retrying the fetch automatically.
+- `python3 scripts/run_arxiv_review_routine.py prepare` remains available when you want to force the manual handoff path from the start.
 - Copy from `generated/` to `checked/` deliberately; this keeps the transition from system output to user annotation explicit.
 - After `checked/YYYY-MM-DD.md` exists, `generated/YYYY-MM-DD.md` can be removed.
 - After checking boxes, run the routine again so the checked file is incorporated before generating the next review.

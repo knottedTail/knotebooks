@@ -3,9 +3,9 @@
 
 Workflow:
 1. Process any unchecked review feedback already present in review/checked/.
-2. Optionally pause and hand off the arXiv fetch command to the user.
-3. Fetch today's arXiv snapshot.
-4. Generate today's review into review/generated/.
+2. Attempt to fetch today's arXiv snapshot.
+3. If the fetch fails, stop and hand off the exact fetch command to the user.
+4. Generate today's review into review/generated/ after a successful fetch.
 
 Manual step after this script:
 - Copy the generated review into review/checked/ when ready to annotate it.
@@ -26,6 +26,9 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
+
+
+FETCH_HANDOFF_EXIT_CODE = 20
 
 
 def parse_args() -> argparse.Namespace:
@@ -53,6 +56,18 @@ def run_step(name: str, cmd: list[str]) -> None:
 
 def manual_fetch_command(root: Path, config: str) -> str:
     return f"cd {shlex.quote(str(root))} && python3 scripts/check_arxiv_updates.py --config {shlex.quote(config)}"
+
+
+def finalize_command(root: Path, args: argparse.Namespace) -> str:
+    return shlex.join(
+        [
+            args.python,
+            str(root / "scripts/run_arxiv_review_routine.py"),
+            "finalize",
+            "--config",
+            args.config,
+        ]
+    )
 
 
 def expected_snapshot_path(root: Path) -> Path:
@@ -107,9 +122,20 @@ def run_finalize(root: Path, args: argparse.Namespace) -> int:
     return 0
 
 
+def print_fetch_handoff(root: Path, args: argparse.Namespace) -> None:
+    print("\nAutomatic fetch failed. Run this command in your normal terminal from the same worktree:\n")
+    print(manual_fetch_command(root, args.config))
+    print("\nAfter it succeeds, return here, tell Codex the fetch is done, and run:\n")
+    print(finalize_command(root, args), flush=True)
+
+
 def run_full(root: Path, args: argparse.Namespace) -> int:
     run_step("update_interest_profile", [args.python, str(root / "scripts/update_interest_profile.py")])
-    run_step("check_arxiv_updates", [args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
+    try:
+        run_step("check_arxiv_updates", [args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
+    except subprocess.CalledProcessError:
+        print_fetch_handoff(root, args)
+        return FETCH_HANDOFF_EXIT_CODE
     run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
     return 0
 
