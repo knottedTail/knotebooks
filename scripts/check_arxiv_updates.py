@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import socket
 import sys
 import time
 from dataclasses import dataclass
@@ -36,6 +37,8 @@ DEFAULT_USER_AGENT = "knotebooks-arxiv-fetcher/1.0 (+https://arxiv.org/help/api/
 DEFAULT_TIMEOUT_SECONDS = 30
 DEFAULT_RETRY_COUNT = 4
 DEFAULT_RETRY_DELAY_SECONDS = 3.0
+DEFAULT_DNS_RETRY_COUNT = 7
+MAX_DNS_RETRY_DELAY_SECONDS = 60.0
 
 
 # Stored entry fields.
@@ -117,7 +120,8 @@ def fetch_url(url: str) -> str:
     request = Request(url, headers={"User-Agent": DEFAULT_USER_AGENT})
     last_error: Exception | None = None
 
-    for attempt in range(DEFAULT_RETRY_COUNT):
+    max_attempts = max(DEFAULT_RETRY_COUNT, DEFAULT_DNS_RETRY_COUNT)
+    for attempt in range(max_attempts):
         try:
             with urlopen(request, timeout=DEFAULT_TIMEOUT_SECONDS) as response:  # nosec B310 - this tool intentionally fetches official arXiv URLs
                 return response.read().decode("utf-8")
@@ -130,8 +134,9 @@ def fetch_url(url: str) -> str:
             raise
         except (TimeoutError, URLError) as exc:
             last_error = exc
-            if attempt < DEFAULT_RETRY_COUNT - 1:
-                time.sleep(DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1))
+            retry_limit = network_retry_limit(exc)
+            if attempt < retry_limit - 1:
+                time.sleep(network_retry_delay_seconds(exc, attempt))
                 continue
             raise
 
@@ -148,6 +153,35 @@ def retry_delay_seconds(error: HTTPError, attempt: int) -> float:
         except ValueError:
             pass
     return DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1)
+
+
+def network_retry_limit(error: Exception) -> int:
+    if is_dns_resolution_error(error):
+        return DEFAULT_DNS_RETRY_COUNT
+    return DEFAULT_RETRY_COUNT
+
+
+def network_retry_delay_seconds(error: Exception, attempt: int) -> float:
+    if is_dns_resolution_error(error):
+        return min(DEFAULT_RETRY_DELAY_SECONDS * (2**attempt), MAX_DNS_RETRY_DELAY_SECONDS)
+    return DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1)
+
+
+def is_dns_resolution_error(error: Exception) -> bool:
+    reason = error.reason if isinstance(error, URLError) else error
+    if isinstance(reason, socket.gaierror):
+        return True
+
+    message = str(reason).casefold()
+    return any(
+        marker in message
+        for marker in (
+            "temporary failure in name resolution",
+            "name or service not known",
+            "nodename nor servname provided",
+            "failed to resolve",
+        )
+    )
 
 
 def strip_jsonc_comments(text: str) -> str:
