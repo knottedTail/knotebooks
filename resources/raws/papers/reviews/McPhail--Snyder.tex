@@ -1,11 +1,12 @@
 \documentclass[11pt]{amsart}
 
 \usepackage{amsmath, amssymb, amsthm}
-\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{thmtools}
-
+\usepackage{enumitem}
+\usepackage{tikz-cd}
 \usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
 \usepackage[backend=biber, doi=true, url=true, style=alphabetic]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -107,7 +108,36 @@ Observations:
     The authors consider the classical Chern-Simons invariant as a holomorphic section $\mathcal{I}(M_K)$ of the knot exterior $M_K$ of a given framed oriented knot $K$ in $S^3$ (Proposition 2.2).
     This section is defined for a line bundle over the \textit{decorated} representation variety $R(M_K)$ but the invariant is invariant under the choice of decorations.
     Similarly, the author claim that he (will) define a section for the \textit{vector} bundle over the decorated representation variety.
+    \item page 16: To keep track of change-of-basepoint data, we use additional colors called \emph{shadows}.
 \end{itemize}
+
+\begin{remark}
+    Let $\mathcal{M} := \mathbb{C}^2$, the universal cover of $\mathcal{X} = (\mathbb{C}^{\times})^2$ with the projection map which is the exponential map.
+    Regarding the trivial bundle $\mathcal{M} \times \mathbb{C}$, one might regard a section of this bundle as a functional on $\mathcal{M}$.
+    Moreover, if we can extend the action of $\mathbb{Z}^2 \cong \pi_1(\mathcal{X})$ on $\mathcal{M}$ to this bundle, then we have a quotient bundle $(\mathcal{M} \times \mathbb{C})/\mathbb{Z}^2$ over $\mathcal{X}$.
+    In other words, we have the following commutative diagram.
+    \[
+        \begin{tikzcd}
+        M \times \mathbb{C} \arrow[r, two heads] \arrow[d, two heads]
+        & (M \times \mathbb{C})/\mathbb{Z}^2 \arrow[d] \\
+        M \arrow[r, two heads]
+        & X
+        \end{tikzcd}
+    \]
+    and we regard \( M \times \mathbb{C} \) as a pull-back bundle of \( (M \times \mathbb{C})/\mathbb{Z}^2 \).
+
+    For any (holomorphic) section $f$ of \( (M \times \mathbb{C})/\mathbb{Z}^2 \) then we have a (holomorphic) pull-back section of $M \times \mathbb{C}$, equivalent to a functional on $M$ with the restriction induced by the action of $\mathbb{Z}^2$.
+
+    In particular, the action considered in the reference is that
+    \[
+        (a,b) \cdot (x, y, z) = (x+a, y+b, e^{2\pi i(bx - ay)} z),
+    \]
+    hence the section $f$ satisfies that 
+    \[
+        f(x+a, y+b) = e^{2\pi i(bx - ay)} f(x,y),
+    \]
+    which is called the \emph{quasi-periodicity relation}.
+\end{remark}
 
 
 \printbibliography

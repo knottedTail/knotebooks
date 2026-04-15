@@ -1,0 +1,82 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 15, 2026}
+
+
+\begin{document}
+\maketitle
+
+After daily exercise and recording playing drum, we checked the feedback file for the yesterday diary.
+The main feedback was as following:
+\begin{itemize}
+    \item Article usage,
+    \item Tense consistency,
+    \item To use simpler verb phrases,
+    \item To split bibliographic context and mathematical idea,
+    \item To make sentence surrounding sentences clear,
+    \item To use ``my understanding is'' for tentative mathematical interpretations.
+\end{itemize}
+
+\par\vspace{1em}
+After having lunch, we tested the skill \texttt{arXiv-review-routine}.
+As there was a DNS error again, we decided to fix this problem.
+The cause of DNS failure was that a sandbox executing Codex's automation was not allowed for networ access.
+What's dissapointing was that we spent too much time on debugging.
+We wondered for figuring out what is real problem, and how to fix it.
+Eventhough I only gave an order to Codex, there was time consumption on waiting for the report of Codex.
+
+\par\vspace{1em}
+After having break by chatting with other PostDoc in our university, we continued to reading McPhail-Snyder's paper from the second section.
+This section focuses on the viewpoint that the classical Chern--Simons invariant can be seen as a line bundle.
+The author persuade readers that, the quantum invariant constructed in his paper is a vector bundle, and that it seems like the quantization of the CS invariant.
+Here we record the current understanding.
+
+\par\vspace{1em}
+
+Let $\mathcal{M} := \mathbb{C}^2$, the universal cover of $\mathcal{X} = (\mathbb{C}^{\times})^2$ with the projection map which is the exponential map.
+Regarding the trivial bundle $\mathcal{M} \times \mathbb{C}$, one might regard a section of this bundle as a functional on $\mathcal{M}$.
+Moreover, if we can extend the action of $\mathbb{Z}^2 \cong \pi_1(\mathcal{X})$ on $\mathcal{M}$ to this bundle, then we have a quotient bundle $(\mathcal{M} \times \mathbb{C})/\mathbb{Z}^2$ over $\mathcal{X}$.
+In other words, we have the following commutative diagram.
+\[
+    \begin{tikzcd}
+    M \times \mathbb{C} \arrow[r, two heads] \arrow[d, two heads]
+    & (M \times \mathbb{C})/\mathbb{Z}^2 \arrow[d] \\
+    M \arrow[r, two heads]
+    & X
+    \end{tikzcd}
+\]
+and we regard \( M \times \mathbb{C} \) as a pull-back bundle of \( (M \times \mathbb{C})/\mathbb{Z}^2 \).
+
+For any (holomorphic) section $f$ of \( (M \times \mathbb{C})/\mathbb{Z}^2 \) then we have a (holomorphic) pull-back section of $M \times \mathbb{C}$, equivalent to a functional on $M$ with the restriction induced by the action of $\mathbb{Z}^2$.
+
+In particular, the action considered in the reference is that
+\[
+    (a,b) \cdot (x, y, z) = (x+a, y+b, e^{2\pi i(bx - ay)} z),
+\]
+hence the section $f$ satisfies that 
+\[
+    f(x+a, y+b) = e^{2\pi i(bx - ay)} f(x,y),
+\]
+which is called the \emph{quasi-periodicity relation}.
+
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
