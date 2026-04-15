@@ -78,9 +78,23 @@ def expected_state_path(root: Path) -> Path:
     return root / "derived/arxiv/state.json"
 
 
+def expected_review_source_path(root: Path) -> Path:
+    return root / "derived/arxiv/review/source" / f"{datetime.now().date().isoformat()}.json"
+
+
 def load_json(path: Path) -> dict[str, object]:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def cleanup_review_source(root: Path) -> None:
+    source_path = expected_review_source_path(root)
+    if source_path.exists():
+        source_path.unlink()
+
+    source_dir = source_path.parent
+    if source_dir.exists() and not any(source_dir.iterdir()):
+        source_dir.rmdir()
 
 
 def validate_fetch_outputs(root: Path, config: str) -> None:
@@ -119,6 +133,7 @@ def run_prepare(root: Path, args: argparse.Namespace) -> int:
 def run_finalize(root: Path, args: argparse.Namespace) -> int:
     validate_fetch_outputs(root, args.config)
     run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
+    cleanup_review_source(root)
     return 0
 
 
@@ -137,6 +152,7 @@ def run_full(root: Path, args: argparse.Namespace) -> int:
         print_fetch_handoff(root, args)
         return FETCH_HANDOFF_EXIT_CODE
     run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
+    cleanup_review_source(root)
     return 0
 
 
