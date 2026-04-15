@@ -68,9 +68,9 @@ def load_review_config(path: Path) -> ReviewConfig:
     )
 
 
-def ensure_profile(path: Path, config: ReviewConfig) -> dict[str, Any]:
+def ensure_profile(path: Path, config: ReviewConfig) -> tuple[dict[str, Any], bool]:
     if path.exists():
-        return load_json(path)
+        return load_json(path), False
 
     payload = {
         "category_weights": config.category_weights,
@@ -84,7 +84,7 @@ def ensure_profile(path: Path, config: ReviewConfig) -> dict[str, Any]:
         "updated_at": datetime.now().astimezone().isoformat(),
     }
     write_json(path, payload)
-    return payload
+    return payload, True
 
 
 def score_entry(entry: dict[str, Any], profile: dict[str, Any]) -> dict[str, Any]:
@@ -192,7 +192,7 @@ def main() -> int:
     args = parse_args()
     snapshot_path = Path(args.snapshot) if args.snapshot else default_snapshot_path()
     config = load_review_config(Path(args.config))
-    profile = ensure_profile(Path(args.profile), config)
+    profile, created_profile = ensure_profile(Path(args.profile), config)
     snapshot = load_json(snapshot_path)
     entries = list(snapshot.get("entries", []))
 
@@ -219,7 +219,10 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print(f"Wrote interest profile: {args.profile}")
+    if created_profile:
+        print(f"Created interest profile: {args.profile}")
+    else:
+        print(f"Reused interest profile: {args.profile}")
     print(f"Wrote review: {output_path}")
     print(f"Selected papers: {len(scored_pairs)}")
     return 0

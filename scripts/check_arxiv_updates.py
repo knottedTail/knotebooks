@@ -129,6 +129,13 @@ def fetch_url(url: str) -> str:
             last_error = exc
             if exc.code == 429 and attempt < DEFAULT_RETRY_COUNT - 1:
                 delay = retry_delay_seconds(exc, attempt)
+                log_retry(
+                    attempt=attempt + 1,
+                    max_attempts=DEFAULT_RETRY_COUNT,
+                    delay=delay,
+                    error=exc,
+                    url=url,
+                )
                 time.sleep(delay)
                 continue
             raise
@@ -136,7 +143,15 @@ def fetch_url(url: str) -> str:
             last_error = exc
             retry_limit = network_retry_limit(exc)
             if attempt < retry_limit - 1:
-                time.sleep(network_retry_delay_seconds(exc, attempt))
+                delay = network_retry_delay_seconds(exc, attempt)
+                log_retry(
+                    attempt=attempt + 1,
+                    max_attempts=retry_limit,
+                    delay=delay,
+                    error=exc,
+                    url=url,
+                )
+                time.sleep(delay)
                 continue
             raise
 
@@ -153,6 +168,14 @@ def retry_delay_seconds(error: HTTPError, attempt: int) -> float:
         except ValueError:
             pass
     return DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1)
+
+
+def log_retry(*, attempt: int, max_attempts: int, delay: float, error: Exception, url: str) -> None:
+    print(
+        f"Retrying fetch ({attempt}/{max_attempts}) in {delay:.1f}s after {error.__class__.__name__}: {error}. URL: {url}",
+        file=sys.stderr,
+        flush=True,
+    )
 
 
 def network_retry_limit(error: Exception) -> int:
@@ -260,9 +283,17 @@ def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
         "sortBy": config.sort_by,
         "sortOrder": config.sort_order,
     }
-    feed = fetch_url(f"{ARXIV_API_URL}?{urlencode(params)}")
+    url = f"{ARXIV_API_URL}?{urlencode(params)}"
+    print(
+        f"Starting fetch: categories={','.join(config.categories)} max_results={config.max_results} sort={config.sort_by}/{config.sort_order}",
+        file=sys.stderr,
+        flush=True,
+    )
+    feed = fetch_url(url)
     root = ET.fromstring(feed)
     return [parse_entry(entry, config.include_summary) for entry in root.findall("atom:entry", ATOM_NS)]
+
+
 def text_or_none(node: ET.Element | None) -> str | None:
     if node is None or node.text is None:
         return None
