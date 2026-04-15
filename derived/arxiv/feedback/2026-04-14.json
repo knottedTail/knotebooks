@@ -1,0 +1,332 @@
+{
+  "review_path": "derived/arxiv/review/checked/2026-04-14.md",
+  "reviewed_at": "2026-04-15T15:36:50.826617+09:00",
+  "items": [
+    {
+      "title": "Classification of nondegenerate $G$-categories (with an appendix written jointly with Germán Stefanich)",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.AG",
+        "math.CT"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2206.11247",
+        "versioned_id": "2206.11247v3",
+        "score": 7.5,
+        "matched_categories": [
+          "math.RT",
+          "math.CT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Multiplicity of non-acyclic ${\\rm SL}_2$-representations and L-functions of the odd-twisted Whitehead links",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.NT"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2303.15941",
+        "versioned_id": "2303.15941v2",
+        "score": 7.5,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Localization theorems for weakly approximable triangulated categories",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.CT",
+        "math.RA"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2402.04954",
+        "versioned_id": "2402.04954v3",
+        "score": 7.5,
+        "matched_categories": [
+          "math.RT",
+          "math.CT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "An analogue of irreducible cuspidal representations for the group $PGL(2)$ over a two-dimensional local field",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.AG",
+        "math.NT"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.11735",
+        "versioned_id": "2604.11735v1",
+        "score": 7.0,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Automorphisms of the DAHA of type $\\check{C_1}C_1$ and non-symmetric Askey-Wilson functions",
+      "interested": false,
+      "categories": [
+        "math.CA",
+        "math.RT"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2407.17366",
+        "versioned_id": "2407.17366v4",
+        "score": 5.5,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Trapped bosons in mean field QED, nonlinear resonance cascades and dynamical BEC formation",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "math.AP",
+        "quant-ph"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2604.11756",
+        "versioned_id": "2604.11756v1",
+        "score": 5.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Quantum state transfer on a scalable network under unital and non-unital noise",
+      "interested": true,
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2604.11620",
+        "versioned_id": "2604.11620v1",
+        "score": 5.0,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Feynman's linear divergence problem",
+      "interested": true,
+      "categories": [
+        "math-ph",
+        "math.CA",
+        "quant-ph"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2604.11612",
+        "versioned_id": "2604.11612v1",
+        "score": 5.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Loop-dependent entangling holonomies in localized topological quartets",
+      "interested": false,
+      "categories": [
+        "cond-mat.mes-hall",
+        "hep-th",
+        "math-ph",
+        "math.AT",
+        "quant-ph"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2604.11596",
+        "versioned_id": "2604.11596v1",
+        "score": 5.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Wheel Classes in Kontsevich Graph Complex and Merkulov's Low-Valence Conjecture",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math.CO"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2604.11327",
+        "versioned_id": "2604.11327v1",
+        "score": 5.0,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Generalised 4d Partition Functions and Modular Differential Equations",
+      "interested": true,
+      "categories": [
+        "hep-th",
+        "math-ph"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2512.02107",
+        "versioned_id": "2512.02107v3",
+        "score": 4.5,
+        "matched_categories": [
+          "math-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "A note on Duality and the Atiyah-Hirzebruch spectral sequence",
+      "interested": false,
+      "categories": [
+        "math.AT",
+        "math.GT"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2507.18250",
+        "versioned_id": "2507.18250v3",
+        "score": 4.5,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Slope detection and toroidal 3-manifolds",
+      "interested": true,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2106.14378",
+        "versioned_id": "2106.14378v5",
+        "score": 4.5,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Passive two-plateau relaxation from Tricomi confluent hypergeometric kernels",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "nlin.AO"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.11464",
+        "versioned_id": "2604.11464v1",
+        "score": 4.5,
+        "matched_categories": [
+          "math-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Searching for Invariant Solutions to Wall-Bounded Flows using Resolvent-Based Optimisation",
+      "interested": false,
+      "categories": [
+        "physics.flu-dyn",
+        "math-ph"
+      ],
+      "keywords": [
+        "representation"
+      ],
+      "metadata": {
+        "arxiv_id": "2509.02463",
+        "versioned_id": "2509.02463v4",
+        "score": 4.5,
+        "matched_categories": [
+          "math-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Quiver matroids -- Matroid morphisms, quiver Grassmannians, their Euler characteristics and $\\mathbb{F}_1$-points",
+      "interested": false,
+      "categories": [
+        "math.CO",
+        "math.AG",
+        "math.RT"
+      ],
+      "keywords": [],
+      "metadata": {
+        "arxiv_id": "2404.09255",
+        "versioned_id": "2404.09255v2",
+        "score": 4.0,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": []
+      }
+    }
+  ]
+}

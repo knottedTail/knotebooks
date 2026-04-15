@@ -1,12 +1,12 @@
 {
   "category_weights": {
-    "math-ph": 3.0,
-    "math.CT": 3.5,
-    "math.GT": 4.5,
+    "math-ph": 3.8,
+    "math.CT": 3.3,
+    "math.GT": 5.2,
     "math.KT": 3.0,
-    "math.QA": 5.0,
-    "math.RT": 4.0,
-    "quant-ph": 2.0
+    "math.QA": 5.4,
+    "math.RT": 3.5,
+    "quant-ph": 2.6
   },
   "keyword_weights": {
     "Chern-Simons": 3.5,
@@ -18,17 +18,18 @@
     "modular tensor category": 4.5,
     "quantum group": 6.0,
     "r-matrix": 3.5,
-    "representation": 3.0,
+    "representation": 3.2,
     "tensor category": 4.5,
     "yang-baxter": 4.0
   },
   "history": {
-    "positive_count": 0,
-    "negative_count": 0,
-    "last_review_path": "derived/arxiv/review/checked/2026-04-13.md"
+    "positive_count": 6,
+    "negative_count": 10,
+    "last_review_path": "derived/arxiv/review/checked/2026-04-14.md"
   },
   "processed_review_files": [
-    "derived/arxiv/review/checked/2026-04-13.md"
+    "derived/arxiv/review/checked/2026-04-13.md",
+    "derived/arxiv/review/checked/2026-04-14.md"
   ],
-  "updated_at": "2026-04-14T12:59:45.256943+09:00"
+  "updated_at": "2026-04-15T15:36:50.826617+09:00"
 }
