@@ -26,7 +26,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -37,7 +37,7 @@ DEFAULT_USER_AGENT = "knotebooks-arxiv-fetcher/1.0 (+https://arxiv.org/help/api/
 DEFAULT_TIMEOUT_SECONDS = 30
 DEFAULT_RETRY_COUNT = 4
 DEFAULT_RETRY_DELAY_SECONDS = 3.0
-DEFAULT_DNS_RETRY_COUNT = 7
+DEFAULT_DNS_RETRY_COUNT = 3
 MAX_DNS_RETRY_DELAY_SECONDS = 60.0
 
 
@@ -205,6 +205,14 @@ def is_dns_resolution_error(error: Exception) -> bool:
             "failed to resolve",
         )
     )
+
+
+def format_fetch_error(error: Exception, url: str) -> str:
+    if not is_dns_resolution_error(error):
+        return str(error)
+
+    host = urlsplit(url).hostname or url
+    return f"DNS resolution failed for {host}: {error}"
 
 
 def strip_jsonc_comments(text: str) -> str:
@@ -377,6 +385,7 @@ def main() -> int:
     try:
         entries = fetch_recent_entries(config)
     except (HTTPError, TimeoutError, URLError) as exc:
+        error_message = format_fetch_error(exc, ARXIV_API_URL)
         state_payload = {
             "last_run_at": now.isoformat(),
             "last_success_at": None,
@@ -384,10 +393,10 @@ def main() -> int:
             "config_path": str(config_path),
             "category_count": len(config.categories),
             "entry_count": 0,
-            "last_error": str(exc),
+            "last_error": error_message,
         }
         write_json(state_path, state_payload)
-        print(f"Fetch failed after retries: {exc}", file=sys.stderr)
+        print(f"Fetch failed after retries: {error_message}", file=sys.stderr)
         return 1
 
     existing_snapshot = load_existing_snapshot(snapshot_path) or {}
