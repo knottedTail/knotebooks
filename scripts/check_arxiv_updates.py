@@ -26,7 +26,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -37,7 +37,7 @@ DEFAULT_USER_AGENT = "knotebooks-arxiv-fetcher/1.0 (+https://arxiv.org/help/api/
 DEFAULT_TIMEOUT_SECONDS = 30
 DEFAULT_RETRY_COUNT = 4
 DEFAULT_RETRY_DELAY_SECONDS = 3.0
-DEFAULT_DNS_RETRY_COUNT = 7
+DEFAULT_DNS_RETRY_COUNT = 3
 MAX_DNS_RETRY_DELAY_SECONDS = 60.0
 
 
@@ -129,6 +129,13 @@ def fetch_url(url: str) -> str:
             last_error = exc
             if exc.code == 429 and attempt < DEFAULT_RETRY_COUNT - 1:
                 delay = retry_delay_seconds(exc, attempt)
+                log_retry(
+                    attempt=attempt + 1,
+                    max_attempts=DEFAULT_RETRY_COUNT,
+                    delay=delay,
+                    error=exc,
+                    url=url,
+                )
                 time.sleep(delay)
                 continue
             raise
@@ -136,7 +143,15 @@ def fetch_url(url: str) -> str:
             last_error = exc
             retry_limit = network_retry_limit(exc)
             if attempt < retry_limit - 1:
-                time.sleep(network_retry_delay_seconds(exc, attempt))
+                delay = network_retry_delay_seconds(exc, attempt)
+                log_retry(
+                    attempt=attempt + 1,
+                    max_attempts=retry_limit,
+                    delay=delay,
+                    error=exc,
+                    url=url,
+                )
+                time.sleep(delay)
                 continue
             raise
 
@@ -153,6 +168,14 @@ def retry_delay_seconds(error: HTTPError, attempt: int) -> float:
         except ValueError:
             pass
     return DEFAULT_RETRY_DELAY_SECONDS * (attempt + 1)
+
+
+def log_retry(*, attempt: int, max_attempts: int, delay: float, error: Exception, url: str) -> None:
+    print(
+        f"Retrying fetch ({attempt}/{max_attempts}) in {delay:.1f}s after {error.__class__.__name__}: {error}. URL: {url}",
+        file=sys.stderr,
+        flush=True,
+    )
 
 
 def network_retry_limit(error: Exception) -> int:
@@ -182,6 +205,14 @@ def is_dns_resolution_error(error: Exception) -> bool:
             "failed to resolve",
         )
     )
+
+
+def format_fetch_error(error: Exception, url: str) -> str:
+    if not is_dns_resolution_error(error):
+        return str(error)
+
+    host = urlsplit(url).hostname or url
+    return f"DNS resolution failed for {host}: {error}"
 
 
 def strip_jsonc_comments(text: str) -> str:
@@ -260,9 +291,17 @@ def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
         "sortBy": config.sort_by,
         "sortOrder": config.sort_order,
     }
-    feed = fetch_url(f"{ARXIV_API_URL}?{urlencode(params)}")
+    url = f"{ARXIV_API_URL}?{urlencode(params)}"
+    print(
+        f"Starting fetch: categories={','.join(config.categories)} max_results={config.max_results} sort={config.sort_by}/{config.sort_order}",
+        file=sys.stderr,
+        flush=True,
+    )
+    feed = fetch_url(url)
     root = ET.fromstring(feed)
     return [parse_entry(entry, config.include_summary) for entry in root.findall("atom:entry", ATOM_NS)]
+
+
 def text_or_none(node: ET.Element | None) -> str | None:
     if node is None or node.text is None:
         return None
@@ -346,6 +385,7 @@ def main() -> int:
     try:
         entries = fetch_recent_entries(config)
     except (HTTPError, TimeoutError, URLError) as exc:
+        error_message = format_fetch_error(exc, ARXIV_API_URL)
         state_payload = {
             "last_run_at": now.isoformat(),
             "last_success_at": None,
@@ -353,10 +393,10 @@ def main() -> int:
             "config_path": str(config_path),
             "category_count": len(config.categories),
             "entry_count": 0,
-            "last_error": str(exc),
+            "last_error": error_message,
         }
         write_json(state_path, state_payload)
-        print(f"Fetch failed after retries: {exc}", file=sys.stderr)
+        print(f"Fetch failed after retries: {error_message}", file=sys.stderr)
         return 1
 
     existing_snapshot = load_existing_snapshot(snapshot_path) or {}

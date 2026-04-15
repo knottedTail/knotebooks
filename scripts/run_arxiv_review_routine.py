@@ -18,8 +18,10 @@ Manual step after this script:
 from __future__ import annotations
 
 import argparse
+import shlex
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 
@@ -30,17 +32,22 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def run_step(cmd: list[str]) -> None:
+def run_step(name: str, cmd: list[str]) -> None:
+    rendered = shlex.join(cmd)
+    print(f"[start] {name}: {rendered}", flush=True)
+    started_at = time.monotonic()
     subprocess.run(cmd, check=True)
+    elapsed = time.monotonic() - started_at
+    print(f"[done] {name}: {elapsed:.1f}s", flush=True)
 
 
 def main() -> int:
     args = parse_args()
     root = Path.cwd()
 
-    run_step([args.python, str(root / "scripts/update_interest_profile.py")])
-    run_step([args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
-    run_step([args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
+    run_step("update_interest_profile", [args.python, str(root / "scripts/update_interest_profile.py")])
+    run_step("check_arxiv_updates", [args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
+    run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
     return 0
 
 
