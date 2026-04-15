@@ -24,6 +24,7 @@ def strip_jsonc_comments(text: str) -> str:
 
 @dataclass
 class ReviewConfig:
+    include_review_summary: bool
     review_top_n: int
     review_high_score: float
     review_mid_score: float
@@ -60,6 +61,7 @@ def load_jsonc(path: Path) -> dict[str, Any]:
 def load_review_config(path: Path) -> ReviewConfig:
     raw = load_jsonc(path)
     return ReviewConfig(
+        include_review_summary=bool(raw.get("include_review_summary", True)),
         review_top_n=int(raw.get("review_top_n", 20)),
         review_high_score=float(raw.get("review_high_score", 10.0)),
         review_mid_score=float(raw.get("review_mid_score", 4.0)),
@@ -183,6 +185,43 @@ def clean_single_line(value: Any) -> str:
     return " ".join(value.split())
 
 
+def entry_key(entry: dict[str, Any]) -> str:
+    return str(entry.get("arxiv_id") or entry.get("versioned_id") or "")
+
+
+def review_source_path(snapshot_path: Path) -> Path:
+    return snapshot_path.parent.parent / "review/source" / snapshot_path.name
+
+
+def hydrate_review_entries(
+    snapshot_path: Path,
+    entries: list[dict[str, Any]],
+    include_review_summary: bool,
+) -> list[dict[str, Any]]:
+    if not include_review_summary:
+        return entries
+
+    if any(clean_single_line(entry.get("summary")) for entry in entries):
+        return entries
+
+    source_path = review_source_path(snapshot_path)
+    if not source_path.exists():
+        return entries
+
+    source_entries = list(load_json(source_path).get("entries", []))
+    source_by_key = {entry_key(entry): entry for entry in source_entries}
+    hydrated_entries: list[dict[str, Any]] = []
+    for entry in entries:
+        hydrated = dict(entry)
+        source_entry = source_by_key.get(entry_key(entry))
+        if source_entry:
+            summary = clean_single_line(source_entry.get("summary"))
+            if summary:
+                hydrated["summary"] = summary
+        hydrated_entries.append(hydrated)
+    return hydrated_entries
+
+
 def default_snapshot_path() -> Path:
     today = datetime.now().date().isoformat()
     return Path("derived/arxiv/snapshots") / f"{today}.json"
@@ -194,7 +233,11 @@ def main() -> int:
     config = load_review_config(Path(args.config))
     profile, created_profile = ensure_profile(Path(args.profile), config)
     snapshot = load_json(snapshot_path)
-    entries = list(snapshot.get("entries", []))
+    entries = hydrate_review_entries(
+        snapshot_path,
+        list(snapshot.get("entries", [])),
+        config.include_review_summary,
+    )
 
     scored_pairs: list[tuple[dict[str, Any], dict[str, Any]]] = []
     for entry in entries:

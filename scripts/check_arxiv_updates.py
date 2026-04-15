@@ -10,6 +10,8 @@ Storage behavior:
   - Re-running the script on the same day updates the same file.
   - Entries are merged by base arXiv identifier, keeping the record with the
     newest ``updated`` timestamp.
+  - When review abstracts are enabled, a review-only source file is written to
+    ``derived/arxiv/review/source/YYYY-MM-DD.json``.
   - A small ``derived/arxiv/state.json`` file stores run metadata.
 """
 
@@ -66,6 +68,7 @@ ENTRY_FIELD_DOCS = {
 class Config:
     categories: list[str]
     include_summary: bool
+    include_review_summary: bool
     max_results: int
     sort_by: str
     sort_order: str
@@ -95,6 +98,7 @@ def load_config(path: Path) -> Config:
         raise ValueError("Config field 'categories' must be a non-empty list of strings.")
 
     include_summary = bool(raw.get("include_summary", True))
+    include_review_summary = bool(raw.get("include_review_summary", True))
     max_results = int(raw.get("max_results", 100))
     if max_results <= 0:
         raise ValueError("Config field 'max_results' must be positive.")
@@ -110,6 +114,7 @@ def load_config(path: Path) -> Config:
     return Config(
         categories=categories,
         include_summary=include_summary,
+        include_review_summary=include_review_summary,
         max_results=max_results,
         sort_by=sort_by,
         sort_order=sort_order,
@@ -299,7 +304,8 @@ def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
     )
     feed = fetch_url(url)
     root = ET.fromstring(feed)
-    return [parse_entry(entry, config.include_summary) for entry in root.findall("atom:entry", ATOM_NS)]
+    fetch_summary = config.include_summary or config.include_review_summary
+    return [parse_entry(entry, fetch_summary) for entry in root.findall("atom:entry", ATOM_NS)]
 
 
 def text_or_none(node: ET.Element | None) -> str | None:
@@ -359,6 +365,12 @@ def merge_entries(existing: list[dict[str, Any]], incoming: list[dict[str, Any]]
         ),
         reverse=True,
     )
+
+
+def without_summary(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [{key: value for key, value in entry.items() if key != "summary"} for entry in entries]
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     with path.open("w", encoding="utf-8") as handle:
         json.dump(payload, handle, indent=2, ensure_ascii=False)
@@ -380,6 +392,7 @@ def main() -> int:
     now = datetime.now().astimezone()
     derived_dir = output_dir.parent
     snapshot_path = output_dir / f"{now.date().isoformat()}.json"
+    review_source_path = derived_dir / "review/source" / f"{now.date().isoformat()}.json"
     state_path = derived_dir / "state.json"
 
     try:
@@ -399,8 +412,9 @@ def main() -> int:
         print(f"Fetch failed after retries: {error_message}", file=sys.stderr)
         return 1
 
+    snapshot_entries = entries if config.include_summary else without_summary(entries)
     existing_snapshot = load_existing_snapshot(snapshot_path) or {}
-    merged_entries = merge_entries(list(existing_snapshot.get("entries", [])), entries)
+    merged_entries = merge_entries(list(existing_snapshot.get("entries", [])), snapshot_entries)
 
     snapshot_payload = {
         "date": now.date().isoformat(),
@@ -409,6 +423,7 @@ def main() -> int:
         "query": {
             "categories": config.categories,
             "include_summary": config.include_summary,
+            "include_review_summary": config.include_review_summary,
             "max_results": config.max_results,
             "sort_by": config.sort_by,
             "sort_order": config.sort_order,
@@ -417,6 +432,25 @@ def main() -> int:
         "entries": merged_entries,
     }
     write_json(snapshot_path, snapshot_payload)
+
+    if config.include_review_summary:
+        existing_review_source = load_existing_snapshot(review_source_path) or {}
+        merged_review_entries = merge_entries(list(existing_review_source.get("entries", [])), entries)
+        review_source_payload = {
+            "date": now.date().isoformat(),
+            "fetched_at": now.isoformat(),
+            "source_url": ARXIV_API_URL,
+            "query": {
+                "categories": config.categories,
+                "include_review_summary": config.include_review_summary,
+                "max_results": config.max_results,
+                "sort_by": config.sort_by,
+                "sort_order": config.sort_order,
+            },
+            "field_docs": ENTRY_FIELD_DOCS,
+            "entries": merged_review_entries,
+        }
+        write_json(review_source_path, review_source_payload)
 
     state_payload = {
         "last_run_at": now.isoformat(),

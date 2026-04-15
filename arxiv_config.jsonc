@@ -30,7 +30,12 @@
     "math-ph",
     "quant-ph"
   ],
+  // Controls whether abstracts are stored in the daily snapshot JSON.
   "include_summary": false,
+  // Controls whether abstracts appear in the generated review Markdown.
+  // When true, the fetch step writes a review-only source file under
+  // derived/arxiv/review/source/ so snapshots can stay abstract-free.
+  "include_review_summary": true,
   "max_results": 100,
   "sort_by": "lastUpdatedDate",
   "sort_order": "descending",
