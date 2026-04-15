@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Run the arXiv review routine up to generated review creation.
+"""Run the arXiv review routine with optional manual fetch handoff.
 
 Workflow:
 1. Process any unchecked review feedback already present in review/checked/.
-2. Fetch today's arXiv snapshot.
-3. Generate today's review into review/generated/.
+2. Optionally pause and hand off the arXiv fetch command to the user.
+3. Fetch today's arXiv snapshot.
+4. Generate today's review into review/generated/.
 
 Manual step after this script:
 - Copy the generated review into review/checked/ when ready to annotate it.
@@ -18,15 +19,24 @@ Manual step after this script:
 from __future__ import annotations
 
 import argparse
+import json
 import shlex
 import subprocess
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "phase",
+        nargs="?",
+        choices=("full", "prepare", "finalize"),
+        default="full",
+        help="Routine phase to run. Default: %(default)s",
+    )
     parser.add_argument("--config", default="arxiv_config.jsonc")
     parser.add_argument("--python", default=sys.executable)
     return parser.parse_args()
@@ -41,14 +51,77 @@ def run_step(name: str, cmd: list[str]) -> None:
     print(f"[done] {name}: {elapsed:.1f}s", flush=True)
 
 
-def main() -> int:
-    args = parse_args()
-    root = Path.cwd()
+def manual_fetch_command(root: Path, config: str) -> str:
+    return f"cd {shlex.quote(str(root))} && python3 scripts/check_arxiv_updates.py --config {shlex.quote(config)}"
 
+
+def expected_snapshot_path(root: Path) -> Path:
+    return root / "derived/arxiv/snapshots" / f"{datetime.now().date().isoformat()}.json"
+
+
+def expected_state_path(root: Path) -> Path:
+    return root / "derived/arxiv/state.json"
+
+
+def load_json(path: Path) -> dict[str, object]:
+    with path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def validate_fetch_outputs(root: Path, config: str) -> None:
+    snapshot_path = expected_snapshot_path(root)
+    state_path = expected_state_path(root)
+    missing_paths = [path for path in (snapshot_path, state_path) if not path.exists()]
+    fetch_cmd = manual_fetch_command(root, config)
+    if missing_paths:
+        missing_text = ", ".join(str(path) for path in missing_paths)
+        raise SystemExit(
+            "Cannot finalize arXiv review because the manual fetch outputs are missing: "
+            f"{missing_text}\n"
+            "This usually means the fetch command was not run yet, or it was run in a different checkout. "
+            f"Run exactly:\n{fetch_cmd}"
+        )
+
+    state_payload = load_json(state_path)
+    expected_snapshot_ref = str(snapshot_path.relative_to(root))
+    state_snapshot_ref = str(state_payload.get("last_snapshot_path") or "")
+    if state_snapshot_ref != expected_snapshot_ref:
+        raise SystemExit(
+            "Cannot finalize arXiv review because derived/arxiv/state.json points to "
+            f"{state_snapshot_ref!r} instead of {expected_snapshot_ref!r}.\n"
+            "This usually means the fetch command wrote files in another checkout or produced stale state. "
+            f"Run exactly:\n{fetch_cmd}"
+        )
+
+
+def run_prepare(root: Path, args: argparse.Namespace) -> int:
+    run_step("update_interest_profile", [args.python, str(root / "scripts/update_interest_profile.py")])
+    print("\nPreparation is complete. Run this command in your normal terminal, then return here and report that you finished:\n")
+    print(manual_fetch_command(root, args.config), flush=True)
+    return 0
+
+
+def run_finalize(root: Path, args: argparse.Namespace) -> int:
+    validate_fetch_outputs(root, args.config)
+    run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
+    return 0
+
+
+def run_full(root: Path, args: argparse.Namespace) -> int:
     run_step("update_interest_profile", [args.python, str(root / "scripts/update_interest_profile.py")])
     run_step("check_arxiv_updates", [args.python, str(root / "scripts/check_arxiv_updates.py"), "--config", args.config])
     run_step("build_arxiv_review", [args.python, str(root / "scripts/build_arxiv_review.py"), "--config", args.config])
     return 0
+
+
+def main() -> int:
+    args = parse_args()
+    root = Path.cwd()
+    if args.phase == "prepare":
+        return run_prepare(root, args)
+    if args.phase == "finalize":
+        return run_finalize(root, args)
+    return run_full(root, args)
 
 
 if __name__ == "__main__":

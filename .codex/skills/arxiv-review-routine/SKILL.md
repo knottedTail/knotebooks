@@ -1,6 +1,6 @@
 ---
 name: arxiv-review-routine
-description: Run the daily arXiv recommendation routine for this repository. Use when Codex should process checked review files to update interest weights, fetch today's arXiv updates, and generate the new review in derived/arxiv/review/generated for manual copying into derived/arxiv/review/checked.
+description: Run the daily arXiv recommendation routine for this repository. Use when Codex should process checked review files to update interest weights, hand off the arXiv fetch to the user with an exact worktree command, and then generate the new review in derived/arxiv/review/generated after the user confirms the fetch is done.
 ---
 
 # arXiv Review Routine
@@ -9,23 +9,29 @@ Use this skill for the repository's daily arXiv-interest workflow.
 
 ## Workflow
 
-1. Process any pending checked review files under `derived/arxiv/review/checked/`.
-2. Update `derived/arxiv/interest_profile.json`.
-3. Fetch today's arXiv metadata with `scripts/check_arxiv_updates.py`.
-4. Generate today's review Markdown under `derived/arxiv/review/generated/`.
-5. Manually copy the generated review to `derived/arxiv/review/checked/` when you are ready to annotate it.
-6. Remove the generated review after the checked copy exists.
-7. Stage `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`, then commit them with a concise message on a dedicated `codex/...` branch.
-8. Merge that branch into `main` only if it contains only the routine-output files above and the merge is conflict-free.
-9. Otherwise stop and leave the result for manual follow-up instead of merging.
+1. Confirm the current branch is dedicated to this task. If not, create or switch to a dedicated `codex/...` branch from `main`.
+2. Run the routine prepare phase with `python3 scripts/run_arxiv_review_routine.py prepare`.
+3. Stop after prepare finishes and show the user the exact fetch command printed by the script. Tell them to run that command in their normal terminal, not in another checkout.
+4. Wait for the user to report that the fetch command completed.
+5. Run `python3 scripts/run_arxiv_review_routine.py finalize`.
+6. If finalize fails because the snapshot or `derived/arxiv/state.json` is missing, do not continue. Surface the error and remind the user to run the exact printed fetch command in the same worktree.
+7. After finalize succeeds, generate the usual daily output flow: review under `derived/arxiv/review/generated/`, optional copy to `derived/arxiv/review/checked/`, and narrow staging of `derived/arxiv/snapshots/YYYY-MM-DD.json`, `derived/arxiv/review/generated/YYYY-MM-DD.md`, and `derived/arxiv/state.json`.
+8. Commit only the approved routine-output files with a concise message on the dedicated `codex/...` branch.
+9. Merge that branch into `main` only if it contains only those routine-output files and the merge is conflict-free. Otherwise stop and leave the result for manual follow-up instead of merging.
 
 ## Commands
 
 - Full routine:
   `python3 scripts/run_arxiv_review_routine.py`
+- Prepare phase:
+  `python3 scripts/run_arxiv_review_routine.py prepare`
+- Finalize phase:
+  `python3 scripts/run_arxiv_review_routine.py finalize`
+- Manual fetch step:
+  `cd /absolute/path/to/current/worktree && python3 scripts/check_arxiv_updates.py --config arxiv_config.jsonc`
 - Process pending feedback only:
   `python3 scripts/update_interest_profile.py`
-- Build the review only:
+- Build the review only after fetch outputs exist:
   `python3 scripts/build_arxiv_review.py`
 - Optional helper to prepare the checked copy and remove the generated file:
   `python3 scripts/prepare_arxiv_review_copy.py`
@@ -50,6 +56,9 @@ Use this skill for the repository's daily arXiv-interest workflow.
 - The review updater skips checked files already listed in `processed_review_files`.
 - The generated review is split into `Strong Matches` and `Possible Matches`.
 - The review parser expects the current heading-based Markdown format from `scripts/build_arxiv_review.py`.
+- The prepare phase prints the exact fetch command for the active automation worktree. Use that command as-is.
+- The finalize phase verifies that today's snapshot and `derived/arxiv/state.json` exist in the same worktree before it builds the review.
+- If the user ran the fetch command in another checkout, finalize should fail and the skill should stop rather than guessing.
 - Manual copy is the default workflow. The helper copy script is optional.
 - Once a checked file exists, keeping the generated copy is unnecessary.
 - The routine's git step is intentional and narrow: stage only the daily snapshot, generated review file, and `derived/arxiv/state.json`.
