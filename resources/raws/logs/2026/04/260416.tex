@@ -1,0 +1,88 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 16, 2026}
+
+
+\begin{document}
+\maketitle
+
+We observe the follow at dawn.
+\begin{itemize}
+    \item Chern--Simons invariants of connections on a closed manifold is a gauge-invariant (up to $2 \pi i \mathbb{Z}$).
+    \item Chern--Simons invariants of connections on manifolds with boundary are not gauge invariants.
+    The additional information we need is log-decoration with a choice of invariant line of the peripheral subgroup.
+\end{itemize}
+The above shows that, we do not consider the Chern--Simons invariant of a knot as an invariant of $\mathrm{SL}_2$-colored diagrams.
+It should be regarded as an invariant of log-decorated diagrams, which is equivalent to the choice of log of the eigenvalue of the meridian.
+
+Additionally, I found that I have gotten confused with the partition function and the Chern--Simons invariant:
+\begin{itemize}
+    \item The Chern--Simons invariant $\mathrm{CS}(A)$ is a functional of a connection $A$ on a manifold $M$.
+    Although it is not invariant under the action of the gauge group in general, it is invariant for flat connections (up to $2 \pi i \mathbb{Z}$).
+
+    \item On the other hand, the partition function is defined by the path integral
+    \[
+        Z(M) = \int \mathcal{D}A \, \exp \left( ik \mathrm{CS}(A) \right)
+    \]
+    where $k$ is the level, and the integral is computed along the space of connections on $M$.
+
+    It is known that the expectation value of the Willson loop observable $W_R(K)$ can be computed as
+    \[
+        \frac{1}{Z(S^3)} \int \mathcal{D}A \exp \left( ik \mathrm{CS}(A) \right) W_R(K)
+    \]
+    where $R$ is a $\mathrm{SU}(2)$-representation.
+
+    By Witten, we have
+    \[
+        \langle W_R(K) \rangle = V_K(q)
+    \]
+    where $R$ is the natural representation (of dim 2) and $V_K(q)$ is the Jones polynomial with
+    \[
+        q = \exp \left( \frac{2\pi i}{k + 2} \right).
+    \]
+    It seems like that if we replace $R$ into general spin-$j$ representations, then the expected value would be proportional to the colored Jones poklynomials though it is not confirmed.
+\end{itemize}
+
+After sleeping, my daily workout, having launch, I checked the yesterday's review file.
+It was still the problem that I did not use idiomatic verb patterns.
+In my guess, I should find a way to get be accustomed with idiom.
+The problem using phrases sound translated might be solved by the same way.
+
+Another noticable feedback was to keep the interpretation modest.
+One of my insight is that recording impressions and intuitions on things that I have considered in each day might be valuable.
+Those are good guidlines for mathematical research as propostitions we've found, but they are fragile so that they can be lost at times.
+
+\par\vspace{1em}
+
+I also checcked updated papers from arXiv today.
+
+\par\vspace{1em}
+
+Due to preparation for the talk tomorrow, I am not able to record research today.
+The observations obtained by reading McPhail-Snyder's paper will be recorded later.
+
+
+
+
+
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
