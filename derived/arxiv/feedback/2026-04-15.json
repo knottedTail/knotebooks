@@ -1,0 +1,373 @@
+{
+  "review_path": "derived/arxiv/review/checked/2026-04-15.md",
+  "reviewed_at": "2026-04-16T12:31:07.248120+09:00",
+  "items": [
+    {
+      "title": "Constructing equivalences between fusion categories of quantum groups and of vertex operator algebras via quantum gauge groups",
+      "interested": true,
+      "categories": [
+        "math.OA",
+        "math-ph",
+        "math.QA"
+      ],
+      "keywords": [
+        "braided",
+        "hopf algebra",
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2502.06229v5"
+      ],
+      "metadata": {
+        "arxiv_id": "2502.06229",
+        "versioned_id": "2502.06229v5",
+        "score": 19.7,
+        "matched_categories": [
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "braided",
+          "hopf algebra",
+          "quantum group"
+        ]
+      }
+    },
+    {
+      "title": "Non-semisimple link and manifold invariants for symplectic fermions",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math.GT"
+      ],
+      "keywords": [
+        "hopf algebra",
+        "link invariant  \n**Abs URL:** http://arxiv.org/abs/2307.06069v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2307.06069",
+        "versioned_id": "2307.06069v2",
+        "score": 15.6,
+        "matched_categories": [
+          "math.QA",
+          "math.GT"
+        ],
+        "matched_keywords": [
+          "hopf algebra",
+          "link invariant"
+        ]
+      }
+    },
+    {
+      "title": "W*-superrigidity for discrete quantum groups",
+      "interested": false,
+      "categories": [
+        "math.OA",
+        "math.GR",
+        "math.QA"
+      ],
+      "keywords": [
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2504.03266v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2504.03266",
+        "versioned_id": "2504.03266v2",
+        "score": 11.4,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "quantum group"
+        ]
+      }
+    },
+    {
+      "title": "Skein (3+1)-TQFTs from Non-Semisimple Ribbon Categories",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2306.03225v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2306.03225",
+        "versioned_id": "2306.03225v3",
+        "score": 10.6,
+        "matched_categories": [
+          "math.GT",
+          "math.QA"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "A Quasi-Pentagon Equation for a Heisenberg Double of a Quasi-Hopf Algebra",
+      "interested": true,
+      "categories": [
+        "math.QA"
+      ],
+      "keywords": [
+        "hopf algebra  \n**Abs URL:** http://arxiv.org/abs/2604.12554v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12554",
+        "versioned_id": "2604.12554v1",
+        "score": 10.4,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "hopf algebra"
+        ]
+      }
+    },
+    {
+      "title": "A new model for the quantum mechanics of the Hydrogen atom",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "math.AG",
+        "math.RT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2603.14969v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2603.14969",
+        "versioned_id": "2603.14969v2",
+        "score": 7.3,
+        "matched_categories": [
+          "math-ph",
+          "math.RT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Evaluation-type deformed modules over the quantum affine vertex algebras of type $A$",
+      "interested": false,
+      "categories": [
+        "math.QA"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.12842v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12842",
+        "versioned_id": "2604.12842v1",
+        "score": 7.0,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "On irreducible representations of quandles",
+      "interested": true,
+      "categories": [
+        "math.RT"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.12550v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12550",
+        "versioned_id": "2604.12550v1",
+        "score": 6.7,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Partial majorization and Schur concave functions on the sets of quantum and classical states",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "cs.IT",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.13033v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.13033",
+        "versioned_id": "2604.13033v1",
+        "score": 6.4,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Relational bundle geometric formulation of non-relativistic quantum mechanics",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "hep-th",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2501.02046v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2501.02046",
+        "versioned_id": "2501.02046v2",
+        "score": 6.4,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Quasi-Orthogonal Stabilizer Design for Efficient Quantum Error Suppression",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12684v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12684",
+        "versioned_id": "2604.12684v1",
+        "score": 6.4,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "The Huang Algebra Ideal and the Diagonal Shift Property",
+      "interested": false,
+      "categories": [
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12937v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12937",
+        "versioned_id": "2604.12937v1",
+        "score": 5.4,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Noncommutative differential geometry of ambiskew polynomial rings",
+      "interested": false,
+      "categories": [
+        "math.DG",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12727v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12727",
+        "versioned_id": "2604.12727v1",
+        "score": 5.4,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Fine projection complex and subsurface homeomorphisms with positive stable commutator length",
+      "interested": false,
+      "categories": [
+        "math.GT",
+        "math.DS",
+        "math.GR"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12974v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12974",
+        "versioned_id": "2604.12974v1",
+        "score": 5.2,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "The doubling conjecture for positive scalar curvature",
+      "interested": false,
+      "categories": [
+        "math.DG",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12901v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12901",
+        "versioned_id": "2604.12901v1",
+        "score": 5.2,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Bennequin-Plamenevskaya-Shumakovitch type inequalities for Kronheimer-Mrowka's concordance invariant",
+      "interested": false,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2309.00415v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2309.00415",
+        "versioned_id": "2309.00415v3",
+        "score": 5.2,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Permutation tests for quantum state identity",
+      "interested": false,
+      "categories": [
+        "quant-ph"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2405.09626v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2405.09626",
+        "versioned_id": "2405.09626v2",
+        "score": 4.2,
+        "matched_categories": [
+          "quant-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    }
+  ]
+}

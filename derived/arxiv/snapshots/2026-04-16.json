@@ -1,0 +1,2400 @@
+{
+  "date": "2026-04-16",
+  "fetched_at": "2026-04-16T12:31:07.334879+09:00",
+  "source_url": "https://export.arxiv.org/api/query",
+  "query": {
+    "categories": [
+      "math.AG",
+      "math.AT",
+      "math.GT",
+      "math.KT",
+      "math.OA",
+      "math.QA",
+      "math.RT",
+      "math-ph",
+      "quant-ph"
+    ],
+    "include_summary": false,
+    "include_review_summary": true,
+    "max_results": 100,
+    "sort_by": "lastUpdatedDate",
+    "sort_order": "descending"
+  },
+  "field_docs": {
+    "arxiv_id": "Base arXiv identifier without version suffix, for example 2501.01234.",
+    "versioned_id": "Identifier including version suffix when available, for example 2501.01234v2.",
+    "title": "Paper title from the Atom entry.",
+    "summary": "Paper abstract from the Atom entry.",
+    "authors": "Ordered list of author display names.",
+    "affiliations": "Unique list of affiliations exposed by arXiv author records, when present.",
+    "categories": "All category identifiers attached to the entry, such as math.QA or math.GT.",
+    "primary_category": "Primary arXiv category identifier, when present.",
+    "published": "Original publication timestamp for the entry in ISO 8601 format.",
+    "updated": "Most recent update timestamp for the retrieved entry in ISO 8601 format.",
+    "comment": "Author comment field, when present.",
+    "journal_ref": "Journal reference field, when present.",
+    "doi": "DOI field, when present.",
+    "abs_url": "Canonical arXiv abstract URL for the entry.",
+    "pdf_url": "Direct arXiv PDF URL when exposed by the feed."
+  },
+  "entries": [
+    {
+      "arxiv_id": "2604.07442",
+      "versioned_id": "2604.07442v2",
+      "title": "Locked Subharmonic Oscillations in the Entanglement Spectrum of a Periodically Driven Topological Chain",
+      "authors": [
+        "Rishabh Jha"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cond-mat.stat-mech"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-08T18:00:01Z",
+      "updated": "2026-04-15T17:59:59Z",
+      "comment": "5+26 pages, 2+6 figures, 0+3 tables",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.07442v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.07442v2"
+    },
+    {
+      "arxiv_id": "2604.14150",
+      "versioned_id": "2604.14150v1",
+      "title": "Thermodynamic signatures of non-Hermiticity in Dirac materials via quantum capacitance",
+      "authors": [
+        "Juan Pablo Esparza",
+        "Francisco J. Peña",
+        "Patricio Vargas",
+        "Vladimir Juričić"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.mes-hall",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.mes-hall",
+      "published": "2026-04-15T17:59:58Z",
+      "updated": "2026-04-15T17:59:58Z",
+      "comment": "7 pages + 4 figures, SM as an ancillary file",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14150v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14150v1"
+    },
+    {
+      "arxiv_id": "2604.14143",
+      "versioned_id": "2604.14143v1",
+      "title": "Quantum matter is weakly entangled at low energies",
+      "authors": [
+        "Samuel J. Garratt",
+        "Dmitry A. Abanin"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.stat-mech",
+        "cond-mat.str-el",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.stat-mech",
+      "published": "2026-04-15T17:59:04Z",
+      "updated": "2026-04-15T17:59:04Z",
+      "comment": "13+4 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14143v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14143v1"
+    },
+    {
+      "arxiv_id": "2604.14127",
+      "versioned_id": "2604.14127v1",
+      "title": "Lagrangian correspondences for moduli spaces of Higgs bundles and holomorphic connections",
+      "authors": [
+        "Panagiotis Dimakis",
+        "Duong Dinh",
+        "Shengjing Xu"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG",
+        "hep-th",
+        "math-ph",
+        "math.DG",
+        "math.GT"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-15T17:50:47Z",
+      "updated": "2026-04-15T17:50:47Z",
+      "comment": "First draft, to be revised soon. Comments welcome!",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14127v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14127v1"
+    },
+    {
+      "arxiv_id": "2604.14122",
+      "versioned_id": "2604.14122v1",
+      "title": "The scaling limit of random walk and the intrinsic metric on planar critical percolation",
+      "authors": [
+        "Irina Đanković",
+        "Maarten Markering",
+        "Jason Miller",
+        "Yizheng Yuan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.PR",
+        "math-ph"
+      ],
+      "primary_category": "math.PR",
+      "published": "2026-04-15T17:43:21Z",
+      "updated": "2026-04-15T17:43:21Z",
+      "comment": "139 pages, 31 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14122v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14122v1"
+    },
+    {
+      "arxiv_id": "2604.14119",
+      "versioned_id": "2604.14119v1",
+      "title": "Single Plane Spatial Mode Sorter",
+      "authors": [
+        "Khen Cohen",
+        "Yoav Yosif-Or",
+        "Yaron Oz",
+        "Ady Arie"
+      ],
+      "affiliations": [],
+      "categories": [
+        "physics.optics",
+        "eess.SP",
+        "physics.app-ph",
+        "quant-ph"
+      ],
+      "primary_category": "physics.optics",
+      "published": "2026-04-15T17:41:44Z",
+      "updated": "2026-04-15T17:41:44Z",
+      "comment": "29 pages, 17 figures. Published in Opt. Express 34, 1837-1849 (2026)",
+      "journal_ref": "Opt. Express 34, 1837-1849 (2026)",
+      "doi": "10.1364/OE.584001",
+      "abs_url": "http://arxiv.org/abs/2604.14119v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14119v1"
+    },
+    {
+      "arxiv_id": "2602.15944",
+      "versioned_id": "2602.15944v2",
+      "title": "Towards a classification of graded unitary ${\\mathcal W}_3$ algebras",
+      "authors": [
+        "Christopher Beem",
+        "Harshal Kulkarni"
+      ],
+      "affiliations": [],
+      "categories": [
+        "hep-th",
+        "math.QA",
+        "math.RT"
+      ],
+      "primary_category": "hep-th",
+      "published": "2026-02-17T19:01:56Z",
+      "updated": "2026-04-15T17:38:45Z",
+      "comment": "31 pages, 2 figures; v2: minor typos fixed",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2602.15944v2",
+      "pdf_url": "https://arxiv.org/pdf/2602.15944v2"
+    },
+    {
+      "arxiv_id": "2604.14106",
+      "versioned_id": "2604.14106v1",
+      "title": "Toeplitz exactness for strong convergence",
+      "authors": [
+        "David Gao",
+        "Srivatsav Kunnawalkam Elayavalli"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.OA",
+        "math.FA",
+        "math.GR"
+      ],
+      "primary_category": "math.OA",
+      "published": "2026-04-15T17:21:54Z",
+      "updated": "2026-04-15T17:21:54Z",
+      "comment": "14 pages. Comments welcome",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14106v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14106v1"
+    },
+    {
+      "arxiv_id": "2604.14101",
+      "versioned_id": "2604.14101v1",
+      "title": "Non-symmetric quantum interfaces with bilayer atomic arrays",
+      "authors": [
+        "Roni Ben-Maimon",
+        "Ofer Firstenberg",
+        "Nir Davidson",
+        "Ephraim Shahmoon"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T17:16:26Z",
+      "updated": "2026-04-15T17:16:26Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14101v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14101v1"
+    },
+    {
+      "arxiv_id": "2505.15566",
+      "versioned_id": "2505.15566v2",
+      "title": "Hyperscaling of Fidelity and Operator Estimations in the Critical Manifold",
+      "authors": [
+        "Matheus H. Martins Costa",
+        "Flavio S. Nogueira",
+        "Jeroen van den Brink"
+      ],
+      "affiliations": [],
+      "categories": [
+        "hep-th",
+        "cond-mat.str-el",
+        "quant-ph"
+      ],
+      "primary_category": "hep-th",
+      "published": "2025-05-21T14:20:54Z",
+      "updated": "2026-04-15T17:16:12Z",
+      "comment": "v2: Main discussions and calculations in End Matter expanded, example of hyperscaling relation in the (2+1)d Ising CFT and proposal of application to models of deconfined criticality included, references added and other minor changes, 8 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2505.15566v2",
+      "pdf_url": "https://arxiv.org/pdf/2505.15566v2"
+    },
+    {
+      "arxiv_id": "2604.14098",
+      "versioned_id": "2604.14098v1",
+      "title": "Protecting Heisenberg scaling in quantum metrology via engineered dressed states",
+      "authors": [
+        "Wojciech Gorecki",
+        "Christiane P. Koch"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T17:14:01Z",
+      "updated": "2026-04-15T17:14:01Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14098v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14098v1"
+    },
+    {
+      "arxiv_id": "2604.14094",
+      "versioned_id": "2604.14094v1",
+      "title": "Simulating the dynamics of an SU(2) matrix model on a trapped-ion quantum computer",
+      "authors": [
+        "Gavin S. Hartnett",
+        "Haoran Liao",
+        "Enrico Rinaldi"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "hep-th"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T17:08:31Z",
+      "updated": "2026-04-15T17:08:31Z",
+      "comment": "29 pages, 9 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14094v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14094v1"
+    },
+    {
+      "arxiv_id": "2502.12136",
+      "versioned_id": "2502.12136v2",
+      "title": "$p$-Adic Weight Spectral Sequences of Strictly Semi-stable Schemes over Formal Power Series Rings via Arithmetic $\\mathcal{D}$-modules",
+      "authors": [
+        "Yuanmin Liu"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2025-02-17T18:53:32Z",
+      "updated": "2026-04-15T17:07:42Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2502.12136v2",
+      "pdf_url": "https://arxiv.org/pdf/2502.12136v2"
+    },
+    {
+      "arxiv_id": "2604.13003",
+      "versioned_id": "2604.13003v2",
+      "title": "Relativistic Quantum Chaos in Neutrino Billiards",
+      "authors": [
+        "Barbara Dietz"
+      ],
+      "affiliations": [],
+      "categories": [
+        "nlin.CD",
+        "quant-ph"
+      ],
+      "primary_category": "nlin.CD",
+      "published": "2026-04-14T17:37:44Z",
+      "updated": "2026-04-15T16:59:41Z",
+      "comment": "Chapter for the Quantum Chaos volume in 'Comprehensive Quantum Mechanics', to be published by Elsevier (Main editor: R.B. Mann; volume editors: S. Gnutzmann and K. {Ż}yczkowski)",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13003v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.13003v2"
+    },
+    {
+      "arxiv_id": "2604.14085",
+      "versioned_id": "2604.14085v1",
+      "title": "Relative Langlands duality and Koszul duality",
+      "authors": [
+        "Alexander Braverman",
+        "Michael Finkelberg",
+        "Roman Travkin"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG",
+        "math.RT",
+        "math.SG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-15T16:59:00Z",
+      "updated": "2026-04-15T16:59:00Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14085v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14085v1"
+    },
+    {
+      "arxiv_id": "2604.14081",
+      "versioned_id": "2604.14081v1",
+      "title": "Low Depth Distributed Quantum Algorithms for Unordered Database Search",
+      "authors": [
+        "Huaijing Huang",
+        "Daowen Qiu",
+        "Ximing Hua",
+        "Xinyu Chen"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T16:56:16Z",
+      "updated": "2026-04-15T16:56:16Z",
+      "comment": "A PREPRINT",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14081v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14081v1"
+    },
+    {
+      "arxiv_id": "2602.23275",
+      "versioned_id": "2602.23275v2",
+      "title": "Cusped spaces for hierarchically hyperbolic groups, and applications to Dehn filling quotients",
+      "authors": [
+        "Giorgio Mangioni",
+        "Alessandro Sisto"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.GT",
+        "math.GR"
+      ],
+      "primary_category": "math.GT",
+      "published": "2026-02-26T17:50:56Z",
+      "updated": "2026-04-15T16:51:38Z",
+      "comment": "V2: Added comparison with work of Durham, and many references. Now 36 pages, 5 figures. Comments are welcome!",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2602.23275v2",
+      "pdf_url": "https://arxiv.org/pdf/2602.23275v2"
+    },
+    {
+      "arxiv_id": "2604.14079",
+      "versioned_id": "2604.14079v1",
+      "title": "Hybrid quantum-classical algorithms for complex nonlinear partial differential equations with Ginzburg-Landau potential and vortex motion laws",
+      "authors": [
+        "Shi Jin",
+        "Nana Liu",
+        "Chuwen Ma"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T16:50:41Z",
+      "updated": "2026-04-15T16:50:41Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14079v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14079v1"
+    },
+    {
+      "arxiv_id": "2604.14077",
+      "versioned_id": "2604.14077v1",
+      "title": "Open WDVV equations and $\\bigvee$-systems",
+      "authors": [
+        "Alessandro Proserpio",
+        "Ian A. B. Strachan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph",
+        "math.RT",
+        "nlin.SI"
+      ],
+      "primary_category": "math-ph",
+      "published": "2026-04-15T16:49:50Z",
+      "updated": "2026-04-15T16:49:50Z",
+      "comment": "22 pages; comments welcome!",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14077v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14077v1"
+    },
+    {
+      "arxiv_id": "2604.14057",
+      "versioned_id": "2604.14057v1",
+      "title": "Distributed quantum-classical hybrid algorithm for solving K-SAT problem",
+      "authors": [
+        "Huaijing Huang",
+        "Daowen Qiu",
+        "Le Luo",
+        "Paulo Mateus"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T16:36:42Z",
+      "updated": "2026-04-15T16:36:42Z",
+      "comment": "A PREPRINT",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14057v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14057v1"
+    },
+    {
+      "arxiv_id": "2604.14055",
+      "versioned_id": "2604.14055v1",
+      "title": "Two-Indexed Schatten Quasi-Norms with Applications to Quantum Information Theory",
+      "authors": [
+        "Jan Kochanowski",
+        "Omar Fawzi",
+        "Cambyse Rouzé"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cs.IT",
+        "math.FA",
+        "math.OA"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T16:35:46Z",
+      "updated": "2026-04-15T16:35:46Z",
+      "comment": "61pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14055v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14055v1"
+    },
+    {
+      "arxiv_id": "2604.14052",
+      "versioned_id": "2604.14052v1",
+      "title": "From coupled $\\mathbb{Z}_3$ Rabi models to the $\\mathbb{Z}_3$ Potts model",
+      "authors": [
+        "Anatoliy I. Lotkov",
+        "Valerii K. Kozin",
+        "Denis V. Kurlov",
+        "Jelena Klinovaja",
+        "Daniel Loss"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cond-mat.mes-hall"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T16:30:38Z",
+      "updated": "2026-04-15T16:30:38Z",
+      "comment": "15 pages, 6 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14052v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14052v1"
+    },
+    {
+      "arxiv_id": "2604.14040",
+      "versioned_id": "2604.14040v1",
+      "title": "A lower bound on the Calabi functional for a degeneration of polarized varieties",
+      "authors": [
+        "Gabriel Frey"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-15T16:20:37Z",
+      "updated": "2026-04-15T16:20:37Z",
+      "comment": "28 pages, comments welcome!",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14040v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14040v1"
+    },
+    {
+      "arxiv_id": "2604.14037",
+      "versioned_id": "2604.14037v1",
+      "title": "A Complete Symmetry Classification of Shallow ReLU Networks",
+      "authors": [
+        "Pranavkrishnan Ramakrishnan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cs.LG",
+        "math.AG",
+        "math.CO"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-04-15T16:18:44Z",
+      "updated": "2026-04-15T16:18:44Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14037v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14037v1"
+    },
+    {
+      "arxiv_id": "2603.15534",
+      "versioned_id": "2603.15534v2",
+      "title": "Analog-Digital Quantum Computing with Quantum Annealing Processors",
+      "authors": [
+        "Rahul Deshpande",
+        "Majid Kheirkhah",
+        "Chris Rich",
+        "Richard Harris",
+        "Jack Raymond",
+        "Emile Hoskinson",
+        "Pratik Sathe",
+        "Andrew J. Berkley",
+        "Stefan Paul",
+        "Brian Barch",
+        "Daniel A. Lidar",
+        "Markus Müller",
+        "Gabriel Aeppli",
+        "Andrew D. King",
+        "Mohammad H. Amin"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cond-mat.dis-nn",
+        "cond-mat.stat-mech"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-03-16T16:58:49Z",
+      "updated": "2026-04-15T16:18:19Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.15534v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.15534v2"
+    },
+    {
+      "arxiv_id": "2506.02888",
+      "versioned_id": "2506.02888v2",
+      "title": "Intrinsic Hamiltonian of Mean Force and Strong-Coupling Quantum Thermodynamics",
+      "authors": [
+        "Ignacio González",
+        "Sagnik Chakraborty",
+        "Ángel Rivas"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cond-mat.mes-hall",
+        "cond-mat.stat-mech"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-06-03T13:54:07Z",
+      "updated": "2026-04-15T16:08:28Z",
+      "comment": "RevTex4 File, Color Figures, Minor Errors Corrected, New Nonequilibrium Formalism",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2506.02888v2",
+      "pdf_url": "https://arxiv.org/pdf/2506.02888v2"
+    },
+    {
+      "arxiv_id": "2604.14024",
+      "versioned_id": "2604.14024v1",
+      "title": "Deformations of fibered Calabi--Yau varieties",
+      "authors": [
+        "Benjamin Bakker",
+        "Kristin DeVleming",
+        "Stefano Filipazzi",
+        "Radu Laza",
+        "Jennifer Li",
+        "Roberto Svaldi",
+        "Chengxi Wang",
+        "Junyan Zhao"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG",
+        "hep-th",
+        "math.DG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-15T16:06:36Z",
+      "updated": "2026-04-15T16:06:36Z",
+      "comment": "v1: 15 pages. Comments are welcome",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14024v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14024v1"
+    },
+    {
+      "arxiv_id": "2603.06363",
+      "versioned_id": "2603.06363v2",
+      "title": "Universal Dynamical Scaling of Strong-to-Weak Spontaneous Symmetry Breaking in Open Quantum Systems",
+      "authors": [
+        "Chang Shu",
+        "Kai Zhang",
+        "Zhu-Xi Luo",
+        "Yizhi You",
+        "Kai Sun"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.mes-hall",
+        "cond-mat.str-el",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.mes-hall",
+      "published": "2026-03-06T15:13:25Z",
+      "updated": "2026-04-15T16:00:47Z",
+      "comment": "14 pages, 6 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.06363v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.06363v2"
+    },
+    {
+      "arxiv_id": "2604.14015",
+      "versioned_id": "2604.14015v1",
+      "title": "The role of classical periodic orbits in quantum many-body systems",
+      "authors": [
+        "Daniel Waltner",
+        "Boris Gutkin"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "nlin.CD"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T15:57:21Z",
+      "updated": "2026-04-15T15:57:21Z",
+      "comment": "Chapter for the Quantum Chaos volume in 'Comprehensive Quantum Mechanics to be published by Elsevier (Main editor: R. B. Mann; volume editors: S. Gnutzmann and K. ${Ż}$yczkowski)",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.14015v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.14015v1"
+    },
+    {
+      "arxiv_id": "2603.23603",
+      "versioned_id": "2603.23603v2",
+      "title": "Laser-induced creation of coherent V2 centers in bulk-grown silicon carbide",
+      "authors": [
+        "L. J. Feije",
+        "G. M. Timmer",
+        "Y. Hu",
+        "R. Karababa",
+        "G. L. van de Stolpe",
+        "T. Martens",
+        "S. J. H. Loenen",
+        "T. B. A. Durant",
+        "A. Das",
+        "A. M. Day",
+        "E. L. Hu",
+        "T. H. Taminiau"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-03-24T18:00:04Z",
+      "updated": "2026-04-15T15:51:10Z",
+      "comment": "Authors L.J. Feije and G.M. Timmer contributed equally, 31 pages, 28 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.23603v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.23603v2"
+    },
+    {
+      "arxiv_id": "2410.23613",
+      "versioned_id": "2410.23613v3",
+      "title": "Comparing the performance of practical two-qubit gates for individual $^{171}$Yb ions in yttrium orthovanadate",
+      "authors": [
+        "Mahsa Karimi",
+        "Faezeh Kimiaee Asadi",
+        "Stephen C. Wein",
+        "Christoph Simon"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2024-10-31T03:55:08Z",
+      "updated": "2026-04-15T15:46:28Z",
+      "comment": "Version accepted in Quantum. 39 pages, 14 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2410.23613v3",
+      "pdf_url": "https://arxiv.org/pdf/2410.23613v3"
+    },
+    {
+      "arxiv_id": "2604.13999",
+      "versioned_id": "2604.13999v1",
+      "title": "Triple-cup product forms of 3-manifolds and Heegaard diagrams",
+      "authors": [
+        "Maya Kayali"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.GT"
+      ],
+      "primary_category": "math.GT",
+      "published": "2026-04-15T15:45:43Z",
+      "updated": "2026-04-15T15:45:43Z",
+      "comment": "19 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13999v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13999v1"
+    },
+    {
+      "arxiv_id": "2511.00473",
+      "versioned_id": "2511.00473v3",
+      "title": "Drinfeld associators and Kashiwara-Vergne associators in higher genera",
+      "authors": [
+        "Toyo Taniguchi"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.QA",
+        "math.AT"
+      ],
+      "primary_category": "math.QA",
+      "published": "2025-11-01T09:53:47Z",
+      "updated": "2026-04-15T15:33:47Z",
+      "comment": "42 pages. Added material on framings in Section 6, and minor corrections",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2511.00473v3",
+      "pdf_url": "https://arxiv.org/pdf/2511.00473v3"
+    },
+    {
+      "arxiv_id": "2510.16417",
+      "versioned_id": "2510.16417v2",
+      "title": "The Hesse Pencil Variety",
+      "authors": [
+        "Elisabetta Rocchi"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2025-10-18T09:25:06Z",
+      "updated": "2026-04-15T15:32:24Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.16417v2",
+      "pdf_url": "https://arxiv.org/pdf/2510.16417v2"
+    },
+    {
+      "arxiv_id": "2510.22601",
+      "versioned_id": "2510.22601v2",
+      "title": "Quantum Bit Threads and the Entropohedron",
+      "authors": [
+        "Matthew Headrick",
+        "Sreeman Reddy Kasireddy",
+        "Andrew Rolph"
+      ],
+      "affiliations": [],
+      "categories": [
+        "hep-th",
+        "quant-ph"
+      ],
+      "primary_category": "hep-th",
+      "published": "2025-10-26T09:34:24Z",
+      "updated": "2026-04-15T15:28:10Z",
+      "comment": "68 pages. Video abstract available at https://youtu.be/xSyRAXkPpdw. v2: minor corrections and improvements to presentation",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.22601v2",
+      "pdf_url": "https://arxiv.org/pdf/2510.22601v2"
+    },
+    {
+      "arxiv_id": "2604.12111",
+      "versioned_id": "2604.12111v2",
+      "title": "Quantum mechanical model for charge excitation: Surface binding and dispersion",
+      "authors": [
+        "Dionisios Margetis"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph",
+        "quant-ph"
+      ],
+      "primary_category": "math-ph",
+      "published": "2026-04-13T22:35:18Z",
+      "updated": "2026-04-15T15:25:50Z",
+      "comment": "2 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.12111v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.12111v2"
+    },
+    {
+      "arxiv_id": "2604.01842",
+      "versioned_id": "2604.01842v2",
+      "title": "Genus three Ceresa cycles and limit of archimedean heights",
+      "authors": [
+        "Souvik Goswami",
+        "Irene Spelta"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-02T09:56:25Z",
+      "updated": "2026-04-15T15:21:07Z",
+      "comment": "Updated version",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.01842v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.01842v2"
+    },
+    {
+      "arxiv_id": "2604.12707",
+      "versioned_id": "2604.12707v2",
+      "title": "Quantum analogues of exponential sensitivity: from Loschmidt echo to Krylov complexity",
+      "authors": [
+        "Ignacio García-Mata",
+        "Diego A. Wisniacki"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "nlin.CD"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-14T13:22:15Z",
+      "updated": "2026-04-15T15:19:17Z",
+      "comment": "Chapter for the Quantum Chaos volume in 'Comprehensive Quantum Mechanics', to be published by Elsevier (Main editor: R. Mann; volume editors: S. Gnutzmann and K. {Ż}yczkowski). --- Corrected some References",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.12707v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.12707v2"
+    },
+    {
+      "arxiv_id": "2604.07243",
+      "versioned_id": "2604.07243v2",
+      "title": "Sha-rigidity of adjoint Chevalley groups of types $A_1$, $A_2$, $B_2$, $G_2$ over commutative rings",
+      "authors": [
+        "Elena Bunina",
+        "Vazgen Kirakosyan",
+        "Rachel Treskunov"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.GR",
+        "math.AG"
+      ],
+      "primary_category": "math.GR",
+      "published": "2026-04-08T16:08:46Z",
+      "updated": "2026-04-15T15:17:26Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.07243v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.07243v2"
+    },
+    {
+      "arxiv_id": "2604.13964",
+      "versioned_id": "2604.13964v1",
+      "title": "Dimensioning of Quantum Memories for Distilled Quantum EPR Packets",
+      "authors": [
+        "Lorenzo Valentini",
+        "Diego Forlivesi",
+        "Andrea Talarico",
+        "Marco Chiani"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T15:14:41Z",
+      "updated": "2026-04-15T15:14:41Z",
+      "comment": "5 pages, 4 figures, to appear in IEEE International Conference on Quantum Communications, Networking, and Computing (QCNC 2026)",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13964v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13964v1"
+    },
+    {
+      "arxiv_id": "2502.13208",
+      "versioned_id": "2502.13208v2",
+      "title": "Finite cutoff JT gravity: Baby universes, Matrix dual, and (Krylov) Complexity",
+      "authors": [
+        "Arpan Bhattacharyya",
+        "Saptaswa Ghosh",
+        "Sounak Pal",
+        "Anandu Vinod"
+      ],
+      "affiliations": [],
+      "categories": [
+        "hep-th",
+        "gr-qc",
+        "math-ph",
+        "quant-ph"
+      ],
+      "primary_category": "hep-th",
+      "published": "2025-02-18T19:00:02Z",
+      "updated": "2026-04-15T15:13:20Z",
+      "comment": "49 pages, 8 figures, major revision, results regarding ERB growth and baby universe emission probability are updated, comments regarding the possible dual matrix model added, title and abstract are slightly changed",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2502.13208v2",
+      "pdf_url": "https://arxiv.org/pdf/2502.13208v2"
+    },
+    {
+      "arxiv_id": "2604.13951",
+      "versioned_id": "2604.13951v1",
+      "title": "Quantum Machine Learning for Colorectal Cancer Data: Anastomotic Leak Classification and Risk Factors",
+      "authors": [
+        "Vojtěch Novák",
+        "Ivan Zelinka",
+        "Lenka Přibylová",
+        "Lubomír Martínek",
+        "Vladimír Benčurík",
+        "Martin Beseda"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cs.LG",
+        "quant-ph"
+      ],
+      "primary_category": "cs.LG",
+      "published": "2026-04-15T15:03:37Z",
+      "updated": "2026-04-15T15:03:37Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13951v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13951v1"
+    },
+    {
+      "arxiv_id": "2604.13943",
+      "versioned_id": "2604.13943v1",
+      "title": "A Modular and T-Gate Efficient Architecture for Quantum Leading-Zero/One Counter",
+      "authors": [
+        "Lei-Han Yao",
+        "Shang-Wei Lin",
+        "Yu-Chung Chen",
+        "Yean-Ru Chen"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:55:19Z",
+      "updated": "2026-04-15T14:55:19Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13943v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13943v1"
+    },
+    {
+      "arxiv_id": "2507.04988",
+      "versioned_id": "2507.04988v3",
+      "title": "Ballistic Transport for Discrete Multi-Dimensional Schrödinger Operators With Decaying Potential",
+      "authors": [
+        "David Damanik",
+        "Zhiyan Zhao"
+      ],
+      "affiliations": [
+        "Rice University",
+        "Université Côte d'Azur"
+      ],
+      "categories": [
+        "math-ph",
+        "math.AP",
+        "math.SP"
+      ],
+      "primary_category": "math-ph",
+      "published": "2025-07-07T13:28:20Z",
+      "updated": "2026-04-15T14:55:19Z",
+      "comment": "29 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2507.04988v3",
+      "pdf_url": "https://arxiv.org/pdf/2507.04988v3"
+    },
+    {
+      "arxiv_id": "2211.09167",
+      "versioned_id": "2211.09167v3",
+      "title": "Time-optimal control of two-level quantum systems by piecewise constant pulses",
+      "authors": [
+        "E. Dionis",
+        "D. Sugny"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2022-11-16T19:32:17Z",
+      "updated": "2026-04-15T14:48:14Z",
+      "comment": "28 pages, 9 figures",
+      "journal_ref": "Phys. Rev. A 107, 032613 (2023)",
+      "doi": "10.1103/PhysRevA.107.032613",
+      "abs_url": "http://arxiv.org/abs/2211.09167v3",
+      "pdf_url": "https://arxiv.org/pdf/2211.09167v3"
+    },
+    {
+      "arxiv_id": "2604.13936",
+      "versioned_id": "2604.13936v1",
+      "title": "Topological markers for a one-dimensional fermionic chain coupled to a single-mode cavity",
+      "authors": [
+        "Anna Ritz-Zwilling",
+        "Olesia Dmytruk"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.mes-hall",
+        "cond-mat.str-el",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.mes-hall",
+      "published": "2026-04-15T14:47:51Z",
+      "updated": "2026-04-15T14:47:51Z",
+      "comment": "10 pages, 6 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13936v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13936v1"
+    },
+    {
+      "arxiv_id": "2411.01942",
+      "versioned_id": "2411.01942v2",
+      "title": "On the Quantum Theory of Molecules: Rigour, Idealization, and Uncertainty",
+      "authors": [
+        "Nick Huggett",
+        "James Ladyman",
+        "Karim P. Y. Thébault"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "physics.hist-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2024-11-04T10:08:49Z",
+      "updated": "2026-04-15T14:45:13Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2411.01942v2",
+      "pdf_url": "https://arxiv.org/pdf/2411.01942v2"
+    },
+    {
+      "arxiv_id": "2409.07501",
+      "versioned_id": "2409.07501v2",
+      "title": "A compact QUBO encoding of computational logic formulae demonstrated on cryptography constructions",
+      "authors": [
+        "Gregory Morse",
+        "Tamás Kozsik",
+        "Oskar Mencer",
+        "Peter Rakyta"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cs.CR",
+        "math-ph",
+        "quant-ph"
+      ],
+      "primary_category": "cs.CR",
+      "published": "2024-09-10T18:46:26Z",
+      "updated": "2026-04-15T14:35:35Z",
+      "comment": "16 pages, 3 tables, 48 equations",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2409.07501v2",
+      "pdf_url": "https://arxiv.org/pdf/2409.07501v2"
+    },
+    {
+      "arxiv_id": "2604.13923",
+      "versioned_id": "2604.13923v1",
+      "title": "Quantum information spreading in inhomogeneous spin ensembles",
+      "authors": [
+        "Rahul Gupta",
+        "Florian Mintert",
+        "Himadri Shekhar Dhar"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cond-mat.stat-mech",
+        "physics.atom-ph",
+        "physics.optics"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:32:00Z",
+      "updated": "2026-04-15T14:32:00Z",
+      "comment": "13 pages, 3 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13923v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13923v1"
+    },
+    {
+      "arxiv_id": "2510.15766",
+      "versioned_id": "2510.15766v3",
+      "title": "Subdimensional Entanglement Entropy: From Geometric-Topological Response to Mixed-State Holography",
+      "authors": [
+        "Meng-Yuan Li",
+        "Peng Ye"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.str-el",
+        "cond-mat.stat-mech",
+        "hep-th",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.str-el",
+      "published": "2025-10-17T15:54:55Z",
+      "updated": "2026-04-15T14:28:41Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.15766v3",
+      "pdf_url": "https://arxiv.org/pdf/2510.15766v3"
+    },
+    {
+      "arxiv_id": "2510.01063",
+      "versioned_id": "2510.01063v4",
+      "title": "Triacontagonal proofs of the Bell-Kochen-Specker theorem",
+      "authors": [
+        "P. K. Aravind",
+        "Justin Y. J. Burton",
+        "Guillermo Núñez Ponasso",
+        "D. Richter"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.CO",
+        "quant-ph"
+      ],
+      "primary_category": "math.CO",
+      "published": "2025-10-01T16:02:56Z",
+      "updated": "2026-04-15T14:27:47Z",
+      "comment": "26 pages, 14 tables",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.01063v4",
+      "pdf_url": "https://arxiv.org/pdf/2510.01063v4"
+    },
+    {
+      "arxiv_id": "2511.13088",
+      "versioned_id": "2511.13088v2",
+      "title": "Topological enhancement of a PT-symmetric Su-Schrieffer-Heeger quantum battery",
+      "authors": [
+        "A-Long Zhou",
+        "Ya-Wen Xiao",
+        "Nuo Xu",
+        "Li-Li Gao",
+        "Long-Jie Li",
+        "Hang Zhou",
+        "Zi-Min Li",
+        "Chuan-Cun Shu"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-11-17T07:38:50Z",
+      "updated": "2026-04-15T14:24:29Z",
+      "comment": "very close to the published version",
+      "journal_ref": "Phys. Rev. A 113, 042213 (2026)",
+      "doi": "10.1103/4klp-kw27",
+      "abs_url": "http://arxiv.org/abs/2511.13088v2",
+      "pdf_url": "https://arxiv.org/pdf/2511.13088v2"
+    },
+    {
+      "arxiv_id": "2503.20130",
+      "versioned_id": "2503.20130v3",
+      "title": "Energy shortcut of N-level quantum protocols by optimal control",
+      "authors": [
+        "C. L. Latune",
+        "M. B. Puthuveedu Shebeek",
+        "D. Sugny",
+        "S. Guérin"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-03-26T00:46:19Z",
+      "updated": "2026-04-15T14:19:57Z",
+      "comment": "5 + 6 pages and 4 + 3 figures. Extended results and new figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2503.20130v3",
+      "pdf_url": "https://arxiv.org/pdf/2503.20130v3"
+    },
+    {
+      "arxiv_id": "2604.13910",
+      "versioned_id": "2604.13910v1",
+      "title": "Tsallis relative $α$ entropy of coherence dynamics in Grover's search algorithm",
+      "authors": [
+        "Linlin Ye",
+        "Zhaoqi Wu",
+        "Shao-Ming Fe"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:18:42Z",
+      "updated": "2026-04-15T14:18:42Z",
+      "comment": "26 pages,6 figures",
+      "journal_ref": null,
+      "doi": "10.1088/1572-9494/acdce5",
+      "abs_url": "http://arxiv.org/abs/2604.13910v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13910v1"
+    },
+    {
+      "arxiv_id": "2604.13909",
+      "versioned_id": "2604.13909v1",
+      "title": "dqc_simulator: an easy-to-use distributed quantum computing simulator",
+      "authors": [
+        "Kenny Campbell"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:18:24Z",
+      "updated": "2026-04-15T14:18:24Z",
+      "comment": "14 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13909v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13909v1"
+    },
+    {
+      "arxiv_id": "2604.13904",
+      "versioned_id": "2604.13904v1",
+      "title": "Optimally Controlled Storage of a Qubit in an Inhomogeneous Spin Ensemble",
+      "authors": [
+        "Rahul Gupta",
+        "Florian Mintert",
+        "Himadri Shekhar Dhar"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "physics.atom-ph",
+        "physics.optics"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:14:54Z",
+      "updated": "2026-04-15T14:14:54Z",
+      "comment": "8 pages, 5 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13904v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13904v1"
+    },
+    {
+      "arxiv_id": "2604.13900",
+      "versioned_id": "2604.13900v1",
+      "title": "Dynamic rephasing in a telecom warm vapor quantum memory",
+      "authors": [
+        "Ilse Maillette de Buy Wenniger",
+        "Paul Burdekin",
+        "Shicheng Zhang",
+        "Mikhael J. Rasiah",
+        "Anindya Rastogi",
+        "Otto T. P. Schmidt",
+        "Patrick M. Ledingham",
+        "Ian A. Walmsley",
+        "S. E. Thomas"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "physics.atom-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:11:44Z",
+      "updated": "2026-04-15T14:11:44Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13900v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13900v1"
+    },
+    {
+      "arxiv_id": "2604.13898",
+      "versioned_id": "2604.13898v1",
+      "title": "Hyperbolic spaces with geometric and geometrically finite quasi-actions are symmetric",
+      "authors": [
+        "Daniel Groves",
+        "Emily Stark",
+        "Genevieve S. Walsh",
+        "Kevin Whyte"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.GR",
+        "math.GT"
+      ],
+      "primary_category": "math.GR",
+      "published": "2026-04-15T14:08:56Z",
+      "updated": "2026-04-15T14:08:56Z",
+      "comment": "9 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13898v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13898v1"
+    },
+    {
+      "arxiv_id": "2603.28849",
+      "versioned_id": "2603.28849v2",
+      "title": "Symmetry-Fractionalized Skin Effects in Non-Hermitian Luttinger Liquids",
+      "authors": [
+        "Christopher Ekman",
+        "Emil J. Bergholtz",
+        "Paolo Molignini"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.str-el",
+        "cond-mat.quant-gas",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.str-el",
+      "published": "2026-03-30T18:00:00Z",
+      "updated": "2026-04-15T14:08:49Z",
+      "comment": "7+7 pages, 3+3 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.28849v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.28849v2"
+    },
+    {
+      "arxiv_id": "2604.13894",
+      "versioned_id": "2604.13894v1",
+      "title": "Wandering range of robust quantum symmetries",
+      "authors": [
+        "Daniel Burgarth",
+        "Paolo Facchi",
+        "Marilena Ligabò",
+        "Vito Viesti",
+        "Kazuya Yuasa"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T14:01:45Z",
+      "updated": "2026-04-15T14:01:45Z",
+      "comment": "34 pages, 1 figure",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13894v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13894v1"
+    },
+    {
+      "arxiv_id": "2604.13881",
+      "versioned_id": "2604.13881v1",
+      "title": "High-gain and large-bandwidth Josephson parametric amplifier influenced by Fabry-Pérot interference",
+      "authors": [
+        "Shingo Kono",
+        "Jesper Ilves",
+        "Arjan F. van Loo",
+        "Yoshiki Sunada",
+        "C. W. Sandbo Chang",
+        "Yutaka Takeda",
+        "Kenshi Yuki",
+        "Takeaki Miyamura",
+        "Kohei Matsuura",
+        "Kazuki Koshino",
+        "Yasunobu Nakamura"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:42:49Z",
+      "updated": "2026-04-15T13:42:49Z",
+      "comment": "33 pages, 18 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13881v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13881v1"
+    },
+    {
+      "arxiv_id": "2604.13877",
+      "versioned_id": "2604.13877v1",
+      "title": "Scalable Quantum Molecular Generation via GPU-Accelerated Tensor-Network Simulation",
+      "authors": [
+        "Yu-Cheng Xiao",
+        "Jen-Yu Chang",
+        "Tzu-Ling Kuo",
+        "Aninda Astuti",
+        "Shu-Chi Wu",
+        "Ka-Lok Ng",
+        "Yun-Yuan Wang",
+        "Yu-Ze Chen",
+        "Nan-Yow Chen",
+        "Tai-Yu Li"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:39:17Z",
+      "updated": "2026-04-15T13:39:17Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13877v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13877v1"
+    },
+    {
+      "arxiv_id": "2604.13876",
+      "versioned_id": "2604.13876v1",
+      "title": "Transient entanglement generation in driven chiral networks beyond the secular approximation",
+      "authors": [
+        "Yan Xi Foo",
+        "Kian Hwee Lim",
+        "Jia-Bin You",
+        "Leong Chuan Kwek",
+        "Davit Aghamalyan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:38:28Z",
+      "updated": "2026-04-15T13:38:28Z",
+      "comment": "34 pages, 14 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13876v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13876v1"
+    },
+    {
+      "arxiv_id": "2604.13874",
+      "versioned_id": "2604.13874v1",
+      "title": "An Euler Characteristic for Unbounded Chain Complexes",
+      "authors": [
+        "Thomas Huettemann",
+        "Dan Kucerovsky"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.KT"
+      ],
+      "primary_category": "math.KT",
+      "published": "2026-04-15T13:37:33Z",
+      "updated": "2026-04-15T13:37:33Z",
+      "comment": "18 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13874v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13874v1"
+    },
+    {
+      "arxiv_id": "2604.13872",
+      "versioned_id": "2604.13872v1",
+      "title": "Experimental realisation of topological spin textures in a Penning trap",
+      "authors": [
+        "Julian Y. Z. Jee",
+        "Nihar Makadia",
+        "Joseph H. Pham",
+        "Gustavo Café de Miranda",
+        "Michael J. Biercuk",
+        "Athreya Shankar",
+        "Robert N. Wolf"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "physics.atom-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:35:33Z",
+      "updated": "2026-04-15T13:35:33Z",
+      "comment": "12 pages, 8 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13872v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13872v1"
+    },
+    {
+      "arxiv_id": "2604.13869",
+      "versioned_id": "2604.13869v1",
+      "title": "Bipartite entanglement harvesting with multiple detectors",
+      "authors": [
+        "Santeri Salomaa",
+        "Esko Keski-Vakkuri",
+        "Sergi Nadal-Gisbert"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "gr-qc",
+        "hep-th"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:32:45Z",
+      "updated": "2026-04-15T13:32:45Z",
+      "comment": "24 pages, 16 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13869v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13869v1"
+    },
+    {
+      "arxiv_id": "2604.13859",
+      "versioned_id": "2604.13859v1",
+      "title": "Decoupling of the STIRAP and Microwave-Dressing paths in Trapped Rydberg Ion Gates",
+      "authors": [
+        "K. N. Zlatanov",
+        "M. Mallweger",
+        "M. Hennrich",
+        "N. V. Vitanov"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:26:56Z",
+      "updated": "2026-04-15T13:26:56Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13859v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13859v1"
+    },
+    {
+      "arxiv_id": "2604.13852",
+      "versioned_id": "2604.13852v1",
+      "title": "First Passage Times for Variable-Order Time-Fractional Diffusion",
+      "authors": [
+        "Wancheng Li",
+        "Daniel S. Han"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.stat-mech",
+        "math-ph"
+      ],
+      "primary_category": "cond-mat.stat-mech",
+      "published": "2026-04-15T13:23:37Z",
+      "updated": "2026-04-15T13:23:37Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13852v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13852v1"
+    },
+    {
+      "arxiv_id": "2603.01466",
+      "versioned_id": "2603.01466v5",
+      "title": "Violation of Bell-type Inequalities on Mutually-commuting von Neumann Algebra Models of Entanglement Swapping Networks",
+      "authors": [
+        "Bingke Zheng",
+        "Shuyuan Yang",
+        "Jinchuan Hou",
+        "Kan He"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.FA",
+        "math-ph",
+        "math.OA",
+        "quant-ph"
+      ],
+      "primary_category": "math.FA",
+      "published": "2026-03-02T05:28:05Z",
+      "updated": "2026-04-15T13:18:06Z",
+      "comment": "14 pages, 1 figure",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.01466v5",
+      "pdf_url": "https://arxiv.org/pdf/2603.01466v5"
+    },
+    {
+      "arxiv_id": "2604.13845",
+      "versioned_id": "2604.13845v1",
+      "title": "Minkowski content construction of the CLE gasket measure",
+      "authors": [
+        "Jason Miller",
+        "Yizheng Yuan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.PR",
+        "math-ph",
+        "math.CV"
+      ],
+      "primary_category": "math.PR",
+      "published": "2026-04-15T13:16:09Z",
+      "updated": "2026-04-15T13:16:09Z",
+      "comment": "arXiv admin note: text overlap with arXiv:2512.04807",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13845v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13845v1"
+    },
+    {
+      "arxiv_id": "2510.25994",
+      "versioned_id": "2510.25994v2",
+      "title": "Hyperbolic Fracton Model, Subsystem Symmetry and Holography III: Extension to Generic Tessellations",
+      "authors": [
+        "Yosef Shokeeb",
+        "Ludovic D. C. Jaubert",
+        "Han Yan"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.str-el",
+        "hep-th",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.str-el",
+      "published": "2025-10-29T22:10:04Z",
+      "updated": "2026-04-15T13:14:55Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.25994v2",
+      "pdf_url": "https://arxiv.org/pdf/2510.25994v2"
+    },
+    {
+      "arxiv_id": "2510.03227",
+      "versioned_id": "2510.03227v2",
+      "title": "Plugging Leaks in Fault-Tolerant Quantum Computation and Verification",
+      "authors": [
+        "Theodoros Kapourniotis",
+        "Dominik Leichtle",
+        "Luka Music",
+        "Harold Ollivier"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-10-03T17:57:59Z",
+      "updated": "2026-04-15T13:13:58Z",
+      "comment": "46 pages, 6 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2510.03227v2",
+      "pdf_url": "https://arxiv.org/pdf/2510.03227v2"
+    },
+    {
+      "arxiv_id": "2604.13838",
+      "versioned_id": "2604.13838v1",
+      "title": "On hyperbolic and rational solutions of the cubically nonlinear Schrödinger equation",
+      "authors": [
+        "Hans Werner Schürmann",
+        "Valery Serov"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph"
+      ],
+      "primary_category": "math-ph",
+      "published": "2026-04-15T13:10:20Z",
+      "updated": "2026-04-15T13:10:20Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13838v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13838v1"
+    },
+    {
+      "arxiv_id": "2604.13834",
+      "versioned_id": "2604.13834v1",
+      "title": "Quantum Routing Beyond Pathfinding: Multipartite Entanglement Complementation",
+      "authors": [
+        "Si-Yi Chen",
+        "Angela Sara Cacciapuoti",
+        "Marcello Caleffi"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T13:07:14Z",
+      "updated": "2026-04-15T13:07:14Z",
+      "comment": "This work has been funded by the European Union under Horizon Europe ERC-CoG grant QNattyNet (\"Quantum-Native Communication Networks: from Quantum Message to Quantum Functioning''), n.101169850. Details at https://qnattynet.quantuminternet.it",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13834v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13834v1"
+    },
+    {
+      "arxiv_id": "2505.10629",
+      "versioned_id": "2505.10629v3",
+      "title": "The HZ character expansion and a hyperbolic extension of torus knots",
+      "authors": [
+        "Andreani Petrou",
+        "Shinobu Hikami"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph",
+        "math.GT"
+      ],
+      "primary_category": "math-ph",
+      "published": "2025-05-15T18:06:49Z",
+      "updated": "2026-04-15T13:00:14Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2505.10629v3",
+      "pdf_url": "https://arxiv.org/pdf/2505.10629v3"
+    },
+    {
+      "arxiv_id": "2504.15981",
+      "versioned_id": "2504.15981v2",
+      "title": "Differential modules: a perspective on Bass' question",
+      "authors": [
+        "David Nkansah"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.RT",
+        "math.AC"
+      ],
+      "primary_category": "math.RT",
+      "published": "2025-04-22T15:32:15Z",
+      "updated": "2026-04-15T12:59:09Z",
+      "comment": "23 pages. Minor updates, accepted for publication in Journal of Pure and Applied Algebra",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2504.15981v2",
+      "pdf_url": "https://arxiv.org/pdf/2504.15981v2"
+    },
+    {
+      "arxiv_id": "2604.10047",
+      "versioned_id": "2604.10047v2",
+      "title": "$C(SO_q(4)/SO_q(2))$ as a Groupoid $C^*$-algebra",
+      "authors": [
+        "Shreema Subhash Bhatt",
+        "Vinay Deshpande",
+        "Bipul Saurabh"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.OA"
+      ],
+      "primary_category": "math.OA",
+      "published": "2026-04-11T05:58:22Z",
+      "updated": "2026-04-15T12:58:00Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.10047v2",
+      "pdf_url": "https://arxiv.org/pdf/2604.10047v2"
+    },
+    {
+      "arxiv_id": "2604.13823",
+      "versioned_id": "2604.13823v1",
+      "title": "Mumford vanishing for threefolds in positive characteristic",
+      "authors": [
+        "Tatsuro Kawakami",
+        "Hiromu Tanaka"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2026-04-15T12:56:05Z",
+      "updated": "2026-04-15T12:56:05Z",
+      "comment": "18 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13823v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13823v1"
+    },
+    {
+      "arxiv_id": "2604.13819",
+      "versioned_id": "2604.13819v1",
+      "title": "Convolution, cumulants and infinitesimal generators in the formal power series ring",
+      "authors": [
+        "Shuhei Tsujie",
+        "Yuki Ueda"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.PR",
+        "math.CO",
+        "math.OA"
+      ],
+      "primary_category": "math.PR",
+      "published": "2026-04-15T12:52:21Z",
+      "updated": "2026-04-15T12:52:21Z",
+      "comment": "27 pages",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13819v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13819v1"
+    },
+    {
+      "arxiv_id": "2604.13812",
+      "versioned_id": "2604.13812v1",
+      "title": "AlphaCNOT: Learning CNOT Minimization with Model-Based Planning",
+      "authors": [
+        "Jacopo Cossio",
+        "Daniele Lizzio Bosco",
+        "Riccardo Romanello",
+        "Giuseppe Serra",
+        "Carla Piazza"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cs.AI",
+        "quant-ph"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-04-15T12:46:40Z",
+      "updated": "2026-04-15T12:46:40Z",
+      "comment": "22 pages, 11 figures , journal",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13812v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13812v1"
+    },
+    {
+      "arxiv_id": "2604.13799",
+      "versioned_id": "2604.13799v1",
+      "title": "All knots are trivial: a \"proof\" by sleight of hand",
+      "authors": [
+        "Raphael Appenzeller",
+        "José Pedro Quintanilha"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.GT"
+      ],
+      "primary_category": "math.GT",
+      "published": "2026-04-15T12:36:34Z",
+      "updated": "2026-04-15T12:36:34Z",
+      "comment": "18 pages, 19 figures, comments welcome",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13799v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13799v1"
+    },
+    {
+      "arxiv_id": "2604.13790",
+      "versioned_id": "2604.13790v1",
+      "title": "Spatial deformation of a ferromagnetic elastic rod",
+      "authors": [
+        "G. R. Krishna Chand Avatar",
+        "Vivekanand Dabade"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cond-mat.soft",
+        "math-ph",
+        "math.DS"
+      ],
+      "primary_category": "cond-mat.mtrl-sci",
+      "published": "2026-04-15T12:31:03Z",
+      "updated": "2026-04-15T12:31:03Z",
+      "comment": "Submitted to Acta Mechanica",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13790v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13790v1"
+    },
+    {
+      "arxiv_id": "2604.02924",
+      "versioned_id": "2604.02924v3",
+      "title": "Generation of magnonic squeezed state and its superposition in a hybrid qubit-magnon system",
+      "authors": [
+        "Gang Liu",
+        "Junpeng Liu",
+        "Feng Qiao",
+        "Rong-Can Yang"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-03T09:44:27Z",
+      "updated": "2026-04-15T12:29:08Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.02924v3",
+      "pdf_url": "https://arxiv.org/pdf/2604.02924v3"
+    },
+    {
+      "arxiv_id": "2511.04509",
+      "versioned_id": "2511.04509v2",
+      "title": "Triviality vs perturbation theory: an analysis for mean-field $\\varphi^4$-theory in four dimensions",
+      "authors": [
+        "Christoph Kopper",
+        "Pierre Wang"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph"
+      ],
+      "primary_category": "math-ph",
+      "published": "2025-11-06T16:25:55Z",
+      "updated": "2026-04-15T12:28:01Z",
+      "comment": "54 pages, 2 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2511.04509v2",
+      "pdf_url": "https://arxiv.org/pdf/2511.04509v2"
+    },
+    {
+      "arxiv_id": "2212.07745",
+      "versioned_id": "2212.07745v3",
+      "title": "Duality for Landau-Ginzburg models",
+      "authors": [
+        "Claude Sabbah"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AG"
+      ],
+      "primary_category": "math.AG",
+      "published": "2022-12-15T11:52:58Z",
+      "updated": "2026-04-15T12:21:36Z",
+      "comment": "23 pages. V2: Proof of Proposition 5.2 corrected (thanks to the referee) and details are given for Lemma 5.6; other small improvements, and typos corrected. V3: No change from V2, content identical to that of the published version. Only the layout has changed in order to be similar to that of the published version",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2212.07745v3",
+      "pdf_url": "https://arxiv.org/pdf/2212.07745v3"
+    },
+    {
+      "arxiv_id": "2511.08754",
+      "versioned_id": "2511.08754v2",
+      "title": "Exact Floquet dynamics of strongly damped driven quantum systems",
+      "authors": [
+        "Konrad Mickiewicz",
+        "Valentin Link",
+        "Walter T. Strunz"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-11-11T20:15:13Z",
+      "updated": "2026-04-15T12:18:56Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": "10.1103/5z1m-122d",
+      "abs_url": "http://arxiv.org/abs/2511.08754v2",
+      "pdf_url": "https://arxiv.org/pdf/2511.08754v2"
+    },
+    {
+      "arxiv_id": "2604.13782",
+      "versioned_id": "2604.13782v1",
+      "title": "On the discrete Painlevé equivalence problem, non-conjugate translations and nodal curves",
+      "authors": [
+        "Anton Dzhamay",
+        "Galina Filipuk",
+        "Alexander Stokes"
+      ],
+      "affiliations": [],
+      "categories": [
+        "nlin.SI",
+        "math-ph",
+        "math.CA"
+      ],
+      "primary_category": "nlin.SI",
+      "published": "2026-04-15T12:14:25Z",
+      "updated": "2026-04-15T12:14:25Z",
+      "comment": "43 pages, 15 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13782v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13782v1"
+    },
+    {
+      "arxiv_id": "2604.13781",
+      "versioned_id": "2604.13781v1",
+      "title": "On Exponentially Long Prethermalization Timescales in Isolated Quantum Systems",
+      "authors": [
+        "Matteo Gallone"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math-ph",
+        "cond-mat.stat-mech"
+      ],
+      "primary_category": "math-ph",
+      "published": "2026-04-15T12:13:34Z",
+      "updated": "2026-04-15T12:13:34Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13781v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13781v1"
+    },
+    {
+      "arxiv_id": "2604.13775",
+      "versioned_id": "2604.13775v1",
+      "title": "Tuning light-matter interaction of near-infrared nanoplasmonic scintillators",
+      "authors": [
+        "Michał Makowski",
+        "Dominik Kowal",
+        "Muhammad Danang Birowosuto"
+      ],
+      "affiliations": [],
+      "categories": [
+        "physics.optics",
+        "cond-mat.mtrl-sci",
+        "physics.soc-ph",
+        "quant-ph"
+      ],
+      "primary_category": "physics.optics",
+      "published": "2026-04-15T12:05:35Z",
+      "updated": "2026-04-15T12:05:35Z",
+      "comment": "26 pages, 14 figures, submitted",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13775v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13775v1"
+    },
+    {
+      "arxiv_id": "2604.13760",
+      "versioned_id": "2604.13760v1",
+      "title": "Spin Qubit Leapfrogging: Dynamics of shuttling electrons on top of another",
+      "authors": [
+        "Nicklas Meineke",
+        "Guido Burkard"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cond-mat.mes-hall",
+        "quant-ph"
+      ],
+      "primary_category": "cond-mat.mes-hall",
+      "published": "2026-04-15T11:44:39Z",
+      "updated": "2026-04-15T11:44:39Z",
+      "comment": "7+10 pages, 6 figures",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13760v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13760v1"
+    },
+    {
+      "arxiv_id": "2601.03214",
+      "versioned_id": "2601.03214v2",
+      "title": "When does entanglement through gravity imply gravitons?",
+      "authors": [
+        "Nikolaos Mitrakos",
+        "Maria Papageorgiou",
+        "T. Rick Perche",
+        "Marios Christodoulou"
+      ],
+      "affiliations": [],
+      "categories": [
+        "gr-qc",
+        "quant-ph"
+      ],
+      "primary_category": "gr-qc",
+      "published": "2026-01-06T17:54:24Z",
+      "updated": "2026-04-15T11:39:41Z",
+      "comment": "1 figure (minor clarifications with respect to V1)",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2601.03214v2",
+      "pdf_url": "https://arxiv.org/pdf/2601.03214v2"
+    },
+    {
+      "arxiv_id": "2604.13750",
+      "versioned_id": "2604.13750v1",
+      "title": "Relating Brauer categories, Koszul complexes, and graph complexes",
+      "authors": [
+        "Geoffrey Powell"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AT"
+      ],
+      "primary_category": "math.AT",
+      "published": "2026-04-15T11:36:23Z",
+      "updated": "2026-04-15T11:36:23Z",
+      "comment": "50 pages. Comments welcome",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13750v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13750v1"
+    },
+    {
+      "arxiv_id": "2508.17940",
+      "versioned_id": "2508.17940v2",
+      "title": "A Metropolitan-scale Multiplexed Quantum Repeater with Bell Nonlocality",
+      "authors": [
+        "Tian-Xiang Zhu",
+        "Chao Zhang",
+        "Zhong-Wen Ou",
+        "Xiao Liu",
+        "Peng-Jun Liang",
+        "Xiao-Min Hu",
+        "Yun-Feng Huang",
+        "Zong-Quan Zhou",
+        "Chuan-Feng Li",
+        "Guang-Can Guo"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2025-08-25T12:08:05Z",
+      "updated": "2026-04-15T11:33:24Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2508.17940v2",
+      "pdf_url": "https://arxiv.org/pdf/2508.17940v2"
+    },
+    {
+      "arxiv_id": "2509.04075",
+      "versioned_id": "2509.04075v2",
+      "title": "Complexity of Quadratic Quantum Chaos",
+      "authors": [
+        "Pallab Basu",
+        "Suman Das",
+        "Pratik Nandy"
+      ],
+      "affiliations": [],
+      "categories": [
+        "hep-th",
+        "cond-mat.str-el",
+        "quant-ph"
+      ],
+      "primary_category": "hep-th",
+      "published": "2025-09-04T10:09:46Z",
+      "updated": "2026-04-15T11:25:57Z",
+      "comment": "v2: discussions and plots added; published version in JHEP",
+      "journal_ref": "JHEP 04 (2026) 081",
+      "doi": "10.1007/JHEP04(2026)081",
+      "abs_url": "http://arxiv.org/abs/2509.04075v2",
+      "pdf_url": "https://arxiv.org/pdf/2509.04075v2"
+    },
+    {
+      "arxiv_id": "2604.13735",
+      "versioned_id": "2604.13735v1",
+      "title": "Reachability Constraints in Variational Quantum Circuits: Optimization within Polynomial Group Module",
+      "authors": [
+        "Yun-Tak Oh",
+        "Dongsoo Lee",
+        "Jungyoul Park",
+        "Kyung Chul Jeong",
+        "Panjin Kim"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cs.CC",
+        "cs.ET",
+        "cs.LG"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T11:21:53Z",
+      "updated": "2026-04-15T11:21:53Z",
+      "comment": "27 pages, 4 figures, appendix",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13735v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13735v1"
+    },
+    {
+      "arxiv_id": "2603.26907",
+      "versioned_id": "2603.26907v2",
+      "title": "Information-Theoretic Solutions for Seedless QRNG Bootstrapping and Hybrid PQC-QKD Key Combination",
+      "authors": [
+        "Juan Antonio Vieira Giestinhas",
+        "Timothy Spiller"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "cs.CR"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-03-27T18:34:56Z",
+      "updated": "2026-04-15T11:14:59Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.26907v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.26907v2"
+    },
+    {
+      "arxiv_id": "2603.02818",
+      "versioned_id": "2603.02818v2",
+      "title": "Merged amplitude encoding for Chebyshev quantum Kolmogorov--Arnold networks: trading qubits for circuit executions",
+      "authors": [
+        "Hikaru Wakaura"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-03-03T10:14:04Z",
+      "updated": "2026-04-15T11:12:58Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.02818v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.02818v2"
+    },
+    {
+      "arxiv_id": "2604.13724",
+      "versioned_id": "2604.13724v1",
+      "title": "Manipulation of Superposed Vortex States of $γ$ Photon via Nonlinear Compton Scattering",
+      "authors": [
+        "Jun-Lin Zhou",
+        "Mamutjan Ababekri",
+        "Yong-Zheng Ren",
+        "Yu Wang",
+        "Ren-Tong Guo",
+        "Zhao-Hui Chen",
+        "Yu-Han Kou",
+        "Zhong-Peng Li",
+        "Jian-Xing Li"
+      ],
+      "affiliations": [],
+      "categories": [
+        "quant-ph",
+        "hep-ph",
+        "physics.optics"
+      ],
+      "primary_category": "quant-ph",
+      "published": "2026-04-15T10:59:15Z",
+      "updated": "2026-04-15T10:59:15Z",
+      "comment": "4",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2604.13724v1",
+      "pdf_url": "https://arxiv.org/pdf/2604.13724v1"
+    },
+    {
+      "arxiv_id": "2602.16716",
+      "versioned_id": "2602.16716v3",
+      "title": "Contextuality from Single-State Ontological Models: An Information-Theoretic Obstruction",
+      "authors": [
+        "Song-Ju Kim"
+      ],
+      "affiliations": [],
+      "categories": [
+        "cs.AI",
+        "cs.IT",
+        "quant-ph"
+      ],
+      "primary_category": "cs.AI",
+      "published": "2026-02-03T19:20:10Z",
+      "updated": "2026-04-15T10:37:25Z",
+      "comment": "Version 3: The main result was reframed as an information-theoretic obstruction rather than a no-go theorem. We clarified that ontic states are subsystem-level and reformulated interventions operationally to avoid dualism. The main claim was weakened to a proposition, restricting strict positivity to contextual regimes, with corresponding revisions to the abstract, intro, and appendix",
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2602.16716v3",
+      "pdf_url": "https://arxiv.org/pdf/2602.16716v3"
+    },
+    {
+      "arxiv_id": "2603.23008",
+      "versioned_id": "2603.23008v2",
+      "title": "Hook-decomposable modules and their resolutions",
+      "authors": [
+        "Isabella Mastroianni",
+        "Marco Guerra",
+        "Ulderico Fugacci",
+        "Emanuela De Negri"
+      ],
+      "affiliations": [],
+      "categories": [
+        "math.AT",
+        "math.AC"
+      ],
+      "primary_category": "math.AT",
+      "published": "2026-03-24T09:51:52Z",
+      "updated": "2026-04-15T10:37:14Z",
+      "comment": null,
+      "journal_ref": null,
+      "doi": null,
+      "abs_url": "http://arxiv.org/abs/2603.23008v2",
+      "pdf_url": "https://arxiv.org/pdf/2603.23008v2"
+    }
+  ]
+}
