@@ -18,6 +18,12 @@ For any repository modification:
 12. Do not include unrelated local changes in the branch commit.
 13. Do not modify any files in resources/.
 
+### Daily Routine Exception
+
+- The established daily arXiv review routine may update its expected tracked output files without requiring a new per-run approval each day.
+- This exception applies only to routine output files under `derived/arxiv/` that are produced by the approved arXiv workflow.
+- This exception does not apply to source-code changes, skill/instruction changes, files in `resources/`, or any tracked files outside the routine's expected output scope.
+
 ## Merge Guidance
 
 - Do not merge immediately after committing.
