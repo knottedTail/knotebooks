@@ -1,0 +1,303 @@
+{
+  "review_path": "derived/arxiv/review/checked/2026-04-16.md",
+  "reviewed_at": "2026-04-17T12:01:16.687522+09:00",
+  "items": [
+    {
+      "title": "Towards a classification of graded unitary ${\\mathcal W}_3$ algebras",
+      "interested": false,
+      "categories": [
+        "hep-th",
+        "math.QA",
+        "math.RT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2602.15944v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2602.15944",
+        "versioned_id": "2602.15944v2",
+        "score": 10.4,
+        "matched_categories": [
+          "math.QA",
+          "math.RT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Lagrangian correspondences for moduli spaces of Higgs bundles and holomorphic connections",
+      "interested": false,
+      "categories": [
+        "math.AG",
+        "hep-th",
+        "math-ph",
+        "math.DG",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.14127v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.14127",
+        "versioned_id": "2604.14127v1",
+        "score": 9.5,
+        "matched_categories": [
+          "math-ph",
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "The HZ character expansion and a hyperbolic extension of torus knots",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2505.10629v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2505.10629",
+        "versioned_id": "2505.10629v3",
+        "score": 9.5,
+        "matched_categories": [
+          "math-ph",
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Open WDVV equations and $\\bigvee$-systems",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "math.RT",
+        "nlin.SI"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.14077v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.14077",
+        "versioned_id": "2604.14077v1",
+        "score": 7.6,
+        "matched_categories": [
+          "math-ph",
+          "math.RT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Drinfeld associators and Kashiwara-Vergne associators in higher genera",
+      "interested": false,
+      "categories": [
+        "math.QA",
+        "math.AT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2511.00473v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2511.00473",
+        "versioned_id": "2511.00473v3",
+        "score": 6.6,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Quantum mechanical model for charge excitation: Surface binding and dispersion",
+      "interested": false,
+      "categories": [
+        "math-ph",
+        "quant-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.12111v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12111",
+        "versioned_id": "2604.12111v2",
+        "score": 6.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Finite cutoff JT gravity: Baby universes, Matrix dual, and (Krylov) Complexity",
+      "interested": false,
+      "categories": [
+        "hep-th",
+        "gr-qc",
+        "math-ph",
+        "quant-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2502.13208v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2502.13208",
+        "versioned_id": "2502.13208v2",
+        "score": 6.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "A compact QUBO encoding of computational logic formulae demonstrated on cryptography constructions",
+      "interested": false,
+      "categories": [
+        "cs.CR",
+        "math-ph",
+        "quant-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2409.07501v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2409.07501",
+        "versioned_id": "2409.07501v2",
+        "score": 6.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Wandering range of robust quantum symmetries",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.13894v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.13894",
+        "versioned_id": "2604.13894v1",
+        "score": 6.0,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Violation of Bell-type Inequalities on Mutually-commuting von Neumann Algebra Models of Entanglement Swapping Networks",
+      "interested": false,
+      "categories": [
+        "math.FA",
+        "math-ph",
+        "math.OA",
+        "quant-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2603.01466v5"
+      ],
+      "metadata": {
+        "arxiv_id": "2603.01466",
+        "versioned_id": "2603.01466v5",
+        "score": 6.0,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Cusped spaces for hierarchically hyperbolic groups, and applications to Dehn filling quotients",
+      "interested": false,
+      "categories": [
+        "math.GT",
+        "math.GR"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2602.23275v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2602.23275",
+        "versioned_id": "2602.23275v2",
+        "score": 5.7,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Triple-cup product forms of 3-manifolds and Heegaard diagrams",
+      "interested": false,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.13999v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.13999",
+        "versioned_id": "2604.13999v1",
+        "score": 5.7,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Hyperbolic spaces with geometric and geometrically finite quasi-actions are symmetric",
+      "interested": false,
+      "categories": [
+        "math.GR",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.13898v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.13898",
+        "versioned_id": "2604.13898v1",
+        "score": 5.7,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "All knots are trivial: a \"proof\" by sleight of hand",
+      "interested": true,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.13799v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.13799",
+        "versioned_id": "2604.13799v1",
+        "score": 5.7,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    }
+  ]
+}
