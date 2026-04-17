@@ -52,6 +52,56 @@ I again think that I should a find a way to become accustomed to idioms, I will 
 
 After then I tried to my own job .. from 6 pm.
 
+Here is the most important TODO list:
+\begin{itemize}
+    \item To figure out relations between $z$, $w$-variables and McPhail-Snyder's variable explicitly.
+    If we do then we may be able to write coefficients of the $R$-matrix used in McPhail-Snyder's paper in terms of $z$,$w$-varaibles.
+    It is expected to give us better understandings on the volume conjecture.
+    
+    \item To review the proof that the Reidemeister torsion is a quantum invariant.
+    More precisely, the double construction used in the proof should be reviewed, since I have more insights than before.
+
+    \item To make a correct setting for the theorem about relation between quantum double and the Yetter--Drinfel'd module with automorphism construction by Garoufalidis and Kashaev.
+    We must choose convention for left/right module/comodule setting.
+
+    \item To write a paper based on my thesis; clored Jones polynomials of $2n$-plat.
+    We may need better understanding for infinite-dimensional $R$-matrices and related invariants.
+\end{itemize}
+
+To attack the first problem ($z$,$w$ variables) I first find references for computing such variables in terms of $\mathbb{C}^2$ vector decorations.
+There are three references: \cite{KKY-2023-Octa2}, \cite{Zickert-2009-Cvol}, and \cite{GTZ-2015-SLnCvol}.
+As expected, we needed more details of the Ptolemy variety.
+The first attempt to understand this was to write concrete relation between the Ptolemy relation and the Pl\"ucker relation.
+
+The following is from this \href{https://web.evanchen.cc/notes/MIT-18-217.pdf}{NOTE}.
+Let $A=(a, b)$ be a point on $\mathbb{R}^2$.
+If we identify $\mathbb{R}^2$ with $\mathbb{C}$, then one can associate $A$ to a complex point on the unit disk
+\[
+    \frac{z^2}{|z|^2} = \frac{z}{\overline{z}} \in \mathbb{C}
+\]
+where $z = a + b\sqrt{-1} \in \mathbb{C}$.
+
+
+For two points $A_i = (a_i, b_i)$ and $A_j = (a_j, b_j)$, the Eulidean distance between two points can be computed as follows.
+\begin{align*}
+    |A_i - A_j| & = \left| \frac{z_i}{\overline{z_i}} - \frac{z_j}{\overline{z_j}} \right| \\
+    & = \left| \frac{z_i \overline{z_j} - \overline{z_i}z_j}{\overline{z_i} \overline{z_j}} \right| \\
+    & = \frac{1}{|z_i| |z_j|} \left| (a_i + b_i\sqrt{-1})(a_j - b_j\sqrt{-1}) - (a_i - b_i\sqrt{-1})(a_j + b_j\sqrt{-1}) \right| \\
+    & = \frac{2}{|z_i| |z_j|} \det \begin{bmatrix}
+        a_i & a_j \\ b_i & b_j
+    \end{bmatrix}.
+\end{align*}
+Thus, the Ptolemy relation can be interpreted as the Pl\"ucker relation with the map
+\[
+    \mathbb{R}^2 \setminus \{ (0,0) \} = \mathbb{C}^\times \xrightarrow{z/|z|} S^1 \xrightarrow{(-)^2} S^1.
+\]
+
+AI explains this relation might be extended to any points on a conic.
+More precisely, a conic, a curve in $\mathbb{P}^2$ defined by a zero locus of degree 2 homogeneous polynomial, is isomorphic to $\mathbb{P}^1$ over an algebraically closed field.
+The map between them is defined considering a line passing a fixed point on the curve.
+The line intersects with only one other point with the curve, this gives a bijection between $\mathbb{P}^1$ and points on the curve.
+
+\par\vspace{1em}
 
 
 
