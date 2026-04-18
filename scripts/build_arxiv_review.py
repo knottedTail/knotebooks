@@ -123,6 +123,43 @@ def score_entry(entry: dict[str, Any], profile: dict[str, Any]) -> dict[str, Any
     }
 
 
+def versioned_id(entry: dict[str, Any]) -> str:
+    return str(entry.get("versioned_id") or "")
+
+
+def arxiv_id(entry: dict[str, Any]) -> str:
+    return str(entry.get("arxiv_id") or "")
+
+
+def load_snapshot_history(snapshot_dir: Path, current_snapshot_path: Path, review_date: str) -> tuple[set[str], dict[str, set[str]]]:
+    exact_history: set[str] = set()
+    prior_versions_by_arxiv_id: dict[str, set[str]] = {}
+
+    for path in sorted(snapshot_dir.glob("*.json")):
+        if path.resolve() == current_snapshot_path.resolve():
+            continue
+        if path.stem >= review_date:
+            continue
+
+        snapshot = load_json(path)
+        for entry in list(snapshot.get("entries", [])):
+            prior_versioned_id = versioned_id(entry)
+            prior_arxiv_id = arxiv_id(entry)
+            if prior_versioned_id:
+                exact_history.add(prior_versioned_id)
+            if prior_arxiv_id and prior_versioned_id:
+                prior_versions_by_arxiv_id.setdefault(prior_arxiv_id, set()).add(prior_versioned_id)
+
+    return exact_history, prior_versions_by_arxiv_id
+
+
+def mark_entry_update(entry: dict[str, Any], prior_versions: set[str]) -> dict[str, Any]:
+    updated_entry = dict(entry)
+    updated_entry["is_update"] = True
+    updated_entry["previous_versioned_ids"] = sorted(prior_versions)
+    return updated_entry
+
+
 def build_review_markdown(
     review_date: str,
     will_entries: list[dict[str, Any]],
@@ -149,16 +186,21 @@ def build_review_markdown(
             keywords = ", ".join(match["matched_keywords"]) or "None"
             abs_url = str(entry.get("abs_url") or "None")
             abstract = clean_single_line(entry.get("summary")) or "No abstract stored."
+            update_note = " [Update]" if entry.get("is_update") else ""
             metadata = {
                 "arxiv_id": entry.get("arxiv_id"),
                 "versioned_id": entry.get("versioned_id"),
                 "score": match["score"],
                 "matched_categories": match["matched_categories"],
                 "matched_keywords": match["matched_keywords"],
+                "is_update": bool(entry.get("is_update")),
             }
+            previous_versioned_ids = entry.get("previous_versioned_ids")
+            if isinstance(previous_versioned_ids, list) and previous_versioned_ids:
+                metadata["previous_versioned_ids"] = previous_versioned_ids
             lines.extend(
                 [
-                    f"### [ ] {entry.get('title', 'Untitled paper')}",
+                    f"### [ ] {entry.get('title', 'Untitled paper')}{update_note}",
                     "",
                     f"**Authors:** {authors}  ",
                     f"**Categories:** {categories}  ",
@@ -235,14 +277,30 @@ def main() -> int:
     config = load_review_config(Path(args.config))
     profile, created_profile = ensure_profile(Path(args.profile), config)
     snapshot = load_json(snapshot_path)
+    review_date = str(snapshot.get("date") or snapshot_path.stem)
     entries = hydrate_review_entries(
         snapshot_path,
         list(snapshot.get("entries", [])),
         config.include_review_summary,
     )
+    exact_history, prior_versions_by_arxiv_id = load_snapshot_history(
+        snapshot_path.parent,
+        snapshot_path,
+        review_date,
+    )
 
     scored_pairs: list[tuple[dict[str, Any], dict[str, Any]]] = []
     for entry in entries:
+        current_versioned_id = versioned_id(entry)
+        if current_versioned_id and current_versioned_id in exact_history:
+            continue
+
+        current_arxiv_id = arxiv_id(entry)
+        if current_arxiv_id and current_versioned_id:
+            prior_versions = prior_versions_by_arxiv_id.get(current_arxiv_id, set())
+            if prior_versions and current_versioned_id not in prior_versions:
+                entry = mark_entry_update(entry, prior_versions)
+
         match = score_entry(entry, profile)
         if match["score"] >= config.review_mid_score:
             scored_pairs.append((entry, match))
@@ -256,7 +314,6 @@ def main() -> int:
     might_entries = [entry for entry, _ in might_pairs]
     might_matches = [match for _, match in might_pairs]
 
-    review_date = str(snapshot.get("date") or snapshot_path.stem)
     output_path = Path(args.output_dir) / f"{review_date}.md"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
