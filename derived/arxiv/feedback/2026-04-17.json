@@ -1,0 +1,431 @@
+{
+  "review_path": "derived/arxiv/review/checked/2026-04-17.md",
+  "reviewed_at": "2026-04-18T14:47:25.625630+09:00",
+  "items": [
+    {
+      "title": "The R-matrix of the affine Yangian",
+      "interested": true,
+      "categories": [
+        "math.RT",
+        "math-ph",
+        "math.QA"
+      ],
+      "keywords": [
+        "r-matrix",
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2309.02377v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2309.02377",
+        "versioned_id": "2309.02377v2",
+        "score": 18.15,
+        "matched_categories": [
+          "math.RT",
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "r-matrix",
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Braided quantum $\\mathrm{SU}(2)$ group - a case study",
+      "interested": true,
+      "categories": [
+        "math.OA",
+        "math.QA"
+      ],
+      "keywords": [
+        "braided",
+        "hopf algebra",
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2604.14937v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.14937",
+        "versioned_id": "2604.14937v1",
+        "score": 16.75,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "braided",
+          "hopf algebra",
+          "quantum group"
+        ]
+      }
+    },
+    {
+      "title": "A Bundle Isomorphism Relating Complex Velocity to Quantum Fisher Operators",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "cs.IT",
+        "gr-qc",
+        "math-ph",
+        "math.QA"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.12187v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.12187",
+        "versioned_id": "2604.12187v2",
+        "score": 12.75,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Character Theory for Semilinear Representations",
+      "interested": true,
+      "categories": [
+        "math.RT",
+        "math.GR",
+        "math.NT"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2511.04296v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2511.04296",
+        "versioned_id": "2511.04296v3",
+        "score": 6.9,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Distinguished Simple Supercuspidal Representations of $p$-adic $\\text{GL}(n)$",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.NT"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.15057v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15057",
+        "versioned_id": "2604.15057v1",
+        "score": 6.9,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Engineering of Anyons on M5-Probes via Flux Quantization",
+      "interested": false,
+      "categories": [
+        "hep-th",
+        "cond-mat.str-el",
+        "math-ph",
+        "math.AT",
+        "quant-ph"
+      ],
+      "keywords": [
+        "Chern-Simons  \n**Abs URL:** http://arxiv.org/abs/2501.17927v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2501.17927",
+        "versioned_id": "2501.17927v3",
+        "score": 6.45,
+        "matched_categories": [
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": [
+          "Chern-Simons"
+        ]
+      }
+    },
+    {
+      "title": "Classifying spaces for families of virtually abelian subgroups of surface braid groups",
+      "interested": true,
+      "categories": [
+        "math.GR",
+        "math.AT",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15243v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15243",
+        "versioned_id": "2604.15243v1",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Poincaré-Hopf Theorem for Isolated Determinantal Singularities",
+      "interested": false,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2007.05026v4"
+      ],
+      "metadata": {
+        "arxiv_id": "2007.05026",
+        "versioned_id": "2007.05026v4",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Infinite Schottky groups and group actions on infinite type surfaces",
+      "interested": false,
+      "categories": [
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15112v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15112",
+        "versioned_id": "2604.15112v1",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Diffeomorphism groups and gauge theory for families",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.DG",
+        "math.SG"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15087v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15087",
+        "versioned_id": "2604.15087v1",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Gauge theory for families",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.DG",
+        "math.SG"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15071v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15071",
+        "versioned_id": "2604.15071v1",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Analysis of Hopf solitons as generalized fold maps",
+      "interested": false,
+      "categories": [
+        "cond-mat.soft",
+        "math.GT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2507.14778v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2507.14778",
+        "versioned_id": "2507.14778v2",
+        "score": 5.6,
+        "matched_categories": [
+          "math.GT"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "The Categories of Lubin-Tate and Drinfeld Bundles",
+      "interested": false,
+      "categories": [
+        "math.NT",
+        "math.AG",
+        "math.RT"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2503.24221v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2503.24221",
+        "versioned_id": "2503.24221v2",
+        "score": 5.25,
+        "matched_categories": [
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "How Embeddings Shape Graph Neural Networks: Classical vs Quantum-Oriented Node Representations",
+      "interested": false,
+      "categories": [
+        "cs.LG",
+        "quant-ph"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.15273v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15273",
+        "versioned_id": "2604.15273v1",
+        "score": 5.0,
+        "matched_categories": [
+          "quant-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Ensembles of random quantum states tunable from volume law to area law",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15300v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15300",
+        "versioned_id": "2604.15300v1",
+        "score": 4.7,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Computing the free energy of quantum Coulomb gases and molecules via quantum Gibbs sampling",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "math-ph"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.15263v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15263",
+        "versioned_id": "2604.15263v1",
+        "score": 4.7,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Quantum recurrences and the arithmetic of Floquet dynamics",
+      "interested": false,
+      "categories": [
+        "quant-ph",
+        "math-ph",
+        "nlin.CD"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2508.09933v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2508.09933",
+        "versioned_id": "2508.09933v3",
+        "score": 4.7,
+        "matched_categories": [
+          "quant-ph",
+          "math-ph"
+        ],
+        "matched_keywords": []
+      }
+    },
+    {
+      "title": "Renormalised two-point functions of CLE$_4$ gaskets",
+      "interested": false,
+      "categories": [
+        "math.PR",
+        "math-ph"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.15146v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15146",
+        "versioned_id": "2604.15146v1",
+        "score": 4.65,
+        "matched_categories": [
+          "math-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    },
+    {
+      "title": "Correlators in $T\\bar{T}$ and Root-$T\\bar{T}$ Deformed CFTs",
+      "interested": false,
+      "categories": [
+        "hep-th",
+        "math-ph"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.14939v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.14939",
+        "versioned_id": "2604.14939v1",
+        "score": 4.65,
+        "matched_categories": [
+          "math-ph"
+        ],
+        "matched_keywords": [
+          "representation"
+        ]
+      }
+    }
+  ]
+}
