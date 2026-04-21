@@ -1,0 +1,139 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 19, 2026}
+
+\begin{document}
+\maketitle
+
+Today I strated the day with the yeterday's unsolved burden on the bed; a relation between 3-cocycles on tetrahydra and tensor coefficients on 3-valent graph.
+After having lunch, and watching Youtube little bit, I came to the school and got ready to study.
+While I chose a playlist for today's research, I found a video saying that lying on the bed might be harmful to your brain cells.
+Here, I record the summary of that video:
+
+When you lie on the bed, more than 3 days, then the density of C-Reactive Protine increases in your body.
+It implies that the secration of dophamin.
+Hence, without the physical activity, there is a negative feedback making your body patient.
+In this sense, the behavior of tending to lie on the bed is called the \emph{bed rotting}.
+
+The way to overcome is suggested as follows:
+\begin{enumerate}
+    \item Grounding: To focus on your body senses, move your toe, feel your back and the temperatur of your room.
+    It turns off the default mode network, which is the region of your brain activated when you are blank or you have random thoughts.
+    Instead, it turns on the salience newtork.
+    Your body always keep the balance between the activity of those networks.
+    Hence, focusing on your senses activate the salience network and deactivate the default mode network.
+
+    \item Dophamin switching: change the contents generating dophamine.
+    No short form, but yes shopping.
+    Turn contents you watcing (passive) to contents you are ingaging (active).
+
+    \item $45^\circ$ rule and RAS stimulation: In your brainstem, there is a region called the reticular activating system(RAS).
+    It is a kind of a switch turning on/off your state of awakening.
+    Just wakening your torso to $45^\circ$ turns on the RAS.
+    
+    \item Environmental nudge: Change your environment.
+    Turning light really helps you since your braind is sensitive to the light.
+\end{enumerate}
+
+More easial drill is introduced, \emph{micro action drill}.
+\begin{enumerate}
+    \item Audio cue: Listen wake-up songs; instruments with no lyric, fast tempo with larger volume.
+    Lyrics stimulate your language center.
+    
+    \item 5-4-3-2-1: Count down 5 secs.
+    At the zero, just kick out your bedding, not wake-up.
+    The activity of kicking will stimulate your brain.
+
+    \item Zombie walking: After kicking the bedding, just walk around a minute without any thinking and any purpose.
+    When the exprience that 'Oh, it is not hard to wake-up' is accumulated, then it will be easier to wake-up.
+    
+\end{enumerate}
+
+\par\vspace{1em}
+
+I got back to the paper of Kashaev.
+I first reviewed \cite{Kashaev-1994-Qdilog6j} with the following understanding.
+
+Let $BU_q$ be the Borel part of $U_q(\mathfrak{sl}_2)$ generated $D$ and $E$ such that
+\[
+    \Delta(E) = E \otimes E, \quad \Delta(D) = 1 \otimes D + D \otimes E.
+\]  
+When $q$ is a root of unity of order $N$, irreducible modules of $BU_q$ is classified by the values of $E^N$ and $D^N$ which are cenral in $BU_q$.
+Let consider only irrep $V_p$ where $E^N$ acts by 1, and $D^N$ acts by for some $z_p \in \mathbb{C}$.
+Then, by the Clebsch--Gordan decomposition for $BU_q$, we have
+\[
+    V_p \otimes V_q \cong N \cdot V_{pq}
+\]
+with $z_{pq} = z_p + z_q$.
+Moreover, $V_p \otimes V_q \otimes V_r$ has $N^2$ terms of $V_{pqr}$ and there are two ways for expanding it:
+\[
+    (V_p \otimes V_q) \otimes V_r \cong V_p \otimes V_q \otimes V_r \cong V_p \otimes (V_q \otimes V_r).
+\]
+Hence, the isomorphism of $BU_q$ modules between $N^2 \cdot V_{pqr}$ gives a $R$-matrix which satisfies the pentagon equation.
+
+Denote this solution by $R(p, q, r)$.
+The author claims in Section 3 that, by proper normalization, one can find an oeprator $\Psi_{p, q, r}$ satisfies the quantum dilogarithm identity:
+\[
+    \Psi_{p,q,r}(U) \Psi_{p,qr,s}(-UV) \Psi_{q,r,s}(V) = \Psi_{pq,r,s}(V) \Psi_{p,q,rs}(U) 
+\]
+where $U$ and $V$ are proper operators (see the reference).
+Hence, the quantum dilogarithm is a suitable normalization of $R$.
+
+With another normalization of $R$ gives an assignment on tetrahedra with vertex, edge, and face labels inducing the state-sum invariant of link complements.
+The label of vertices is essentially a coloring of representations on edges.
+Specifically, when two vertices are colored by $z_p$ and $z_q$, then edge connecting them can be regarded as colored by the representation $V_r$ with $z_r = \pm (z_p - z_q)$.
+It is equivalent to consider $3$-valent graphs on $S^2$ with a region colored by $z_p$, and each edge is colored by $V_r$ when its adjacent area is colored by $z_p$ and $z_q$.
+
+Getting back to the polyhedra side, the label of edges is used to normalized $R$, and the label of faces is used to indicating specific basis of the linear space where $R$ acting.
+
+\par\vspace{1em}
+
+After then I read \cite{Kashaev-1997-VC} and \cite{Kashaev-1995-LinkQudilog}.
+The former explains the validity of the volume conjecture by following reasons:
+\begin{itemize}
+    \item There exists a physical theroy, Euclidean quantum 2+1 gravity with a negative cosmological constant, gives a topological invariant of knot complement whose classical limit reproduces the hyperbolic volume of the complement.
+    
+    \item The hyperbolic volume of ideal tetrahedra in 3d hyperbolic space can be expressed in terms of (the imaginary part of) the Euler's dilogarithm.
+    Hence, the generalization of the dilogarithm, the quantum dilogarithm, should generalize the notion of the hyperbolic volume.
+    
+    \item The link invariant is constructed from the cyclic quantum dilogarithm by Kashaev.
+    It is, in fact, a quantum generalization of the hyperbolic volume (shown in this paper).
+    Especially, it is shown that the classical limit of link invariants, for $4_1$ and $6_1$, reproduces their hyperbolic volume in this paper.
+\end{itemize}
+
+In \cite{Kashaev-1995-LinkQudilog}, the author shows that the relation between the $R$-matrix solution of the pentagon relation and the $R$-matrix solution of the YBE.
+Moreprecisely, $RT$-invariant constructed from the solution of YBE is equal to the state-sum invariant constructed from the solution of the pentagon relation.
+The key is that the state-sum of the ball minus a tangle, which has cell complex of an octahedron, representing a crossing can be expressed into the solution of YBE.
+This observation, the (colored) solution of the YBE factors out of 4 terms of the (colored) solution of the pentagon relation seems that a generalization of the $R$-matrix of the quantum double of a Hopf algebra factors to 4 terms of the canonical element of the Hensenberg double of it.
+
+I finished today's research by following remarks.
+\begin{itemize}
+    \item the cyclic dilogarithm can be obtained by the limit of the quantum dilogarithm as $q$ to a root of unity.
+    
+    \item In \cite{MM-2001-cJandKashaev}, the authors showed that the $R$-matrix of Kasahev (solution of the YBE) is equivalent to the universal $R$-matrix of $U_q(\mathfrak{sl}_2)$ on its representation via the Fourier transformation.
+    
+    \item Above two facts, with the fact that (Kashaev mentioned) the quantum dilogarithm is precisely the canonical element in the Heisenberg double of $BU_q$, imply that the $R$-matrix on the Verma module with the Fourier basis gives the Kashaev invariant.
+    
+    \item However, there is some ambiguity that (as McPhail-Snyder commented) the colored Jones polynomial is obtained from trivally colored $R$-matrix while the Kashaev's invariant require a coloring on regions, edges, and vertices.
+    It seems that the process of summing up might be relavant to this ambiguity.
+\end{itemize}
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}

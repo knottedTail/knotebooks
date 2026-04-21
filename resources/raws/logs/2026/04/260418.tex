@@ -1,0 +1,65 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 18, 2026}
+
+\begin{document}
+\maketitle
+
+I reviewed the feedback file for the daily writing.
+The arXiv check file is also generated, but I did not check it since there were lots of duplicated files.
+Instead of checking, I updated the sourcode managing arXiv files to deal with duplicated papers.
+
+\par\vspace{1em}
+
+I felt that it was a time to put things I learned into together.
+The time I spent will teach me where am I going.
+Specifically, the relation between hyperbolic geometry, $\mathrm{SL}_2$, its coordinatering, and the quantum group $\mathrm{SL}_q(2)$ as its quantization, and the volume conjecture.
+The first thing to summarize is that the volume conjecture which was first introduced by Rinat Kashaev.
+We list here main references and observation on them.
+
+\par\space{1em}
+I first consider papers of Kashaev to recall his motivation on the Volume conjecture.
+
+However, I misread \cite{Kashaev-1994-Qdilog6j} which does not deal with the Volume conjecture, I change the direction to understand the relation between $6j$-symbols and the combinatorics of 3-simplices.
+In other words, I wanted to understand why the solution of the pentagon relation gives an assignment on labeled tetrahedra which is invariant under 2-3 Pachner moves, and that induces topological invariant (of glued 3-simplices).
+
+The reference first mention about the relation between quantum dilogarith, $6j$-symbol and a Borel subalgebra of $U_q(\mathfrak{sl}_2)$, which also lives in my interest.
+One of the goal of this paper is to state that the Quantized Roger's pentagon identity for the cyclic quantum dilogarithm $\Leftarrow$ coasociativity property of the Weyl algebra.
+It seems that the author consider the solution of the pentagon identity via some module of the Weyl algebra (or its variation), and then consider state-sum invariant from coefficeints of this tensor.
+
+\par\space{1em}
+
+The basic motivation seems as follows.
+The Clebsch--Gordan operator, whcih is a projection of simple modules of the Borel subalgebra of $U_q(\mathfrak{sl}_2)$, follows the simple rule.
+\[
+    V_p \otimes V_q \cong \bigoplus_{i=1}^N  V_{pq}
+\]
+where $V_p$ is a cyclic module where $E_N$ acts by the identity and $D_N$ acts by $z_p \in \mathbb{C}$.
+
+By using this fact, one can assign the tensor $K_\alpha(p, q)$ to a trivalent graph whose edges are labeled by $p$, $q$, and $pq$ where $\alpha \in \mathbb{Z}/ N\mathbb{Z}$.
+It induces an assignment on 3-valent graphs on $S^2$ (or maybe any graphs on the sphere more generally).
+By dualizing graphs, we consider such graphs are boundary of polyhedra with triangular faces.
+Hence, the assignment induces an tensor coefficient assignment on polyhedra with colored edges and colored vertices.
+It seems that some properties of Clebsch--Gordan operators give the invariance of this assignment under gluing operation among polyhedra.
+However, we ended the day during finding out which exectly property gives this invariance.
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
