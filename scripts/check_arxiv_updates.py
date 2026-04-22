@@ -10,6 +10,8 @@ Storage behavior:
   - Re-running the script on the same day updates the same file.
   - Entries are merged by base arXiv identifier, keeping the record with the
     newest ``updated`` timestamp.
+  - When a prior checked review is known, the fetch walks arXiv pages until it
+    reaches that review boundary and keeps only entries updated after it.
   - When review abstracts are enabled, a review-only source file is written to
     ``derived/arxiv/review/source/YYYY-MM-DD.json``.
   - A small ``derived/arxiv/state.json`` file stores run metadata.
@@ -24,7 +26,7 @@ import socket
 import sys
 import time
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -85,6 +87,11 @@ def parse_args() -> argparse.Namespace:
         "--output-dir",
         default="derived/arxiv/snapshots",
         help="Directory for JSON outputs. Default: %(default)s",
+    )
+    parser.add_argument(
+        "--profile",
+        default="derived/arxiv/interest_profile.json",
+        help="Path to the interest profile JSON used to resolve the last reviewed date. Default: %(default)s",
     )
     return parser.parse_args()
 
@@ -288,20 +295,15 @@ def parse_entry(entry: ET.Element, include_summary: bool) -> dict[str, Any]:
     return payload
 
 
-def fetch_recent_entries(config: Config) -> list[dict[str, Any]]:
+def fetch_entries_page(config: Config, start: int) -> list[dict[str, Any]]:
     params = {
         "search_query": build_query(config.categories),
-        "start": 0,
+        "start": start,
         "max_results": config.max_results,
         "sortBy": config.sort_by,
         "sortOrder": config.sort_order,
     }
     url = f"{ARXIV_API_URL}?{urlencode(params)}"
-    print(
-        f"Starting fetch: categories={','.join(config.categories)} max_results={config.max_results} sort={config.sort_by}/{config.sort_order}",
-        file=sys.stderr,
-        flush=True,
-    )
     feed = fetch_url(url)
     root = ET.fromstring(feed)
     fetch_summary = config.include_summary or config.include_review_summary
@@ -332,6 +334,39 @@ def load_existing_snapshot(path: Path) -> dict[str, Any] | None:
         return json.load(handle)
 
 
+def resolve_last_review_cutoff(profile_path: Path, snapshot_dir: Path) -> tuple[datetime | None, str | None]:
+    if not profile_path.exists():
+        return None, None
+
+    try:
+        profile = load_existing_snapshot(profile_path) or {}
+    except json.JSONDecodeError:
+        return None, None
+
+    history = profile.get("history")
+    if not isinstance(history, dict):
+        return None, None
+
+    last_review_path = history.get("last_review_path")
+    if not isinstance(last_review_path, str) or not last_review_path:
+        return None, None
+
+    review_date = Path(last_review_path).stem
+    snapshot_path = snapshot_dir / f"{review_date}.json"
+    snapshot_payload = load_existing_snapshot(snapshot_path) or {}
+
+    fetched_at = snapshot_payload.get("fetched_at")
+    cutoff = parse_timestamp(fetched_at)
+    if cutoff != datetime.min.replace(tzinfo=UTC):
+        return cutoff, review_date
+
+    try:
+        review_day = datetime.fromisoformat(review_date)
+    except ValueError:
+        return None, review_date
+    return review_day.replace(tzinfo=UTC) + timedelta(days=1), review_date
+
+
 def choose_newer_entry(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
     left_updated = parse_timestamp(left.get("updated"))
     right_updated = parse_timestamp(right.get("updated"))
@@ -347,6 +382,48 @@ def parse_timestamp(value: Any) -> datetime:
         return datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
         return datetime.min.replace(tzinfo=UTC)
+
+
+def fetch_recent_entries(
+    config: Config,
+    *,
+    cutoff: datetime | None = None,
+) -> list[dict[str, Any]]:
+    print(
+        f"Starting fetch: categories={','.join(config.categories)} page_size={config.max_results} sort={config.sort_by}/{config.sort_order}",
+        file=sys.stderr,
+        flush=True,
+    )
+
+    if cutoff is None:
+        return fetch_entries_page(config, 0)
+
+    print(
+        f"Fetching all entries updated after {cutoff.isoformat()}",
+        file=sys.stderr,
+        flush=True,
+    )
+
+    start = 0
+    matched_entries: list[dict[str, Any]] = []
+
+    while True:
+        page_entries = fetch_entries_page(config, start)
+        if not page_entries:
+            break
+
+        reached_cutoff = False
+        for entry in page_entries:
+            if parse_timestamp(entry.get("updated")) <= cutoff:
+                reached_cutoff = True
+                break
+            matched_entries.append(entry)
+
+        if reached_cutoff or len(page_entries) < config.max_results:
+            break
+        start += len(page_entries)
+
+    return matched_entries
 
 
 def merge_entries(existing: list[dict[str, Any]], incoming: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -381,6 +458,7 @@ def main() -> int:
     args = parse_args()
     config_path = Path(args.config)
     output_dir = Path(args.output_dir)
+    profile_path = Path(args.profile)
     ensure_output_dir(output_dir)
 
     try:
@@ -394,9 +472,10 @@ def main() -> int:
     snapshot_path = output_dir / f"{now.date().isoformat()}.json"
     review_source_path = derived_dir / "review/source" / f"{now.date().isoformat()}.json"
     state_path = derived_dir / "state.json"
+    cutoff, last_review_date = resolve_last_review_cutoff(profile_path, output_dir)
 
     try:
-        entries = fetch_recent_entries(config)
+        entries = fetch_recent_entries(config, cutoff=cutoff)
     except (HTTPError, TimeoutError, URLError) as exc:
         error_message = format_fetch_error(exc, ARXIV_API_URL)
         state_payload = {
@@ -404,6 +483,9 @@ def main() -> int:
             "last_success_at": None,
             "last_snapshot_path": str(snapshot_path),
             "config_path": str(config_path),
+            "profile_path": str(profile_path),
+            "last_review_date": last_review_date,
+            "last_review_cutoff": cutoff.isoformat() if cutoff is not None else None,
             "category_count": len(config.categories),
             "entry_count": 0,
             "last_error": error_message,
@@ -427,6 +509,8 @@ def main() -> int:
             "max_results": config.max_results,
             "sort_by": config.sort_by,
             "sort_order": config.sort_order,
+            "last_review_date": last_review_date,
+            "last_review_cutoff": cutoff.isoformat() if cutoff is not None else None,
         },
         "field_docs": ENTRY_FIELD_DOCS,
         "entries": merged_entries,
@@ -447,6 +531,8 @@ def main() -> int:
                 "max_results": config.max_results,
                 "sort_by": config.sort_by,
                 "sort_order": config.sort_order,
+                "last_review_date": last_review_date,
+                "last_review_cutoff": cutoff.isoformat() if cutoff is not None else None,
             },
             "field_docs": ENTRY_FIELD_DOCS,
             "entries": merged_review_entries,
@@ -458,6 +544,9 @@ def main() -> int:
         "last_success_at": now.isoformat(),
         "last_snapshot_path": str(snapshot_path),
         "config_path": str(config_path),
+        "profile_path": str(profile_path),
+        "last_review_date": last_review_date,
+        "last_review_cutoff": cutoff.isoformat() if cutoff is not None else None,
         "category_count": len(config.categories),
         "entry_count": len(merged_entries),
         "last_error": None,
