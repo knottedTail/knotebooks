@@ -1,0 +1,123 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 22, 2026}
+
+\begin{document}
+\maketitle
+
+Today's todo list:
+
+\begin{itemize}
+    \item To start with writing the colored Jones on 4-plat paper
+    \item To prepare the presentation for review McPhail's papers
+    \item To write the paper connecting Garoufalidis--Kashaev with the quantum group
+\end{itemize}
+
+I would like to record notes for the Heisenberg dobule for the future.
+
+Let $A$ be a finite dimensional Hopf algebra with basis $\{ e_\alpha \}$.
+If we denote its dual basis $\{ e^\beta \}$ of $A^*$, then the \emph{Heisneberg double} of $A$, $\mathcal{H}(A)$, is a cross product $A^* \rtimes A$.
+It means that $\mathcal{H}(A)$ is a vector space $A^* \otimes A$ with the algebra structure making $A$ and $A^*$ subalgebras, and
+\[
+    h a = \sum(h_1 \triangleright a) h_2
+\]
+where $\Delta(h) = \sum h_1 \otimes h_2$ and $h \triangleright a = \langle a_2, h \rangle a_1$.
+
+\begin{proposition}
+    Let $H$ be a Hopf algebra, and $A$ be a $H$-module algebra.
+    For the crossproduct $A \rtimes H$, the map
+    \[
+    \begin{array}{lccc}
+        \lambda: & A \rtimes H & \longrightarrow & \mathrm{End}(A) \\
+        & a \otimes h & \longmapsto & \bigl( b \mapsto a(h \triangleright b) \bigr)
+    \end{array}
+    \]
+    defines a representation of $H$.
+\end{proposition}
+\begin{proof}
+    It suffices to check that
+    \[
+        \lambda(ha)(b) = \lambda \bigl( (h_1 \triangleright a)h_2 \bigr)(b)
+    \]
+    After the evaluation $\lambda$, it becomes to
+    \[
+        h \triangleright (ab) = \bigl( h_1 \triangleright a \bigr) \cdot \bigl( h_2 \triangleright b \bigr)
+    \]
+    which is equivalent to $H$-covariance of the algebra structure of $A$.
+\end{proof}
+
+The \emph{Heisenberg representation} is a representation $A^*$ of $\mathcal{H}(A) = A^* \rtimes A$ defined by the above propostion.
+
+The canonical element $R = \sum_\alpha e_\alpha \otimes e^\alpha$ gives the solution of the pentagon identity:
+\[
+    R_{12} R_{13} R_{23} = R_{23} R_{12}
+\]
+which can be verified as follows.
+
+Let denote the constant structure of the multiplication and the comultiplication of $A$ by
+\[
+    e_\alpha e_\beta = \mu_{\alpha \beta}^\gamma e_\gamma, \quad e^\alpha e^\beta = m^{\alpha \beta}_\gamma e^\gamma, \quad e_\alpha e^\beta = m^\beta_{\rho \gamma} \mu_\alpha^{\gamma \sigma} e^\rho e_\sigma.
+\]
+Then, the left-hand side of the pentagon identity 
+\begin{align*}
+    R_{12} R_{13} R_{23} & = \sum e_\alpha e_\beta \otimes e^\alpha e_\gamma \otimes e^\beta e^\gamma \\
+    & = \sum e_\rho \otimes \mu_{\alpha \beta}^\rho m^{\beta \gamma}_\sigma e^\alpha e_\gamma \otimes e^\sigma \\
+    & = \sum e_\rho \otimes e_\sigma e^\rho \otimes e^\sigma \\
+    & = R_{23} R_{12}.
+\end{align*}
+
+
+\begin{proposition}
+    \[
+    (\lambda \otimes \lambda)(R) = (1 \otimes \mu) (\Delta \otimes x) \in \mathrm{Aut}(A^* \otimes A^*).
+    \]
+\end{proposition}
+\begin{proof}
+    \begin{align*}
+    (\lambda \otimes \lambda) (R) : x \otimes y & \mapsto \sum (e_\alpha \triangleright x) \otimes e^\alpha y \\
+    & = \sum \langle x_2, e_\alpha \rangle x_1 \otimes e^\alpha y \\
+    & = x_1 \otimes x_2 y.
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    \[
+    R (a \otimes 1) = \Delta(u)R, \quad (1 \otimes h)R = R \Delta(h).
+    \]
+\end{proposition}
+\begin{proof}
+    \begin{align*}
+        R(e^\beta \otimes 1) = \sum (e_\alpha \cdot e^\beta) \otimes e^\alpha & = \sum m^\beta_{\rho \gamma} \mu_\alpha^{\gamma \sigma} e^\rho e_\sigma \otimes e^\alpha \\
+        & = \sum m^\beta_{\rho \gamma} e^\rho e_\sigma \otimes e^\gamma e^\sigma \\
+        & = \sum e^{\beta,1} e_\sigma \otimes e^{\beta, 2} e^\sigma \\
+        & = \Delta(e^\beta) \cdot R.
+    \end{align*}
+    
+    For the second identity, the argument is similarly to the above.
+\end{proof}
+
+\begin{proposition}
+    \[
+    (\Delta \otimes 1)(R) = R_{13} R_{23}, \quad (1 \otimes \Delta)(R) = R_{12} R_{13}.
+    \]
+\end{proposition}
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
