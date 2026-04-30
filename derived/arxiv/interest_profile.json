@@ -1,38 +1,39 @@
 {
   "category_weights": {
-    "math-ph": 2.7,
-    "math.CT": 3.3,
-    "math.GT": 6.5,
-    "math.KT": 3.0,
-    "math.QA": 7.1,
-    "math.RT": 4.2,
-    "quant-ph": 1.1
+    "math-ph": 4.4,
+    "math.CT": 3.6,
+    "math.GT": 8.0,
+    "math.KT": 2.9,
+    "math.QA": 8.0,
+    "math.RT": 4.3,
+    "quant-ph": 1.9
   },
   "keyword_weights": {
-    "Chern-Simons": 3.4,
-    "braided": 4.6,
-    "hopf algebra": 6.2,
+    "Chern-Simons": 4.0,
+    "braided": 4.9,
+    "hopf algebra": 7.0,
     "knot invariant": 6.0,
     "link homology": 4.0,
-    "link invariant": 5.3,
+    "link invariant": 5.6,
     "modular tensor category": 4.5,
-    "quantum group": 6.5,
-    "r-matrix": 3.8,
-    "representation": 3.3,
+    "quantum group": 7.9,
+    "r-matrix": 4.1,
+    "representation": 4.3,
     "tensor category": 4.5,
-    "yang-baxter": 4.0
+    "yang-baxter": 4.3
   },
   "history": {
-    "positive_count": 18,
-    "negative_count": 48,
-    "last_review_path": "derived/arxiv/review/checked/2026-04-17.md"
+    "positive_count": 31,
+    "negative_count": 55,
+    "last_review_path": "derived/arxiv/review/checked/2026-04-28.md"
   },
   "processed_review_files": [
     "derived/arxiv/review/checked/2026-04-13.md",
     "derived/arxiv/review/checked/2026-04-14.md",
     "derived/arxiv/review/checked/2026-04-15.md",
     "derived/arxiv/review/checked/2026-04-16.md",
-    "derived/arxiv/review/checked/2026-04-17.md"
+    "derived/arxiv/review/checked/2026-04-17.md",
+    "derived/arxiv/review/checked/2026-04-28.md"
   ],
-  "updated_at": "2026-04-28T12:02:12.560996+09:00"
+  "updated_at": "2026-04-30T12:02:49.027510+09:00"
 }

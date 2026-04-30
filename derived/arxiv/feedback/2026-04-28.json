@@ -1,0 +1,522 @@
+{
+  "review_path": "derived/arxiv/review/checked/2026-04-28.md",
+  "reviewed_at": "2026-04-30T12:02:49.027510+09:00",
+  "items": [
+    {
+      "title": "Invariants from involutory Hopf algebras of 3-manifolds with embedded framed links",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.QA"
+      ],
+      "keywords": [
+        "hopf algebra",
+        "link invariant",
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2509.07125v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2509.07125",
+        "versioned_id": "2509.07125v2",
+        "score": 24.1,
+        "matched_categories": [
+          "math.GT",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "hopf algebra",
+          "link invariant",
+          "representation"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Chevalley property of module-finite Hopf algebras and discriminant ideals",
+      "interested": false,
+      "categories": [
+        "math.RA",
+        "math.QA",
+        "math.RT"
+      ],
+      "keywords": [
+        "hopf algebra",
+        "quantum group",
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.15986v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.15986",
+        "versioned_id": "2604.15986v1",
+        "score": 22.4,
+        "matched_categories": [
+          "math.QA",
+          "math.RT"
+        ],
+        "matched_keywords": [
+          "hopf algebra",
+          "quantum group",
+          "representation"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Equivalence of toral Chern-Simons and Reshetikhin-Turaev theories",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math-ph",
+        "math.GT"
+      ],
+      "keywords": [
+        "Chern-Simons  \n**Abs URL:** http://arxiv.org/abs/2604.01982v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.01982",
+        "versioned_id": "2604.01982v2",
+        "score": 19.7,
+        "matched_categories": [
+          "math.QA",
+          "math-ph",
+          "math.GT"
+        ],
+        "matched_keywords": [
+          "Chern-Simons"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Equivalence of Extended $U(1)$ Chern-Simons and Reshetikhin-Turaev TQFTs",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math-ph",
+        "math.GT"
+      ],
+      "keywords": [
+        "Chern-Simons  \n**Abs URL:** http://arxiv.org/abs/2603.27688v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2603.27688",
+        "versioned_id": "2603.27688v2",
+        "score": 19.7,
+        "matched_categories": [
+          "math.QA",
+          "math-ph",
+          "math.GT"
+        ],
+        "matched_keywords": [
+          "Chern-Simons"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Orthosymplectic quantum groups revisited",
+      "interested": true,
+      "categories": [
+        "math.RT",
+        "hep-th",
+        "math.QA",
+        "nlin.SI"
+      ],
+      "keywords": [
+        "quantum group",
+        "r-matrix  \n**Abs URL:** http://arxiv.org/abs/2604.21785v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.21785",
+        "versioned_id": "2604.21785v1",
+        "score": 19.7,
+        "matched_categories": [
+          "math.RT",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "quantum group",
+          "r-matrix"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Lie Quandles, Leibniz Racks and Noether's First Theorem",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math-ph",
+        "math.CT",
+        "math.GT",
+        "math.RA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.17043v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.17043",
+        "versioned_id": "2604.17043v1",
+        "score": 19.6,
+        "matched_categories": [
+          "math.QA",
+          "math-ph",
+          "math.CT",
+          "math.GT"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "The von Neumann algebraic quantum group $\\mathrm{SU}_q(1,1)\\rtimes \\mathbb{Z}_2$ and the DSSYK model",
+      "interested": true,
+      "categories": [
+        "math-ph",
+        "cond-mat.stat-mech",
+        "hep-th",
+        "math.OA",
+        "math.QA"
+      ],
+      "keywords": [
+        "quantum group",
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2512.10101v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2512.10101",
+        "versioned_id": "2512.10101v2",
+        "score": 17.95,
+        "matched_categories": [
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "quantum group",
+          "representation"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Universal $T$-matrices for quantum Poincaré groups: contractions and quantum reference frames",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "gr-qc",
+        "hep-th",
+        "math-ph",
+        "quant-ph"
+      ],
+      "keywords": [
+        "hopf algebra",
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2604.01058v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.01058",
+        "versioned_id": "2604.01058v2",
+        "score": 17.25,
+        "matched_categories": [
+          "math.QA",
+          "math-ph",
+          "quant-ph"
+        ],
+        "matched_keywords": [
+          "hopf algebra",
+          "quantum group"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "On the classification of finite GK-dimensional pre-Nichols algebras and quasi-quantum groups",
+      "interested": true,
+      "categories": [
+        "math.QA",
+        "math.RA"
+      ],
+      "keywords": [
+        "hopf algebra",
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2504.12206v3"
+      ],
+      "metadata": {
+        "arxiv_id": "2504.12206",
+        "versioned_id": "2504.12206v3",
+        "score": 16.7,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "hopf algebra",
+          "quantum group"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Reflections and Drinfeld twists for set-theoretic Yang-Baxter maps",
+      "interested": true,
+      "categories": [
+        "math.QA"
+      ],
+      "keywords": [
+        "braided",
+        "representation",
+        "yang-baxter  \n**Abs URL:** http://arxiv.org/abs/2504.21678v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2504.21678",
+        "versioned_id": "2504.21678v2",
+        "score": 15.05,
+        "matched_categories": [
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "braided",
+          "representation",
+          "yang-baxter"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Homomorphism Indistinguishability Relations induced by Quantum Groups",
+      "interested": true,
+      "categories": [
+        "quant-ph",
+        "math.CO",
+        "math.OA",
+        "math.QA"
+      ],
+      "keywords": [
+        "quantum group  \n**Abs URL:** http://arxiv.org/abs/2505.07922v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2505.07922",
+        "versioned_id": "2505.07922v2",
+        "score": 14.7,
+        "matched_categories": [
+          "quant-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "quantum group"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "On Hecke and asymptotic categories for a family of complex reflection groups",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.CT",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2409.01005v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2409.01005",
+        "versioned_id": "2409.01005v2",
+        "score": 14.6,
+        "matched_categories": [
+          "math.RT",
+          "math.CT",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Almost finitary birepresentation theory and applications to affine Soergel bimodules",
+      "interested": true,
+      "categories": [
+        "math.RT",
+        "math.QA"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.20604v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.20604",
+        "versioned_id": "2604.20604v1",
+        "score": 14.6,
+        "matched_categories": [
+          "math.RT",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "representation"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Verma Bases for finite dimensional Representations of the orthosymplectic Lie superalgebra $\\mathfrak{spo}(4|1)$",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math.QA"
+      ],
+      "keywords": [
+        "representation  \n**Abs URL:** http://arxiv.org/abs/2604.19511v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.19511",
+        "versioned_id": "2604.19511v1",
+        "score": 14.6,
+        "matched_categories": [
+          "math.RT",
+          "math.QA"
+        ],
+        "matched_keywords": [
+          "representation"
+        ],
+        "is_update": false
+      }
+    },
+    {
+      "title": "On the cohomology of finite tensor categories",
+      "interested": false,
+      "categories": [
+        "math.QA",
+        "math.KT",
+        "math.RT"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.20491v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.20491",
+        "versioned_id": "2604.20491v1",
+        "score": 14.3,
+        "matched_categories": [
+          "math.QA",
+          "math.KT",
+          "math.RT"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Cohomology ring of unitary $N=(2,2)$ full vertex algebra and mirror symmetry",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "math-ph",
+        "math.AG",
+        "math.CV",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2504.09919v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2504.09919",
+        "versioned_id": "2504.09919v2",
+        "score": 14.0,
+        "matched_categories": [
+          "math.RT",
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Super-Chevalley Restriction and Relative Lie Algebra Cohomology over the 2|3 Algebra",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "hep-th",
+        "math-ph",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.23549v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.23549",
+        "versioned_id": "2604.23549v1",
+        "score": 14.0,
+        "matched_categories": [
+          "math.RT",
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "Universal $2$-parameter $\\mathcal{N}=2$ supersymmetric $\\mathcal{W}_{\\infty}$-algebra",
+      "interested": false,
+      "categories": [
+        "math.RT",
+        "hep-th",
+        "math-ph",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2604.20750v1"
+      ],
+      "metadata": {
+        "arxiv_id": "2604.20750",
+        "versioned_id": "2604.20750v1",
+        "score": 14.0,
+        "matched_categories": [
+          "math.RT",
+          "math-ph",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "On skein algebras of planar surfaces",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2206.07856v7"
+      ],
+      "metadata": {
+        "arxiv_id": "2206.07856",
+        "versioned_id": "2206.07856v7",
+        "score": 13.6,
+        "matched_categories": [
+          "math.GT",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    },
+    {
+      "title": "The minimal Rickard complexes of braids on two strands",
+      "interested": true,
+      "categories": [
+        "math.GT",
+        "math.QA"
+      ],
+      "keywords": [
+        "None  \n**Abs URL:** http://arxiv.org/abs/2510.13764v2"
+      ],
+      "metadata": {
+        "arxiv_id": "2510.13764",
+        "versioned_id": "2510.13764v2",
+        "score": 13.6,
+        "matched_categories": [
+          "math.GT",
+          "math.QA"
+        ],
+        "matched_keywords": [],
+        "is_update": false
+      }
+    }
+  ]
+}
