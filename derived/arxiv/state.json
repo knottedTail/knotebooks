@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-04-28T12:02:12.647928+09:00",
-  "last_success_at": "2026-04-28T12:02:12.647928+09:00",
-  "last_snapshot_path": "derived/arxiv/snapshots/2026-04-28.json",
+  "last_run_at": "2026-04-30T12:02:49.231812+09:00",
+  "last_success_at": "2026-04-30T12:02:49.231812+09:00",
+  "last_snapshot_path": "derived/arxiv/snapshots/2026-04-30.json",
   "config_path": "arxiv_config.jsonc",
   "profile_path": "derived/arxiv/interest_profile.json",
-  "last_review_date": "2026-04-17",
-  "last_review_cutoff": "2026-04-17T12:01:16.771366+09:00",
+  "last_review_date": "2026-04-28",
+  "last_review_cutoff": "2026-04-28T12:02:12.647928+09:00",
   "category_count": 9,
-  "entry_count": 1609,
+  "entry_count": 403,
   "last_error": null
 }
