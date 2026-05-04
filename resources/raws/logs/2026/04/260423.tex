@@ -1,0 +1,92 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{April 23, 2026}
+
+\begin{document}
+\maketitle
+
+Here I record one observation.
+I was struggled by finding it and now I got an important clue in my opinion.
+
+Let $H$ be a semisimple algebra over an algebraic closed field. 
+For any two finite-dimensional $H$-modules $X$ and $Y$, suppose there exists a $H$-module isomorphism
+\[
+R(X, Y): X \otimes Y \longrightarrow \bigoplus_{t} \bigl( M^t(X,Y) \otimes V_t \bigr),
+\]
+where the direct sum ranges over finite-dimensional simple $H$-modules $V_t$, and  $M^t(X,Y)$, denotes the corresponding multiplicity space.
+Note that
+\[
+M^t(X, Y) = \mathrm{Hom}_H (V_t, X \otimes Y)
+\]
+is a trivial module, i.e., a direct sum of $V_0 \cong k$ as a $H$-module.
+
+For three finite-dimensional $H$-modules $X$, $Y$, and $Z$, we have 2 ways to decompose $X \otimes Y \otimes Z$ into simple modules:
+\[
+    (X \otimes Y) \otimes Z \xrightarrow{R_{12}} \bigoplus \bigl( M^t(X, Y) \otimes V_t \otimes Z \bigr) \xrightarrow{R_{23}} \bigoplus \bigl( (M^t(X, Y) \otimes M^s(V_t, Z)) \otimes V_s \bigr),
+\]
+and
+\[
+    X \otimes (Y \otimes Z) \xrightarrow{R_{23}} \bigoplus \bigl( X \otimes M^r(Y,Z) \otimes V_r \bigr) \xrightarrow{R_{13}} \bigoplus \bigl( (M^s(X, V_r) \otimes M^r(Y, Z)) \otimes V_s \bigr).
+\]
+
+Here we denote $R_{ij}$ for the decomposition applied to the $i$-th and the $j$-th tensor factors.
+Observe that the $H$-module homomorphism
+\[
+R_{23} \circ R_{12} \circ R_{23}^{-1} \circ R_{13}^{-1}
+\]
+acts on the third factor by the scalar multiplication by Schur's lemma.
+If we denote it by $T_{12}$, then we have a pentagon identity
+\[
+T_{12} R_{13} R_{23} = R_{23} R_{12}
+\]
+parametrized by $H$-modules $X$, $Y$, and $Z$.
+
+There are remaining questions:
+\begin{itemize}
+    \item Do we have a \emph{canonical} choice of $R(X,Y)$ for any $X$ and $Y$?
+    
+    \item If we have the canonical choice, then $T_{12} = R_{12}$?
+\end{itemize}
+
+We may solve these problems by considering $R$ as an operator on underlying vector spaces of modules.
+
+\begin{example}
+    The trivial example is the case $H=k$.
+    In this case, the trivial module $V_0 \cong k$ is the only simple $H$-module.
+    Hence,
+    \[
+        R(k^n, k^m): k^n \otimes k^m \rightarrow k^{nm} = M^0(k^n, k^m) \otimes k
+    \]
+    with $M^0(k^n, k^m) = k^{nm}$.
+\end{example}
+
+There are natural restrictions for $R$.
+\begin{itemize}
+    \item $R(X \oplus Y, Z) = R(X, Z) \oplus R(Y, Z)$.
+    \item $R(X, Y \oplus Z) = R(X, Y) \oplus R(X, Z)$.
+    \item $R^{-1}(X, Y \otimes Z) = R^{-1}_{13} \circ R^{-1}_{12}$ % from the Heisenberg double theory
+    \item $R^{-1}(X \otimes Y, Z) = R^{-1}_{23} \circ R^{-1}_{13}$ % from the Heisenberg double theory
+    \item $R(X \otimes Y, Z) = R_{23} \circ R_{13}$.
+    \item $R(X, Y \otimes Z) = R_{23} \circ R_{12}$.
+\end{itemize}
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}

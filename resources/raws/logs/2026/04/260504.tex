@@ -1,0 +1,51 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+% % Theorem environments
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[style=plain, sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[style=definition]{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, todo}
+
+
+\title{May 04, 2026}
+
+\begin{document}
+\maketitle
+
+We record observation for braided categories.
+
+Let $B$ be a bialgebra in a braided category $\mathcal{V}$.
+What we considered is the existence of its opposite multiplication / comultiplication in Majid's sense.
+For instance, the opposite comultiplication is not defined by
+\[
+c_{B, B} \circ \Delta,
+\]
+it is defined representation-theoretically.
+Let denote by $\alpha_{X \otimes Y}$ the action of $B$ on $F(X) \otimes F(Y) \cong F(X \otimes Y)$ where $F$ is a forgetful functor from the category of $B$-modules to $\mathcal{V}$.
+Then, the opposite comultiplicaton is defined by
+\begin{align*}
+    & c_{F(X), F(Y)} \circ \alpha_{Y \otimes X} \circ (1 \otimes c_{F(Y), F(X)}^{-1}) \\
+    =\ & (\alpha_X \otimes \alpha_Y) \circ (1_B \otimes c_{B, F(X)} \otimes 1_{F(Y)}) \circ (\Delta^{\mathrm{op}} \otimes 1_{F(X) \otimes F(Y)}).
+\end{align*}
+
+The problem is that the existence of $\Delta^{\mathrm{op}}$.
+The first insight was that, it always exists because we thought that we always have a functorial isomorphism (in $V$)
+\[
+\theta^n_V : \mathrm{Mor}(V, B^{\otimes n}) \longrightarrow \mathrm{Nat}(V \otimes F^n, F^n).
+\]
+It has a right inverse, which is plugging the tensor product of unit in $B$.
+However, it is not easy to prove that the right inverse is also the left inverse.
+
+
+\bibliographystyle{amsalpha}
+% \nocite{*}
+\bibliography{bibliography}
+\end{document}
