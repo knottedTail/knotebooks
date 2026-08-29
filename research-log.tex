@@ -1,0 +1,47 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+
+\newif\ifdraftlabels
+\draftlabelsfalse
+\ifdraftlabels
+    \usepackage[notref,notcite]{showkeys}
+\fi
+
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage[backend=biber, doi=true, url=true, style=alphabetic]{biblatex}
+\addbibresource{bibliography.bib}
+
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem{lemma, proposition, corollary}[
+style=plain,
+sibling=theorem,
+]
+\declaretheorem[style=definition]
+{definition, example, condition}
+\declaretheorem[style=remark]{remark, note, observation, summary}
+
+\title{Research Log}
+\author{KnottedTail}
+\date{\today}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Sch}{Sch}
+
+
+\begin{document}
+
+\maketitle
+
+\input{logs/2026-08.tex}
+
+\printbibliography
+
+\end{document}
