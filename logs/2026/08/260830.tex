@@ -1,0 +1,58 @@
+% !TeX root = ../../../research-log.tex
+
+\subsection*{YD $\leftrightarrow$ double}
+
+For a finite dimensional Hopf algebra $H$, it is known that $\mathcal{YD}^H_H \cong \mathrm{Mod}_{D(H)}$.
+We can deduce the cross relation on $D(H)$ form the Yetter--Drinfel'd condition.
+
+\begin{definition}
+    Let $V$ be a right $H$-module and $H$-comodule simultaneously.
+    Then, $V$ is csalled a Yetter--Drinfel'd module, shortly YD-module, if 
+    \begin{align} \label{eqn:YD}
+        v_0 \triangleleft h_1 \otimes v_1h_2 = (v \triangleright h_2)_0 \otimes h_1 (v \triangleleft h_2)_1.
+    \end{align}
+\end{definition}
+
+For a right $H$-module $V$, let define a left $H^*$ action by
+\[
+    f \triangleright v := \langle f, v_1 \rangle v_0.
+\]
+
+For any $f \in H^*$, by applying $\langle f, - \rangle$ to the second factor of \eqref{eqn:YD}, we have
+\begin{align*}
+v_0 \triangleleft h_1 \langle f, v_1h_2 \rangle & = v_0 \triangleleft h_1 \langle f_1, v_1 \rangle \langle f_2, h_2 \rangle \\
+& = (f_1 \triangleright v) \triangleleft h_1 \langle f_2, h_2 \rangle
+\end{align*}
+and
+\begin{align*}
+(v \triangleright h_2)_0 \langle f, h_1 (v \triangleleft h_2)_1 \rangle & = (v \triangleright h_2)_0 \langle f_1, h_1 \rangle \langle f_2, (v \triangleleft h_2)_1 \rangle \\
+& = \langle f_1, h_1 \rangle (f_2 \triangleright (v \triangleleft h_2)).
+\end{align*}
+Therefore, the YD condition \eqref{eqn:YD} is equivalent to
+\[
+(f_1 \triangleright v) \triangleleft h_1 \langle f_2, h_2 \rangle = \langle f_1, h_1 \rangle (f_2 \triangleright (v \triangleleft h_2))
+\]
+for all $v \in V$, and hence
+\[
+f_1 h_1 \langle f_2, h_2 \rangle = \langle f_1, h_1 \rangle h_2 f_2.
+\]
+
+From the above arguments, we may have the following.
+
+\begin{proposition}
+    \[
+    \mathcal{YD}^H_H \cong D(H) \mathrm{-Mod}_{H\text{-rat}}
+    \]
+\end{proposition}
+
+We verify the following proposition in \cite{Kashaev21}.
+
+\begin{proposition}
+    $D(H)^\circ$ has a dual quasitriangular structure with the $R$-form $\mathscr{R}: D(H)^\circ \otimes D(H)^\circ \rightarrow k$ defined by
+    \[
+    \mathscr{R}(x \otimes y) := \langle x, (\jmath \circ \imath^\circ)(y) \rangle
+    \]
+\end{proposition}
+\begin{proof}
+    
+\end{proof}

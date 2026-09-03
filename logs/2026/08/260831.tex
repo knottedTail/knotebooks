@@ -1,0 +1,37 @@
+% !TeX root = ../../../research-log.tex
+
+\subsection*{$\mathcal{YD}$ of $\mathcal{YD}$ is $\mathcal{YD}$}
+
+Let a braided group be a braided Hopf algebra in a braided category.
+\begin{proposition}[\cite{Bespalov97}]
+    Let $A$ be a braided gropu in $\mathcal{C}$ and $B$ be a braided group in $\mathcal{YD}(\mathcal{C})^A_A$.
+    Then $(\mathcal{YD}(\mathcal{C})^A_A)^B_B \cong \mathcal{YD}(\mathcal{C})^{A \ltimes B}_{A \ltimes B}$.
+\end{proposition}
+
+
+\subsection*{Finite dual of the quantum double, continued}
+
+Let $\{ e_i \}$ be a basis of $H$ and suppose that the dual linear functional $\{ e^i \}$ lies in $H^\circ$.
+Then, one might say that a universal $\mathcal{R}$-matrix of the quantum double $D(H)$ is
+\[
+\mathcal{R} = \sum \jmath(e^i) \otimes \imath(e_i)
+\]
+where $\imath: H \hookrightarrow D(H)$ and $\jmath: H^{\circ, \text{op}} \hookrightarrow D(H)$ are inclusions.
+
+Note that, for $g \in D(H)^\circ$, we have
+\[
+\imath^\circ(g) = \langle g, \imath(e_i) \rangle e^i
+\]
+by putting $e_i$ on the left-hand side.
+From this, we have
+\begin{align*}
+\langle f \otimes g, \mathcal{R} \rangle & = \sum \langle f, \jmath(e^i)\rangle \langle g, \imath(e_i) \rangle \\
+& = \sum \langle f, \jmath \left( \langle g, \imath(e_i) \rangle e^i \right) \rangle \\
+& = \langle f, \jmath \left( \imath^\circ (g) \right) \rangle.
+\end{align*}
+
+Hence, a bilinear form
+\[
+\mathcal{R}: D(H)^\circ \otimes D(H)^\circ \rightarrow k, \quad f \otimes g \mapsto \langle f, (\jmath \circ \imath^\circ)(g) \rangle
+\]
+may generalize the univeral $\mathcal{R}$-matrix of $D(H)$ and make $D(H)^\circ$ dual quasitriangular.

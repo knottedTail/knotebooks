@@ -1,3 +1,139 @@
 % !TeX root = ../../../research-log.tex
 
-Hi I'm testing \cite{Shafarevich13_1}
+\subsection*{dual Hopf algebra}
+
+Let $k$ be a field, and let $(H, \nabla, \eta, \delta, \epsilon, S)$ be a Hopf algebra over $k$.
+
+Following \cite{DNR}, we define the finite dual of $H$.
+\[
+H^\circ := \left\{ f \in H^* \middle| \ \exists \text{ a two-sided ideal } I \text{ in } \ker(f) \text{ such that } \dim_k(A/I) < \infty \right\}
+\]
+
+\begin{proposition}
+    Let $f \in H^*$.
+    The followings are equivalent
+
+    \begin{enumerate}
+        \item There exists a two-sided ideal $I \subset \ker(f)$ of $A$ such that $\dim(A/I) < \infty$.
+        \item $\nabla^*(f)\in H^* \otimes H^*$.
+        \item There exists finitely many $g_i, h_i \in H^*$ such that, for all $a, b \in H$, $f(ab) = \sum g_i(a) h_i(b)$.
+        \item $\operatorname{span} \left\{ L_a(f) \middle| ^\forall a \in H \right\}$ is finite dimensional vector space.
+        \item $f$ is a matrix coeffciient of a finitely dimensional $H$-module.
+    \end{enumerate}
+
+\end{proposition}
+\begin{proof}
+    Let write a bilinear map $B_f := \nabla^*(f): H \otimes H \rightarrow k$, and a linear map $T_f :H \rightarrow H^*$ by $T_f(a) := L_a(f)$ for all $a \in H$. 
+    Denote $\ker(T_f)$ by $J$, then it is easy to verify that $J$ is a right ideal.
+    If we define $I := \left\{ a \in H \middle| Aa \subseteq J \right\} \subset J$ then $I$ is a two-sided ideal.
+    \begin{itemize}
+        \item $ 2 \Leftrightarrow 3$: As $B_f(a \otimes b) = f(ab)$, it is just for writing out the definition.
+        \item $ 3 \Leftrightarrow 4$: If we assume $(3)$ then $T_f(a) = \sum g_i(a) h_i$, and hence $\operatorname{Im}T_f < \infty$.
+        Conversely, if one take a basis $\{ h_i \}$ of $\operatorname{Im}T_f$ and the dual basis $\{\lambda^i \}$ of its dual, then 
+        \[
+        T_f = \sum \lambda^i (T_f) h_i
+        \]
+        and, if we define $g_i := \lambda^i(T_f)$, then $T_f = \sum g_i \otimes h_i \in A^* \otimes A^*$.
+        \item $ 1 \Leftrightarrow 4$: Since $B_f$ factors through $H/I \otimes H/I$, $\operatorname{Im}T_f$ is of finite dimensional which means that $B_f$ is of finite rank.
+        Conversely, note that $\operatorname{Im}T_f \cong H/J < \infty$, and $I$ is the kernel of
+        \[
+        H^{\text{op}} \rightarrow \End_k(H/J), \quad b \mapsto (a+J \mapsto ab+J).
+        \]
+        Hence, there exsits an embedding $H/I \hookrightarrow \End_k(H/J)$ and it implies that $H/I$ is a finite dimensional vector space.
+        \item $ 5 \Rightarrow 1$: Let $V$ be a finite dimensional $H$-module, and for $v \in V, \lambda \in V^*$, let define $c_{\lambda, v}(a) := \lambda(a \cdot v)$.
+        If we define $\rho: H \rightarrow \End_k(V)$ and then $\ker(\rho)$ is a two-sided ideal with finite codimension inside in $\ker(c_{\lambda, v})$.
+        \item $ 5 \Rightarrow 2$:
+        \begin{align*}
+            c_{\lambda, v}(Ab) & = \lambda(ab \cdot v) \\
+            & = \lambda_j e^j (\rho(a) e^i(\rho(b)v)e_i) \\
+            & = \lambda_j e^j(\rho(a)e_i) \cdot e^i(\rho(b)v).
+        \end{align*}
+        By defining $g_i := \lambda_j e^j(\rho(a)e_i)$ and $h_i := e^i(\rho(b)v)$ then $c_{\lambda,v} = \sum g_i h_i$.
+        \item $ 1 \Rightarrow 5$ If we let $V = H / I$ and let $\lambda(a+I):=f(a)$ and $v = 1 + I$, then we have
+        \[
+            f(a) = f(a + I) = \lambda(a \cdot v)
+        \]
+        which implies that $f$ is a matrix coefficient.
+    \end{itemize}
+\end{proof}
+
+Also, $(-)^\circ$ s a functorial; $(-)^\circ$ is an endofunctor on $\mathrm{Hopf}_k$.
+Since, for any Hopf algebra morphism $\phi$, it takes a matrix coefficient of a module to a matrix coefficient of the same module but over differnet Hopf algebra.
+
+
+\subsection*{moddules and comodules of $A$, $A^*$ and $A^\circ$.}
+
+Let $A$ be a Hopf algebra over $k$.
+
+\begin{definition}
+    An $A$-module $M$ is called \emph{locally finite} if, for all $m \in M$,
+    \[
+    \dim_k(A \cdot m) < \infty.
+    \]
+    An $A^*$-module $M$ is called \emph{rational} if there exists $m_i \in M$ and $h_i \in A$, for all $m \in M$, such that
+    \[
+    f \cdot m = \sum f(h_i)m_i
+    \] for all $f \in A^*$.
+\end{definition}
+
+For a locally finite $A$-module $M$, one can choose a basis $\{ v_i \}$ of $A \cdot m$ for all $m \in M$.
+Then, we have $a \cdot v_j = c^i_j(a) v_i$ for some $c^i_j(a) \in A^\circ$, note that $c^i_j(1) = \delta^i_j$ and it is a matrix coefficient of $a$ w.r.t. the basis $\{v_i\}$.
+Hence we might define a right coaction of $A^\circ$
+\[
+    \delta(m) := m^jv_i \otimes c^i_j
+\]
+where $m = m^j v_j$.
+Conversely, for a $A^\circ$-comodule $M$, we define $A$-action on $M$ using the pairing between $A$ and $A^\circ$, and one can shows that any $A$-orbit of an elemnent of $M$ is of fintie dimensional. 
+Hence a locally finite $A$-module is equivalent to a $A^\circ$ comodule.
+
+For a rational $A^*$-module $M$, one may define a coaction of $A$ by $\delta(m) := \sum m_i \otimes h_i$, conversely, any $A$-comodule is a rational $A^*$-module.
+
+Therefore, by the above arguments, we have the following propositon.
+
+\begin{proposition}
+    For a Hopf algebra $A$,
+    \[
+    \text{locally finite } A \text{-module} \Longleftrightarrow A^\circ\text{-comodule} \Longleftrightarrow \text{rational } (A^\circ)^*\text{-module}.
+    \]
+\end{proposition}
+Note that each arrow reverse the direction of (co)action.
+
+We may need the statement for $A^\circ$-module.
+
+\begin{proposition}
+    \(
+    A^\circ\text{-module}
+    \)
+\end{proposition}
+
+
+\subsection*{dual quasitriangularity of $D(H)$}.
+
+Let $H$ be a Hopf algebra over a field $k$.
+Then Drinfeld's quantum group $D(H)$ is uniquely determined by two sub Hopf algebra inclusions
+\[
+\imath: H \hookrightarrow D(H), \quad \jmath: H^{\circ, \text{op}} \hookrightarrow D(H)
+\]
+such that $\jmath(f)\imath(x) = \langle f_1, x_1 \rangle \langle f_3, S(x_3) \rangle \imath(x_2) \jmath(f_2)$ for all $f \in H^\circ, x \in H$.
+
+% We first interpret $D(H)$ via YD-module over $H$:
+% \begin{proposition}
+%     \[
+%     \mathcal{YD}^H_H \cong D(H) \mathrm{-Mod}_{H\text{-rat}}
+%     \]
+% \end{proposition}
+% \begin{proof}
+%     There is a 
+% \end{proof}
+
+% We verify the following proposition in \cite{Kashaev21}.
+
+% \begin{proposition}
+%     $D(H)^\circ$ has a dual quasitriangular structure with the $R$-form $\mathscr{R}: D(H)^\circ \otimes D(H)^\circ \rightarrow k$ defined by
+%     \[
+%     \mathscr{R}(x \otimes y) := \langle x, (\jmath \circ \imath^\circ)(y) \rangle
+%     \]
+% \end{proposition}
+% \begin{proof}
+    
+% \end{proof}
