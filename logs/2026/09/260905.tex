@@ -1,0 +1,36 @@
+
+\subsection*{Cross (co)products}
+
+We here review basic facts for cross (co)products.
+
+\subsubsection*{Ordinary cases, no braided}
+
+Let $H$ be an ordinary biaglebra.
+
+In the category $H-\mathrm{Mod}$, we consider an algebra object and a coalgebra object.
+Note that the category of vector spaces is braided with the trivial flip operator.
+Every algebra and coalgebra are bradied in this sense, though we do not add such adjective.
+
+\begin{definition}
+    A $H$-module $A$ is called a \emph{$H$-module algebra} if it admits an associative multiplication $\mu: A \otimes A \rightarrow A$ with unit $\eta: k \rightarrow A$ which are $H$-module maps:
+    \[
+    h \triangleright ab = (h_1 \triangleright a) (h_2 \triangleright b), \quad h \triangleright 1 = \epsilon(h).
+    \]
+\end{definition}
+
+\begin{definition}
+    A $H$-module $C$ is called a \emph{$H$-module coalgebra} if it admits a coassociatvive comultiplication $\Delta: C \rightarrow C \otimes C$ with counit $\epsilon: C \rightarrow k$ which are $H$-module maps:
+    \[
+    \Delta(h \triangleright c) = (h_1 \triangleright c_1) \otimes (h_2 \triangleright c_2), \quad \epsilon(h \triangleright c) = \epsilon(h) \epsilon(c).
+    \]
+\end{definition}
+
+One intereseting fact is that
+\[
+C \text{ is a } H \text{-module coalgebra iff } \triangleright_C \text{ is a coalgebra map.}
+\]
+We don't have such statement for module algebra.
+It is basically due to the fact that the coalgebra structure of $H$ get involoved into tensor product of two modules.
+
+
+\subsubsection*{Braided cases}
